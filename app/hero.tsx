@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 function FloatingPaths({ position }: { position: number }) {
   const paths = Array.from({ length: 36 }, (_, i) => ({
@@ -51,7 +52,7 @@ function FloatingPaths({ position }: { position: number }) {
 }
 
 export default function BackgroundPaths({
-  title = "Edgeify Digital",
+  title = "edgeify digital",
 }: {
   title?: string;
 }) {
@@ -66,12 +67,43 @@ export default function BackgroundPaths({
 
       <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
         <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+          whileHover={{
+            scale: 1.05,
+            filter: "brightness(1.3) contrast(1.2)",
+          }}
+          className="mb-8 relative overflow-hidden"
+        >
+          <Image
+            src="/logoup.png"
+            alt="Edgeify Digital Logo"
+            width={250}
+            height={200}
+            className="mx-auto"
+          />
+          {/* Shimmer effect overlay */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
+            initial={{ x: "-100%" }}
+            animate={{ x: ["-100%", "100%"] }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              repeatType: "loop",
+              ease: "linear",
+            }}
+          />
+        </motion.div>
+
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
           className="max-w-4xl mx-auto "
         >
-          <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold mb-8  tracking-tighter">
+          <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold mb-8 tracking-tighter">
             {words.map((word, wordIndex) => (
               <span key={wordIndex} className="inline-block mr-4 last:mr-0">
                 {word.split("").map((letter, letterIndex) => (
@@ -85,8 +117,11 @@ export default function BackgroundPaths({
                       stiffness: 150,
                       damping: 25,
                     }}
-                    className="inline-block py-4 text-transparent bg-clip-text 
-                                        bg-gradient-to-r from-primary to-secondary/80"
+                    className={`inline-block py-4 px-[1px] text-transparent bg-clip-text ${
+                      wordIndex === 0 && letterIndex < 4
+                        ? "bg-gradient-to-r from-primary to-primary" // Apply primary color to first 3 letters of the first word
+                        : "bg-gradient-to-r from-secondary to-secondary/70" // Apply secondary color to the rest
+                    }`}
                   >
                     {letter}
                   </motion.span>

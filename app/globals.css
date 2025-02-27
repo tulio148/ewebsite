@@ -15,7 +15,7 @@
     --secondary: 0 0% 10%; /* Almost Black */
     --secondary-foreground: 0 0% 100%; /* White for contrast */
 
-    --accent: 210 20% 95%; /* Soft Light Gray (#f5f5f5) */
+    --accent: 210 15% 97%; 
     --accent-foreground: 199 79% 30%; /* Darker Cyan-Blue for contrast */
 
     --highlight: 204 100% 93%; /* Very Light Blue (#d1ecff) */
@@ -45,7 +45,22 @@
 }
 
 
+.responsive-logo {
+  width: 250px; /* Small screens */
+  height: auto;
+}
 
+@media (min-width: 768px) {
+  .responsive-logo {
+    width: 350px; /* Medium screens */
+  }
+}
+
+@media (min-width: 1200px) {
+  .responsive-logo {
+    width: 500px; /* Large screens */
+  }
+}
 
 @layer base {
   * {

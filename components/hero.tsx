@@ -33,7 +33,7 @@ function FloatingPaths({ position }: { position: number }) {
             d={path.d}
             stroke="currentColor"
             strokeWidth={path.width}
-            strokeOpacity={0.08 + path.id * 0.025} // Slightly reduced opacity
+            strokeOpacity={0.08 + path.id * 0.025}
             initial={{ pathLength: 0.3, opacity: 0.5 }}
             animate={{
               pathLength: 1,
@@ -61,7 +61,8 @@ export default function HeroSection({
   const words = brandName.split(" ");
   const { scrollY } = useScroll();
 
-  const logoOpacity = useTransform(scrollY, [50, 100], [1, 0]);
+  const logoOpacity = useTransform(scrollY, [20, 100], [1, 0]);
+  const brandNameOpacity = useTransform(scrollY, [100, 300], [1, 0]);
 
   return (
     <section
@@ -74,65 +75,115 @@ export default function HeroSection({
         <FloatingPaths position={0} />
       </div>
 
-      {/* Main navigation - simplified example */}
-
       <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          style={{
-            opacity: logoOpacity,
-          }}
-          transition={{
-            duration: 2,
-            delay: 0.5,
-            type: "spring",
-            stiffness: 260,
-            damping: 40,
-          }}
-          className="mb-6"
-        >
-          <Image
-            src="/logoup.png"
-            alt="Edgeify Digital Logo"
-            width={220}
-            height={150}
-            className="mx-auto"
-          />
-        </motion.div>
+        <div className="flex flex-col md:flex-row items-center justify-center flex-wrap">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            style={{
+              opacity: logoOpacity,
+            }}
+            transition={{
+              duration: 2,
+              delay: 0.5,
+              type: "spring",
+              stiffness: 260,
+              damping: 40,
+            }}
+          >
+            <Image
+              src="/logoup.png"
+              alt="Edgeify Digital Logo"
+              width={500}
+              height={150}
+              className="mx-auto responsive-logo mb-[-40px]"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </motion.div>
 
-        <motion.p className="text-6xl lg:text-7xl font-bold mb-6 tracking-tighter">
-          {words.map((word, wordIndex) => (
-            <span key={wordIndex} className="inline-block mr-4 last:mr-0">
-              {word.split("").map((letter, letterIndex) => (
-                <motion.span
-                  key={`${wordIndex}-${letterIndex}`}
-                  initial={{ y: 100, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{
-                    delay: wordIndex * 0.1 + letterIndex * 0.03,
-                    type: "spring",
-                    stiffness: 150,
-                    damping: 25,
-                  }}
-                  className={`inline-block py-3 px-[1px] text-transparent font-light bg-clip-text ${
-                    wordIndex === 0 && letterIndex < 4
-                      ? "bg-secondary"
-                      : "bg-primary"
-                  }`}
-                >
-                  {letter}
-                </motion.span>
-              ))}
+          <motion.p className="text-6xl lg:text-7xl font-bold mb-6 w-64 tracking-tighter">
+            {words.map((word, wordIndex) => (
+              <span key={wordIndex} className="inline-block mr-4 last:mr-0">
+                {word.split("").map((letter, letterIndex) => (
+                  <motion.span
+                    key={`${wordIndex}-${letterIndex}`}
+                    initial={{ y: 100, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{
+                      delay: wordIndex * 0.1 + letterIndex * 0.03,
+                      type: "spring",
+                      stiffness: 150,
+                      damping: 25,
+                    }}
+                    style={{
+                      opacity: brandNameOpacity,
+                    }}
+                    className={`inline-block py-3 px-[1px] text-transparent font-medium bg-clip-text ${
+                      wordIndex === 0 && letterIndex < 4
+                        ? "bg-secondary"
+                        : "bg-primary"
+                    }`}
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
+              </span>
+            ))}
+          </motion.p>
+        </div>
+        <motion.h1
+          className="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-secondary dark:text-white"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 1.8 }}
+        >
+          {[
+            "Premium",
+            "Digital",
+            "Marketing",
+            "&",
+            "Web",
+            "Development",
+            "Solutions",
+            "for",
+            "Business",
+            "Growth",
+          ].map((word, i) => (
+            <span key={i} className="inline-block mr-[0.3em] last:mr-0">
+              <motion.span
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{
+                  delay: 2 + i * 0.1,
+                  duration: 0.5,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20,
+                }}
+                className="inline-block"
+              >
+                {word}
+              </motion.span>
             </span>
           ))}
-        </motion.p>
-        <h1 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-secondary dark:text-accent">
-          Premium Digital Marketing & Web Development Solutions for Business
-          Growth
-        </h1>
+        </motion.h1>
 
-        <motion.div
+        <motion.p
+          className="text-lg md:text-xl text-secondary/90 dark:text-white/90 max-w-2xl mx-auto mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 3.5,
+            duration: 0.7,
+            type: "spring",
+            stiffness: 100,
+          }}
+        >
+          Transforming brands with strategic digital solutions, custom web
+          development, and data-driven marketing campaigns.
+        </motion.p>
+
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
@@ -195,7 +246,7 @@ export default function HeroSection({
               View Portfolio
             </Button>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

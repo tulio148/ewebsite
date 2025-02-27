@@ -34,7 +34,7 @@ const Navbar = () => {
   }, []);
 
   const logoY = useSpring(useTransform(scrollY, [0, 50], [5, 0]), {
-    stiffness: 300,
+    stiffness: 800,
     damping: 30,
   });
 

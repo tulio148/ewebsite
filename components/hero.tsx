@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 function FloatingPaths({ position }: { position: number }) {

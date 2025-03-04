@@ -1,8 +1,8 @@
-import BackgroundPaths from "../components/hero";
+import HeroSection from "@/components/hero";
 export default function Home() {
   return (
     <>
-      <BackgroundPaths />
+      <HeroSection />
       <div className="mb-[4000px]"></div>
     </>
   );

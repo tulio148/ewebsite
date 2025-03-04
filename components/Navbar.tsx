@@ -82,7 +82,7 @@ const Navbar = () => {
           >
             <Link href="/" className="text-xl font-bold text-gray-800">
               <Image
-                src="/fullLogo-removebg.png"
+                src="/fullLogo-removebg.webp"
                 alt="Edgeify Digital Logo"
                 width={150}
                 height={100}

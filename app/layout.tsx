@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
+
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
 const urbanist = Urbanist({
-  variable: "--font-urbanist",
   subsets: ["latin"],
 });
 
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${urbanist.variable}  antialiased`}>
+      <body className={`${urbanist.className}  antialiased`}>
         <Navbar />
         <main className="mx-auto mt-16 ">{children}</main>
       </body>

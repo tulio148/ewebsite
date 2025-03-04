@@ -23,6 +23,7 @@ const LogoAnimation = () => {
           alt="Edgeify Digital Logo"
           width={500}
           height={150}
+          priority={true}
           className="mx-auto responsive-logo mb-[-40px]"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
@@ -46,6 +47,7 @@ const LogoAnimation = () => {
           alt="Edgeify Digital Logo"
           width={500}
           height={150}
+          priority={true}
           className="mx-auto responsive-logo mb-[-40px]"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />

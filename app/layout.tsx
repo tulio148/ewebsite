@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${urbanist.className}  antialiased`}>
         <Navbar />
-        <main className="mx-auto mt-16 ">{children}</main>
+        <main className="mx-auto  ">{children}</main>
       </body>
     </html>
   );

@@ -11,15 +11,13 @@ export default function HeroSection() {
       className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-accent dark:bg-secondary"
     >
       <div className="absolute inset-0">
-        <FloatingPaths position={1} />
-        <FloatingPaths position={-1} />
         <FloatingPaths position={0} />
       </div>
 
       <div className="relative px-7 z-10 container mx-auto">
         <LogoAnimation />
         <motion.h1
-          className="text-3xl md:text-4xl font-normal w-1/2 tracking-wider mb-4 text-secondary dark:text-white text-stroke-2 text-stroke-white sm:text-center"
+          className="text-2xl md:text-4xl font-light tracking-wider w-fit mb-4 text-secondary dark:text-white "
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.8 }}
@@ -41,12 +39,12 @@ export default function HeroSection() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{
                   delay: 2 + i * 0.1,
-                  duration: 0.5,
+                  duration: 1,
                   type: "tween",
                   stiffness: 100,
-                  damping: 40,
+                  damping: 30,
                 }}
-                className="inline-block tracking-wider"
+                className="inline-block tracking-wider rounded-full p-1"
               >
                 {word}
               </motion.span>

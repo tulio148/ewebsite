@@ -23,6 +23,13 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    // Prevent scrolling when menu is open
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setIsMenuOpen(false);
@@ -30,8 +37,11 @@ const Navbar = () => {
     };
 
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      document.body.style.overflow = "unset";
+    };
+  }, [isMenuOpen]);
 
   const logoY = useSpring(useTransform(scrollY, [0, 50], [5, 0]), {
     stiffness: 800,
@@ -40,12 +50,12 @@ const Navbar = () => {
 
   const menuVariants = {
     closed: {
-      x: "100%",
       opacity: 0,
+      y: "-100%",
     },
     open: {
-      x: 0,
       opacity: 1,
+      y: 0,
       transition: {
         type: "spring",
         stiffness: 300,
@@ -55,9 +65,9 @@ const Navbar = () => {
   };
 
   const menuItemVariants = {
-    closed: { x: 20, opacity: 0 },
+    closed: { y: 20, opacity: 0 },
     open: (i: number) => ({
-      x: 0,
+      y: 0,
       opacity: 1,
       transition: {
         delay: i * 0.1,
@@ -119,19 +129,19 @@ const Navbar = () => {
             animate="open"
             exit="closed"
             variants={menuVariants}
-            className="fixed top-16 right-0 w-64 bg-white  md:hidden"
+            className="fixed inset-0 bg-white flex flex-col items-center justify-center z-40"
           >
-            <div className="flex flex-col py-4 px-4">
+            <div className="flex flex-col items-center justify-center h-full w-full">
               {["Home", "About", "Services", "Contact"].map((item, i) => (
                 <motion.div
                   key={item}
                   variants={menuItemVariants}
                   custom={i}
-                  className="mb-4"
+                  className="mb-8"
                 >
                   <Link
                     href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                    className="text-xl text-gray-800 hover:text-gray-600"
+                    className="text-3xl font-medium text-gray-800 hover:text-gray-600 transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item}

@@ -17,32 +17,33 @@ export default function HeroSection() {
       <div className="relative px-7 z-10 container mx-auto">
         <LogoAnimation />
         <motion.h1
-          className="text-2xl md:text-4xl font-light tracking-wider w-fit mb-4 text-secondary dark:text-white "
+          className="text-2xl md:text-4xl font-light tracking-wider  mb-4 text-secondary dark:text-white text-center "
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1.8 }}
+          transition={{ duration: 0.7, delay: 1.8 }}
         >
           {[
+            "Fast,",
             "Smart",
-            "Digital",
-            "Marketing",
+            "Websites",
             "and",
-            "Web",
+            "AI",
             "Solutions",
-            "for",
-            "Business",
-            "Growth",
+            "to",
+            "Drive",
+            "Your",
+            "Success",
           ].map((word, i) => (
             <span key={i} className="inline-block mr-[0.4em] last:mr-0">
               <motion.span
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{
                   delay: 2 + i * 0.1,
                   duration: 1,
-                  type: "tween",
-                  stiffness: 100,
-                  damping: 30,
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 40,
                 }}
                 className="inline-block tracking-wider rounded-full p-1"
               >

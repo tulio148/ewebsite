@@ -106,6 +106,7 @@ const Navbar = () => {
                 alt="Edgeify Digital Logo"
                 width={30}
                 height={20}
+                priority={true}
                 className="mx-auto h-auto w-[120px] md:w-[150px] lg:w-[180px]"
               />
             </Link>

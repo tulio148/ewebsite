@@ -5,11 +5,13 @@ import React from "react";
 interface AnimatedHeadingProps {
   scrollYProgress: MotionValue<number>;
   className?: string;
+  heading: string;
 }
 
 const AnimatedHeading: React.FC<AnimatedHeadingProps> = ({
   scrollYProgress,
   className = "",
+  heading,
 }) => {
   const gradient = useTransform(
     scrollYProgress,
@@ -29,7 +31,7 @@ const AnimatedHeading: React.FC<AnimatedHeadingProps> = ({
       transition={{ duration: 1, ease: "easeInOut", delay: 0.3 }}
       style={{ backgroundImage: gradient, backgroundSize: "200%" }}
     >
-      The Future is Here – Is Your Website Ready?
+      {heading}
     </motion.h2>
   );
 };

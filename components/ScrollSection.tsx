@@ -2,17 +2,19 @@
 import React, { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import AnimatedHeading from "./AnimatedHeading";
-import ParagraphWithAnimation from "./ParagraphWithAnimation";
+import LineWithAnimation from "./LineWithAnimation";
 import ScrollProgressBar from "./ScrollProgressBar";
 
 interface ScrollSectionProps {
-  paragraphs: string[];
+  lines: string[];
   className?: string;
+  heading: string;
 }
 
 const ScrollSection: React.FC<ScrollSectionProps> = ({
-  paragraphs,
+  lines,
   className = "",
+  heading,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -23,15 +25,15 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
   return (
     <div
       ref={ref}
-      className={`p-8 relative bg-accent h-[400vh] flex flex-col items-center ${className}`}
+      className={` bg-accent p-8 relative h-[300vh] flex flex-col items-center ${className}`}
     >
       <motion.div className="flex flex-col sticky top-0 py-20 sm:py-44">
-        <AnimatedHeading scrollYProgress={scrollYProgress} className="" />
+        <AnimatedHeading scrollYProgress={scrollYProgress} heading={heading} />
         <ScrollProgressBar scrollYProgress={scrollYProgress} />
-        {paragraphs.map((text, index) => (
-          <ParagraphWithAnimation
+        {lines.map((line, index) => (
+          <LineWithAnimation
             key={index}
-            text={text}
+            line={line}
             scrollYProgress={scrollYProgress}
             index={index}
           />

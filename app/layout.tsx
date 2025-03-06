@@ -19,10 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={`${urbanist.className}  antialiased`}>
         <Navbar />
-        <main className="mx-auto  ">{children}</main>
+        <main className="">{children}</main>
       </body>
     </html>
   );

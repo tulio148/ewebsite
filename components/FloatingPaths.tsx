@@ -41,7 +41,7 @@ export default function FloatingPaths({ position }: { position: number }) {
               duration: 20 + Math.random() * 10,
               repeat: Number.POSITIVE_INFINITY,
               ease: "linear",
-              delay: path.id * 0.2,
+              delay: path.id * 0.1,
             }}
           />
         ))}

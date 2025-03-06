@@ -94,8 +94,8 @@ const Navbar = () => {
               <Image
                 src="/fullLogo-removebg.webp"
                 alt="Edgeify Digital Logo"
-                width={150}
-                height={100}
+                width={30}
+                height={20}
                 className="mx-auto h-auto w-[120px] md:w-[150px] lg:w-[180px]"
               />
             </Link>

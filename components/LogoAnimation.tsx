@@ -7,9 +7,6 @@ const LogoAnimation = () => {
       <motion.div
         initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
-        style={{
-          marginBottom: "50px",
-        }}
         transition={{
           duration: 1,
           delay: 1,
@@ -24,7 +21,7 @@ const LogoAnimation = () => {
           width={500}
           height={150}
           priority={true}
-          className="mx-auto responsive-logo mb-[-40px]"
+          className="mx-auto responsive-logo "
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </motion.div>

@@ -25,7 +25,7 @@ const ParagraphWithAnimation: React.FC<ParagraphWithAnimationProps> = ({
 
   return (
     <motion.p
-      className={`text-2xl md:text-4xl lg:text-4xl text-secondary/90 font-extralight mb-3 tracking-wider ${className}`}
+      className={`text-2xl md:text-4xl lg:text-4xl text-justify text-secondary/90 font-extralight mb-3 sm:mb-8 tracking-wider ${className}`}
       style={{ opacity, scale }}
       dangerouslySetInnerHTML={{ __html: text }}
     />

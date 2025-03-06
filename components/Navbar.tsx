@@ -22,6 +22,14 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const scrollToSection = (sectionId: string) => {
+    setIsMenuOpen(false);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   useEffect(() => {
     // Prevent scrolling when menu is open
     if (isMenuOpen) {
@@ -78,6 +86,8 @@ const Navbar = () => {
     }),
   };
 
+  const navLinks = ["Websites", "AI", "Edgeify", "Contact", "FAQ"];
+
   return (
     <nav className="fixed top-0 left-0 right-0 bg-accent z-50">
       <div className="container mx-auto px-4">
@@ -101,21 +111,15 @@ const Navbar = () => {
             </Link>
           </motion.div>
           <div className="hidden md:flex space-x-4">
-            <Link href="/" className="text-gray-600 hover:text-gray-800">
-              Home
-            </Link>
-            <Link href="/about" className="text-gray-600 hover:text-gray-800">
-              About
-            </Link>
-            <Link
-              href="/services"
-              className="text-gray-600 hover:text-gray-800"
-            >
-              Services
-            </Link>
-            <Link href="/contact" className="text-gray-600 hover:text-gray-800">
-              Contact
-            </Link>
+            {navLinks.map((link) => (
+              <button
+                key={link}
+                onClick={() => scrollToSection(link.toLowerCase())}
+                className="text-gray-600 hover:text-gray-800 cursor-pointer text-xl"
+              >
+                {link}
+              </button>
+            ))}
           </div>
           <div className="md:hidden z-50">
             <AnimatedHamburger isOpen={isMenuOpen} toggle={toggleMenu} />
@@ -132,20 +136,27 @@ const Navbar = () => {
             className="fixed inset-0 bg-white flex flex-col items-center justify-center z-40"
           >
             <div className="flex flex-col items-center justify-center h-full w-full">
-              {["Home", "About", "Services", "Contact"].map((item, i) => (
+              <Image
+                src="/logoup.webp"
+                alt="Edgeify Digital Logo"
+                width={150}
+                height={100}
+                priority={true}
+                className="mx-auto mb-12"
+              />
+              {navLinks.map((item, i) => (
                 <motion.div
                   key={item}
                   variants={menuItemVariants}
                   custom={i}
                   className="mb-8"
                 >
-                  <Link
-                    href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                    className="text-3xl font-medium text-gray-800 hover:text-gray-600 transition-colors"
-                    onClick={() => setIsMenuOpen(false)}
+                  <button
+                    onClick={() => scrollToSection(item.toLowerCase())}
+                    className="text-3xl font-bold text-primary hover:text-primary/80 transition-colors"
                   >
                     {item}
-                  </Link>
+                  </button>
                 </motion.div>
               ))}
             </div>

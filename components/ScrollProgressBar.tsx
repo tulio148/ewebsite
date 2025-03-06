@@ -12,7 +12,7 @@ const ScrollProgressBar: React.FC<ScrollProgressBarProps> = ({
   className = "",
 }) => (
   <motion.div
-    className={`top-0 left-0 w-full h-2 bg-gradient-to-b from-primary mt-4 origin-left sticky ${className}`}
+    className={`top-0 left-0 w-full h-2 bg-gradient-to-b from-primary mt-4 mb-8 sm:mb-12  origin-left sticky ${className}`}
     style={{ scaleX: scrollYProgress }}
   />
 );

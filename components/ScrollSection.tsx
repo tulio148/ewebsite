@@ -25,8 +25,9 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
       ref={ref}
       className={`p-8 relative bg-accent h-[400vh] flex flex-col items-center ${className}`}
     >
-      <motion.div className="flex flex-col sticky top-0 py-20">
-        <AnimatedHeading scrollYProgress={scrollYProgress} />
+      <motion.div className="flex flex-col sticky top-0 py-20 sm:py-44">
+        <AnimatedHeading scrollYProgress={scrollYProgress} className="" />
+        <ScrollProgressBar scrollYProgress={scrollYProgress} />
         {paragraphs.map((text, index) => (
           <ParagraphWithAnimation
             key={index}
@@ -35,7 +36,6 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
             index={index}
           />
         ))}
-        <ScrollProgressBar scrollYProgress={scrollYProgress} />
       </motion.div>
     </div>
   );

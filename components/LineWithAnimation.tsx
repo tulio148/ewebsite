@@ -24,7 +24,6 @@ const LineWithAnimation: React.FC<LineWithAnimationProps> = ({
 
   const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
   const scale = useTransform(scrollYProgress, [start, end], [0.6, 1]);
-  console.log(opacity);
   return (
     <>
       {isMobile ? (

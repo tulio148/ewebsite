@@ -91,7 +91,7 @@ export function AnimatedHeroSection({
             className="relative h-[320px] md:h-[400px] lg:h-[500px] w-full rounded-lg overflow-hidden shadow-2xl"
             style={
               isMobile
-                ? {}
+                ? { opacity: 1 }
                 : {
                     scale: imageScale,
                     opacity: imageOpacity,

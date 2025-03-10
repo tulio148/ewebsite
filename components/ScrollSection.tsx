@@ -6,7 +6,7 @@ import LineWithAnimation from "./LineWithAnimation";
 import ScrollProgressBar from "./ScrollProgressBar";
 
 interface ScrollSectionProps {
-  lines: string[];
+  lines: React.ReactNode[];
   className?: string;
   heading: string;
 }
@@ -25,9 +25,9 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
   return (
     <div
       ref={ref}
-      className={` bg-accent p-8 relative h-[300vh] flex flex-col items-center ${className}`}
+      className={`p-8 relative h-[300vh] flex flex-col items-center ${className} mb-96`}
     >
-      <motion.div className="flex flex-col sticky top-0 py-20 sm:py-44">
+      <motion.div className="flex flex-col sticky top-0 py-20 sm:py-32 max-w-7xl">
         <AnimatedHeading scrollYProgress={scrollYProgress} heading={heading} />
         <ScrollProgressBar scrollYProgress={scrollYProgress} />
         {lines.map((line, index) => (

@@ -8,14 +8,24 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <ScrollSection lines={firstSectionLines} heading={firstHeading} />
+      <ScrollSection
+        lines={firstSectionLines}
+        heading={firstHeading}
+        className="bg-gradient-to-b from-accent from-90%"
+      />
       <AnimatedHeroSection
         lines={secondSectionLines}
         imageSrc="workspace.jpeg"
         imageAlt="Futuristic web design concept"
         heading={secondHeading}
       />
-      <div className="mb-[4000px]"></div>
+      <AnimatedHeroSection
+        lines={secondSectionLines}
+        imageSrc="workspace.jpeg"
+        imageAlt="Futuristic web design concept"
+        heading={secondHeading}
+        imagePosition="left"
+      />
     </>
   );
 }

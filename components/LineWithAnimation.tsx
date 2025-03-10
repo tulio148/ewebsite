@@ -1,9 +1,9 @@
 "use client";
 import { motion, MotionValue, useTransform } from "framer-motion";
-import React from "react";
+import { ReactNode } from "react";
 
 interface LineWithAnimationProps {
-  line: string;
+  line: ReactNode;
   scrollYProgress: MotionValue<number>;
   index: number;
   delay?: number;
@@ -23,22 +23,33 @@ const LineWithAnimation: React.FC<LineWithAnimationProps> = ({
   const end = 0.1 * (index + 1) + delay;
 
   const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
-  const scale = useTransform(scrollYProgress, [start, end], [0.6, 1]);
+  const y = useTransform(scrollYProgress, [start, end], [10, 0]);
+  const initialStyle = {
+    opacity: 0.01,
+  };
+
+  if (isMobile) {
+    return (
+      <p
+        className={`text-xl md:text-2xl lg:text-3xl xl:text-4xl 
+                    text-justify text-secondary/90 font-light 
+                    mb-3 sm:mb-5 tracking-wide ${className}`}
+      >
+        {line}
+      </p>
+    );
+  }
+
   return (
-    <>
-      {isMobile ? (
-        <p
-          className={`text-2xl md:text-4xl lg:text-4xl text-justify text-secondary/90 font-extralight mb-3 sm:mb-8 tracking-wider ${className}`}
-          dangerouslySetInnerHTML={{ __html: line }}
-        />
-      ) : (
-        <motion.p
-          className={`text-2xl md:text-4xl lg:text-4xl text-justify text-secondary/90 font-extralight mb-3 sm:mb-8 tracking-wider ${className}`}
-          style={{ opacity, scale }}
-          dangerouslySetInnerHTML={{ __html: line }}
-        />
-      )}
-    </>
+    <motion.p
+      initial={initialStyle}
+      className={`text-xl md:text-2xl lg:text-3xl xl:text-4xl 
+                  text-justify text-secondary/90 font-light 
+                  mb-3 sm:mb-5 tracking-wide ${className}`}
+      style={{ opacity, y }}
+    >
+      {line}
+    </motion.p>
   );
 };
 

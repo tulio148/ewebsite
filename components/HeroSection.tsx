@@ -10,15 +10,12 @@ export default function HeroSection() {
       <div className="absolute inset-0 sm:h-[170vh] h-[220vh] ">
         <FloatingPaths position={0} />
       </div>
-      <section
-        // id="hero"
-        className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden  dark:bg-secondary mb-96"
-      >
+      <section className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden  dark:bg-secondary mb-96">
         <div className="relative px-7 z-10 container mx-auto">
           <LogoAnimation />
           <motion.h1
             layout
-            className="text-2xl md:text-4xl font-extralight tracking-wider mb-4 text-secondary dark:text-white text-center pb-8"
+            className="text-2xl md:text-3xl font-extralight tracking-wider mb-4 text-secondary dark:text-white text-center pb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 1.5 }}

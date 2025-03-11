@@ -31,7 +31,7 @@ const LineWithAnimation: React.FC<LineWithAnimationProps> = ({
   if (isMobile) {
     return (
       <p
-        className={`text-xl md:text-2xl lg:text-3xl xl:text-4xl 
+        className={`text-xl 
                     text-justify text-secondary/90 font-light 
                     mb-3 sm:mb-5 tracking-wide ${className}`}
       >
@@ -43,9 +43,9 @@ const LineWithAnimation: React.FC<LineWithAnimationProps> = ({
   return (
     <motion.p
       initial={initialStyle}
-      className={`text-xl md:text-2xl lg:text-3xl xl:text-4xl 
-                  text-justify text-secondary/90 font-light 
-                  mb-3 sm:mb-5 tracking-wide ${className}`}
+      className={`text-xl md:text-2xl lg:text-3xl 
+                  text-justify text-secondary/90 font-extralight 
+                  mb-3 sm:mb-4 tracking-wider ${className}`}
       style={{ opacity, y }}
     >
       {line}

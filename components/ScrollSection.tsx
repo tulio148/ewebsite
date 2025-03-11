@@ -1,14 +1,14 @@
 "use client";
-import React, { useRef } from "react";
+import React, { ReactNode, useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import AnimatedHeading from "./AnimatedHeading";
 import LineWithAnimation from "./LineWithAnimation";
 import ScrollProgressBar from "./ScrollProgressBar";
 
 interface ScrollSectionProps {
-  lines: React.ReactNode[];
+  lines: ReactNode[];
   className?: string;
-  heading: string;
+  heading: ReactNode;
 }
 
 const ScrollSection: React.FC<ScrollSectionProps> = ({
@@ -29,7 +29,10 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
     >
       <motion.div className="flex flex-col sticky top-0 py-20 sm:py-32 max-w-7xl">
         <AnimatedHeading scrollYProgress={scrollYProgress} heading={heading} />
-        <ScrollProgressBar scrollYProgress={scrollYProgress} />
+        <ScrollProgressBar
+          scrollYProgress={scrollYProgress}
+          className="origin-center"
+        />
         {lines.map((line, index) => (
           <LineWithAnimation
             key={index}

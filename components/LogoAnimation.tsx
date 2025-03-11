@@ -21,8 +21,7 @@ const LogoAnimation = () => {
           width={500}
           height={150}
           priority={true}
-          className="mx-auto responsive-logo "
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="mx-auto responsive-logo mb-2"
         />
       </motion.div>
       <motion.div
@@ -45,8 +44,7 @@ const LogoAnimation = () => {
           width={500}
           height={150}
           priority={true}
-          className="mx-auto responsive-logo mb-[-40px]"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="mx-auto responsive-logo mb-[-38Px]"
         />
       </motion.div>
     </div>

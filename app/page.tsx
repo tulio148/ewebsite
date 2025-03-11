@@ -1,29 +1,29 @@
 import HeroSection from "@/components/HeroSection";
 import ScrollSection from "@/components/ScrollSection";
-import { AnimatedHeroSection } from "@/components/AnimatedSectionWithImage";
-import { firstHeading, secondHeading } from "@/lib/headings";
-import { firstSectionLines, secondSectionLines } from "@/lib/lines";
+import { ScrollSectionWithImage } from "@/components/ScrollSectionWithImage";
+import * as headings from "@/lib/headings";
+import * as lines from "@/lib/lines";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
       <ScrollSection
-        lines={firstSectionLines}
-        heading={firstHeading}
+        lines={lines.firstSectionLines}
+        heading={headings.firstHeading}
         className="bg-gradient-to-b from-accent from-90%"
       />
-      <AnimatedHeroSection
-        lines={secondSectionLines}
+      <ScrollSectionWithImage
+        lines={lines.secondSectionLines}
         imageSrc="workspace.jpeg"
         imageAlt="Futuristic web design concept"
-        heading={secondHeading}
+        heading={headings.secondHeading}
       />
-      <AnimatedHeroSection
-        lines={secondSectionLines}
-        imageSrc="workspace.jpeg"
+      <ScrollSectionWithImage
+        lines={lines.thirdSectionLines}
+        imageSrc="heroimg.jpeg"
         imageAlt="Futuristic web design concept"
-        heading={secondHeading}
+        heading={headings.thirdHeading}
         imagePosition="left"
       />
     </>

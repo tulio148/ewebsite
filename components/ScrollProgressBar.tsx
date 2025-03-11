@@ -10,11 +10,18 @@ interface ScrollProgressBarProps {
 const ScrollProgressBar: React.FC<ScrollProgressBarProps> = ({
   scrollYProgress,
   className = "",
-}) => (
-  <motion.div
-    className={`top-0 left-0 w-full h-2 bg-gradient-to-b from-primary mt-4 mb-8 sm:mb-12  origin-left sticky ${className}`}
-    style={{ scaleX: scrollYProgress }}
-  />
-);
+}) => {
+  const hasOriginClass = /\borigin-(left|center|right|top|bottom)\b/.test(
+    className
+  );
+
+  return (
+    <motion.div
+      className={`top-0 left-0 w-full h-2 bg-gradient-to-t from-primary mt-2 mb-8 sm:mb-12 sticky shadow-md 
+        ${hasOriginClass ? "" : "origin-left"} ${className}`}
+      style={{ scaleX: scrollYProgress }}
+    />
+  );
+};
 
 export default ScrollProgressBar;

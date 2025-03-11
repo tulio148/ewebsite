@@ -1,11 +1,11 @@
 "use client";
 import { motion, MotionValue, useTransform } from "framer-motion";
-import React from "react";
+import React, { ReactNode } from "react";
 
 interface AnimatedHeadingProps {
   scrollYProgress: MotionValue<number>;
   className?: string;
-  heading: string;
+  heading: ReactNode;
 }
 
 const AnimatedHeading: React.FC<AnimatedHeadingProps> = ({
@@ -25,7 +25,7 @@ const AnimatedHeading: React.FC<AnimatedHeadingProps> = ({
 
   return (
     <motion.h2
-      className={`text-5xl md:text-6xl lg:text-7xl font-bold text-left bg-clip-text text-transparent ${className}`}
+      className={`text-5xl md:text-6xl lg:text-7xl font-bold text-left bg-clip-text text-transparent drop-shadow-lg ${className}`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1, ease: "easeInOut", delay: 0.3 }}

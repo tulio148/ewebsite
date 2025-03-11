@@ -12,11 +12,11 @@ interface AnimatedHeroSectionProps {
   imageSrc: string;
   imageAlt: string;
   className?: string;
-  heading: string;
+  heading: ReactNode;
   imagePosition?: "left" | "right";
 }
 
-export function AnimatedHeroSection({
+export function ScrollSectionWithImage({
   lines,
   imageSrc,
   imageAlt,
@@ -34,7 +34,11 @@ export function AnimatedHeroSection({
 
   const imageScale = useTransform(scrollYProgress, [0, 0.5], [0.5, 1]);
   const imageOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-  const imageRotate = useTransform(scrollYProgress, [0, 0.7], [5, 0]);
+  const imageRotate = useTransform(
+    scrollYProgress,
+    [0, 0.7],
+    imagePosition === "left" ? [-5, 0] : [5, 0]
+  );
   const mobileAnimation = {
     rotate: [0, 1, 0, -1, 0],
     scale: [1, 1.02, 1, 1.02, 1],
@@ -59,11 +63,7 @@ export function AnimatedHeroSection({
 
   const textContent = (
     <div className="space-y-6 md:space-y-8 md:px-8">
-      <AnimatedHeading
-        scrollYProgress={scrollYProgress}
-        className="mb-4 md:mb-8"
-        heading={heading}
-      />
+      <AnimatedHeading scrollYProgress={scrollYProgress} heading={heading} />
       {!isMobile && <ScrollProgressBar scrollYProgress={scrollYProgress} />}
       <div className="space-y-3 md:space-y-4">
         {lines.map((line, index) => (
@@ -98,7 +98,7 @@ export function AnimatedHeroSection({
         src={imageSrc || "/placeholder.svg"}
         alt={imageAlt}
         fill
-        className="object-cover"
+        className="object-cover rounded"
         sizes="(max-width: 768px) 100vw, 50vw"
         priority
       />
@@ -127,7 +127,7 @@ export function AnimatedHeroSection({
   return (
     <div
       ref={sectionRef}
-      className={`relative p-8 md:min-h-[300vh] flex flex-col items-center ${className}  mb-96 border`}
+      className={`relative p-8 md:min-h-[300vh] flex flex-col items-center ${className}  mb-96 `}
     >
       <motion.div
         className={`flex flex-col w-full max-w-7xl ${

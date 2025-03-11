@@ -31,7 +31,6 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    // Prevent scrolling when menu is open
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
@@ -59,29 +58,73 @@ const Navbar = () => {
   const menuVariants = {
     closed: {
       opacity: 0,
-      y: "-100%",
     },
     open: {
       opacity: 1,
-      y: 0,
       transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
+        duration: 0.5,
+      },
+    },
+  };
+
+  const glowVariants = {
+    closed: {
+      opacity: 0,
+      boxShadow: "0px 0px 0px 0px rgba(37,150,190,0)",
+    },
+    open: {
+      opacity: [0, 1, 0],
+      boxShadow: [
+        "0px 0px 0px 0px rgba(37,150,190,0)",
+        "0px 0px 50px 20px rgba(37,150,190,0.8)",
+        "0px 0px 0px 0px rgba(37,150,190,0)",
+      ],
+      transition: {
+        opacity: {
+          times: [0, 0.5, 1],
+          duration: 1.2,
+        },
+        boxShadow: {
+          times: [0, 0.5, 1],
+          duration: 1.2,
+        },
+      },
+    },
+  };
+
+  const menuLogoVariants = {
+    closed: { opacity: 0 },
+    open: {
+      opacity: 1,
+      transition: {
+        delay: 0.3,
+        duration: 0.4,
       },
     },
   };
 
   const menuItemVariants = {
-    closed: { y: 20, opacity: 0 },
+    closed: {
+      opacity: 0,
+    },
     open: (i: number) => ({
-      y: 0,
       opacity: 1,
       transition: {
-        delay: i * 0.1,
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
+        delay: 0.4 + i * 0.1,
+        duration: 0.4,
+      },
+    }),
+  };
+
+  const shadowVariants = {
+    closed: {
+      textShadow: "0px 0px 0px rgba(37,150,190,0)",
+    },
+    open: (i: number) => ({
+      textShadow: "1px 1px 2px rgba(37,150,190,0.6)",
+      transition: {
+        delay: 0.6 + i * 0.1,
+        duration: 0.8,
       },
     }),
   };
@@ -129,39 +172,59 @@ const Navbar = () => {
       </div>
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
-            initial="closed"
-            animate="open"
-            exit="closed"
-            variants={menuVariants}
-            className="fixed inset-0 bg-white flex flex-col items-center justify-center z-40"
-          >
-            <div className="flex flex-col items-center justify-center h-full w-full">
-              <Image
-                src="/logoup.webp"
-                alt="Edgeify Digital Logo"
-                width={150}
-                height={100}
-                priority={true}
-                className="mx-auto mb-12"
+          <>
+            <motion.div
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={menuVariants}
+              className="fixed inset-0 bg-white flex flex-col items-center justify-center z-40 overflow-hidden"
+            >
+              <motion.div
+                initial="closed"
+                animate="open"
+                exit="closed"
+                variants={glowVariants}
+                className="absolute inset-0 pointer-events-none"
               />
-              {navLinks.map((item, i) => (
-                <motion.div
-                  key={item}
-                  variants={menuItemVariants}
-                  custom={i}
-                  className="mb-8"
-                >
-                  <button
-                    onClick={() => scrollToSection(item.toLowerCase())}
-                    className="text-3xl font-bold text-primary hover:text-primary/80 transition-colors"
-                  >
-                    {item}
-                  </button>
+              <div className="flex flex-col items-center justify-center h-full w-full">
+                <motion.div variants={menuLogoVariants} className="mb-12">
+                  <Image
+                    src="/logoup.webp"
+                    alt="Edgeify Digital Logo"
+                    width={150}
+                    height={100}
+                    priority={true}
+                    className="mx-auto"
+                  />
                 </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                {navLinks.map((item, i) => (
+                  <div key={item} className="mb-8">
+                    <motion.button
+                      custom={i}
+                      initial="closed"
+                      animate="open"
+                      exit="closed"
+                      variants={menuItemVariants}
+                      onClick={() => scrollToSection(item.toLowerCase())}
+                      className="text-3xl font-bold text-primary hover:text-primary/80 transition-colors"
+                    >
+                      <motion.span
+                        custom={i}
+                        initial="closed"
+                        animate="open"
+                        exit="closed"
+                        variants={shadowVariants}
+                        style={{ display: "inline-block" }}
+                      >
+                        {item}
+                      </motion.span>
+                    </motion.button>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>

@@ -52,13 +52,13 @@
 
 @media (min-width: 768px) {
   .responsive-logo {
-    width: 350px; /* Medium screens */
+    width: 250px; /* Medium screens */
   }
 }
 
 @media (min-width: 1200px) {
   .responsive-logo {
-    width: 500px; /* Large screens */
+    width: 400px; /* Large screens */
   }
 }
 

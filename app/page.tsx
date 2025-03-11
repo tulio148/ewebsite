@@ -1,6 +1,8 @@
 import HeroSection from "@/components/HeroSection";
 import ScrollSection from "@/components/ScrollSection";
 import { ScrollSectionWithImage } from "@/components/ScrollSectionWithImage";
+import WebsiteValue from "@/components/test";
+import EnhancedScrollProgress from "@/components/test2";
 import * as headings from "@/lib/headings";
 import * as lines from "@/lib/lines";
 
@@ -15,17 +17,22 @@ export default function Home() {
       />
       <ScrollSectionWithImage
         lines={lines.secondSectionLines}
-        imageSrc="workspace.jpeg"
+        imageSrc="workspace.webp"
         imageAlt="Futuristic web design concept"
         heading={headings.secondHeading}
       />
       <ScrollSectionWithImage
         lines={lines.thirdSectionLines}
-        imageSrc="heroimg.jpeg"
+        imageSrc="heroimg.webp"
         imageAlt="Futuristic web design concept"
         heading={headings.thirdHeading}
         imagePosition="left"
       />
+      <WebsiteValue />
+      <div className="relative">
+        <EnhancedScrollProgress />
+      </div>
+      <div className="mb-[4000px]"></div>
     </>
   );
 }

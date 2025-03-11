@@ -36,7 +36,7 @@ export function ScrollSectionWithImage({
   const imageOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
   const imageRotate = useTransform(
     scrollYProgress,
-    [0, 0.7],
+    [0, 0.5],
     imagePosition === "left" ? [-5, 0] : [5, 0]
   );
   const mobileAnimation = {

@@ -11,9 +11,7 @@ export const firstSectionLines = [
     People want sites that are{" "}
     <span className="text-primary font-bold">fast, easy, and beautiful.</span>
   </>,
-  <>
-    <em>A slow, old site</em> drives customers away.
-  </>,
+
   <>
     <em>Your website is your face on the internet.</em>
   </>,
@@ -30,12 +28,9 @@ export const firstSectionLines = [
 
 export const secondSectionLines = [
   <>
-    <em>Old websites cost you customers.</em> Let&apos;s fix that!
+    <em>Old and slow websites cost you customers.</em>
   </>,
-  <>
-    <em>People don&apos;t wait around</em> for{" "}
-    <span className="text-primary font-bold">slow websites.</span>
-  </>,
+
   <>
     <em>If a page takes too long to load</em>, they{" "}
     <span className="text-primary font-bold">leave.</span>
@@ -70,11 +65,15 @@ export const thirdSectionLines = [
     visitors longer.
   </>,
   <>
-    <em>If your site isn’t mobile-friendly, you’re losing business.</em>
+    <em>
+      If your site isn’t{" "}
+      <span className="text-primary font-bold">mobile-friendly</span>, you’re
+      losing business.
+    </em>
   </>,
-  <>Most people browse on phones and expect a smooth experience.</>,
+
   <>
-    <em>Upgrade your site.</em> A fast, responsive design brings more{" "}
+    A fast, responsive design brings more{" "}
     <span className="text-primary font-bold">traffic and customers.</span>
   </>,
 ];

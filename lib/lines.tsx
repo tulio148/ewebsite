@@ -1,11 +1,11 @@
 export const firstSectionLines = [
   <>
-    <em>The web is changing</em>{" "}
-    <span className="text-primary font-bold">quick</span>,
+    The web is changing <span className="text-primary font-bold">quick</span>,
   </>,
-  <>and your website needs to keep up.</>,
   <>
-    <em>Everyone is online now.</em>
+    <em>
+      Everyone is <span className="text-primary ">online</span> now.
+    </em>
   </>,
   <>
     People want sites that are{" "}
@@ -13,7 +13,9 @@ export const firstSectionLines = [
   </>,
 
   <>
-    <em>Your website is your face on the internet.</em>
+    Your website is
+    <em className="text-primary "> your face </em>
+    on the internet.
   </>,
   <>
     It shows who you are and what you{" "}

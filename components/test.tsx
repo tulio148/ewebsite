@@ -3,7 +3,6 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export default function WebsiteValue() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -51,18 +50,18 @@ export default function WebsiteValue() {
     },
   };
 
-  const headingWords = "How We Build Websites That Work".split(" ");
+  const headingWords = "how we build websites that work".split(" ");
 
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden">
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div ref={containerRef} className="flex flex-col items-center  mb-12">
+    <section className="relative flex flex-col items-center py-16 md:py-24 h-[300vh] bg-gradient-to-b from-transparent to-primary from-80%">
+      <div className="flex flex-col justify-center px-8 max-w-7xl h-screen sticky top-0 pt-44 sm:pt-0">
+        <div ref={containerRef} className="flex flex-col items-center mb-12">
           {/* Animated heading */}
           <h2
             ref={headingRef}
             className="relative text-5xl md:text-5xl lg:text-6xl font-bold mb-8 overflow-hidden text-primary max-w-full"
           >
-            <span className="sr-only">How We Build Websites That Work</span>
+            <span className="sr-only">how we build websites that work</span>
             <span aria-hidden="true" className="flex flex-wrap ">
               {headingWords.map((word, index) => (
                 <motion.span
@@ -75,7 +74,7 @@ export default function WebsiteValue() {
                   }
                   transition={{
                     duration: 0.5,
-                    delay: index * 0.3,
+                    delay: 0.5 + index * 0.3,
                     ease: [0.33, 1, 0.68, 1],
                   }}
                   className="inline-block mx-1"
@@ -93,26 +92,15 @@ export default function WebsiteValue() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <p className="text-2xl md:text-2xl font-medium mb-2 tracking-wider text-center">
+            <p className="text-2xl md:text-2xl font-light mb-2 tracking-wider text-center">
               You focus on your business. We handle the tech.
             </p>
             <motion.div
-              className="h-1 w-0 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"
+              className="h-1 w-0 bg-primary mx-auto rounded-full"
               animate={isInView ? { width: "40%" } : { width: 0 }}
               transition={{ duration: 1, delay: 0.8 }}
             />
           </motion.div>
-
-          {/* Description */}
-          <motion.p
-            className="text-xl text-center mb-10 max-w-2xl"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-          >
-            We create websites that don&apos;t just look good—they actually help
-            you get more customers.
-          </motion.p>
         </div>
 
         {/* Benefits section */}
@@ -142,11 +130,14 @@ export default function WebsiteValue() {
                 >
                   <Check className="h-5 w-5 text-primary" />
                 </motion.div>
-                <span className="text-left">{benefit}</span>
+                <span className="text-left tracking-wider">{benefit}</span>
               </motion.div>
             ))}
 
-            <motion.p className="font-medium pt-2" variants={itemVariants}>
+            <motion.p
+              className="font-bold  tracking-wider pt-2"
+              variants={itemVariants}
+            >
               And once it&apos;s live, you don&apos;t have to stress about it.
               It just works.
             </motion.p>
@@ -154,7 +145,7 @@ export default function WebsiteValue() {
 
           {/* Illustration */}
           <motion.div
-            className="relative h-[300px] md:h-full rounded-lg overflow-hidden bg-muted/30"
+            className="relative h-[200px] md:h-full rounded-lg overflow-hidden bg-muted/30"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={
               isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }
@@ -219,20 +210,6 @@ export default function WebsiteValue() {
             </div>
           </motion.div>
         </div>
-
-        {/* CTA */}
-        <motion.div
-          className="flex justify-center mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={
-            animationComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-          }
-          transition={{ duration: 0.5 }}
-        >
-          <Button size="lg" className="px-8 py-6 text-lg">
-            Get Your Website
-          </Button>
-        </motion.div>
       </div>
     </section>
   );

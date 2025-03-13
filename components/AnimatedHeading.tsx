@@ -25,10 +25,10 @@ const AnimatedHeading: React.FC<AnimatedHeadingProps> = ({
 
   return (
     <motion.h2
-      className={`text-5xl md:text-6xl lg:text-7xl font-bold text-left bg-clip-text text-transparent drop-shadow-lg ${className}`}
+      className={`text-5xl md:text-6xl font-medium text-left bg-clip-text text-transparent drop-shadow-lg pb-2 ${className}`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 1, ease: "easeInOut", delay: 0.3 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
       style={{ backgroundImage: gradient, backgroundSize: "200%" }}
     >
       {heading}

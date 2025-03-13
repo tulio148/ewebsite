@@ -62,10 +62,20 @@ export function ScrollSectionWithImage({
   const bgOpacity2 = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 1, 0.3]);
 
   const textContent = (
-    <div className="space-y-6 md:space-y-8 md:px-8">
-      <AnimatedHeading scrollYProgress={scrollYProgress} heading={heading} />
-      {!isMobile && <ScrollProgressBar scrollYProgress={scrollYProgress} />}
-      <div className="space-y-3 md:space-y-4">
+    <div className="md:px-8">
+      <AnimatedHeading
+        scrollYProgress={scrollYProgress}
+        heading={heading}
+        className="pb-4"
+      />
+
+      {!isMobile && (
+        <ScrollProgressBar
+          scrollYProgress={scrollYProgress}
+          className="mt-[-24px]"
+        />
+      )}
+      <div className="mb-3 md:mb-4">
         {lines.map((line, index) => (
           <LineWithAnimation
             key={index}
@@ -130,7 +140,7 @@ export function ScrollSectionWithImage({
       className={`relative p-8 md:min-h-[300vh] flex flex-col items-center ${className}  mb-96 `}
     >
       <motion.div
-        className={`flex flex-col w-full max-w-7xl ${
+        className={`flex flex-col h-screen justify-center w-full max-w-7xl ${
           isMobile ? "py-10" : "sticky top-0 py-20 sm:py-32"
         }`}
       >

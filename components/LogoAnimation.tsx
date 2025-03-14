@@ -3,16 +3,17 @@ import Image from "next/image";
 
 const LogoAnimation = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center flex-wrap mb-32">
+    <div className="flex flex-row items-center justify-center mb-32">
       <motion.div
         initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
         transition={{
           duration: 1,
-          delay: 1,
-          type: "tween",
-          stiffness: 260,
-          damping: 40,
+          // Adjust delay to start after text animation finishes
+          delay: 0.7 + 0.1 * 6, // Assuming ~6 words in the text
+          type: "spring", // Changed to spring for consistency
+          stiffness: 100,
+          damping: 100,
         }}
       >
         <Image
@@ -21,21 +22,20 @@ const LogoAnimation = () => {
           width={500}
           height={150}
           priority={true}
-          className="mx-auto responsive-logo mb-2"
+          className="responsive-logo mb-2"
         />
       </motion.div>
       <motion.div
         initial={{ opacity: 0, scale: 0.2, rotate: 10 }}
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
-        style={{
-          marginBottom: "40px",
-        }}
+        style={{ marginBottom: "40px" }}
         transition={{
           duration: 1,
-          delay: 0.5,
+          // Slightly earlier than the first logo part
+          delay: 0.5 + 0.1 * 6, // Also based on text length
           type: "spring",
           stiffness: 200,
-          damping: 50,
+          damping: 100,
         }}
       >
         <Image
@@ -44,7 +44,7 @@ const LogoAnimation = () => {
           width={500}
           height={150}
           priority={true}
-          className="mx-auto responsive-logo mb-[-38Px]"
+          className="mx-auto responsive-logo mb-[-38px]"
         />
       </motion.div>
     </div>

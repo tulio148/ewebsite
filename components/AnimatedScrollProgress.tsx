@@ -24,7 +24,7 @@ const ScrollProgressSection: React.FC<SectionProps> = ({
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start start", "end center"],
+    offset: ["start start", "end end"],
   });
 
   const yRange = useTransform(scrollYProgress, [0, 0.3], [0, 1]);

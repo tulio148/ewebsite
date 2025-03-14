@@ -4,7 +4,19 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Check } from "lucide-react";
 
-export default function WebsiteValue() {
+interface AnimatedFeatureListProps {
+  title: string;
+  subtitle: string;
+  benefits: string[];
+  className?: string;
+}
+
+export default function AnimatedFeatureList({
+  title,
+  subtitle,
+  benefits,
+  className = "",
+}: AnimatedFeatureListProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.2 });
@@ -18,12 +30,6 @@ export default function WebsiteValue() {
       }, 1000);
     }
   }, [isInView, animationComplete]);
-
-  const benefits = [
-    "A site that loads fast and keeps people engaged",
-    "A design that makes your business look modern and professional",
-    "A setup that's easy to manage, with no tech headaches",
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -50,18 +56,20 @@ export default function WebsiteValue() {
     },
   };
 
-  const headingWords = "how we build websites that work".split(" ");
+  const headingWords = title.split(" ");
 
   return (
-    <section className="relative flex flex-col items-center py-16 md:py-24 h-[300vh] bg-gradient-to-b from-transparent to-primary from-80%">
-      <div className="flex flex-col justify-center px-8 max-w-7xl h-screen sticky top-0 pt-44 sm:pt-0">
+    <section
+      className={`relative flex flex-col items-center h-[200vh] py-16 md:py-24 bg-gradient-to-b from-transparent to-primary from-85% sm:from-65% ${className}`}
+    >
+      <div className="flex flex-col justify-center px-8 max-w-7xl h-screen sticky top-0 pt-52 sm:pt-0">
         <div ref={containerRef} className="flex flex-col items-center mb-12">
           {/* Animated heading */}
           <h2
             ref={headingRef}
-            className="relative text-5xl md:text-5xl lg:text-6xl font-bold mb-8 overflow-hidden text-primary max-w-full"
+            className="relative text-5xl md:text-5xl lg:text-6xl font-bold mb-5 overflow-hidden text-primary max-w-full"
           >
-            <span className="sr-only">how we build websites that work</span>
+            <span className="sr-only">{title}</span>
             <span aria-hidden="true" className="flex flex-wrap ">
               {headingWords.map((word, index) => (
                 <motion.span
@@ -74,7 +82,7 @@ export default function WebsiteValue() {
                   }
                   transition={{
                     duration: 0.5,
-                    delay: 0.5 + index * 0.3,
+                    delay: 0.3 + index * 0.15,
                     ease: [0.33, 1, 0.68, 1],
                   }}
                   className="inline-block mx-1"
@@ -87,13 +95,13 @@ export default function WebsiteValue() {
 
           {/* Subheading with gradient underline */}
           <motion.div
-            className="relative mb-10"
+            className="relative mb-3"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
             <p className="text-2xl md:text-2xl font-light mb-2 tracking-wider text-center">
-              You focus on your business. We handle the tech.
+              {subtitle}
             </p>
             <motion.div
               className="h-1 w-0 bg-primary mx-auto rounded-full"
@@ -104,7 +112,7 @@ export default function WebsiteValue() {
         </div>
 
         {/* Benefits section */}
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-x-12 sm:gap-x-2 gap-y-8 mb-12">
           <motion.div
             className="flex flex-col space-y-6"
             variants={containerVariants}
@@ -130,12 +138,14 @@ export default function WebsiteValue() {
                 >
                   <Check className="h-5 w-5 text-primary" />
                 </motion.div>
-                <span className="text-left tracking-wider">{benefit}</span>
+                <span className="text-left tracking-wider text-lg">
+                  {benefit}
+                </span>
               </motion.div>
             ))}
 
             <motion.p
-              className="font-bold  tracking-wider pt-2"
+              className="font-semibold tracking-wider pt-2 text-xl"
               variants={itemVariants}
             >
               And once it&apos;s live, you don&apos;t have to stress about it.

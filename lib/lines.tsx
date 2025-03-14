@@ -29,19 +29,18 @@ export const firstSectionLines = [
 ];
 
 export const secondSectionLines = [
-  <>
-    <em>Old and slow websites cost you customers.</em>
-  </>,
+  <>Old and slow websites cost you customers.</>,
 
   <>
-    <em>If a page takes too long to load</em>, they{" "}
-    <span className="text-primary font-bold">leave.</span>
+    If a page takes{" "}
+    <span className="text-primary">
+      <em>too long</em>{" "}
+    </span>
+    to load, they <span className="text-primary font-bold">leave.</span>
   </>,
   <>
-    <em>
-      If it looks outdated, they assume{" "}
-      <span className="text-primary font-bold">your business is too.</span>
-    </em>
+    If it looks outdated, they assume{" "}
+    <span className="text-primary font-bold">your business is too.</span>
   </>,
   <>
     <em>Your competition</em> is getting{" "}
@@ -55,7 +54,7 @@ export const secondSectionLines = [
 ];
 export const thirdSectionLines = [
   <>
-    <em>Want more customers?</em>{" "}
+    Want more customers?{" "}
     <span className="text-primary font-bold">
       Speed and mobile-friendly design
     </span>{" "}
@@ -67,11 +66,9 @@ export const thirdSectionLines = [
     visitors longer.
   </>,
   <>
-    <em>
-      If your site isn’t{" "}
-      <span className="text-primary font-bold">mobile-friendly</span>, you’re
-      losing business.
-    </em>
+    If your site isn’t{" "}
+    <span className="text-primary font-bold">mobile-friendly</span>, you’re{" "}
+    <em>losing business.</em>
   </>,
 
   <>

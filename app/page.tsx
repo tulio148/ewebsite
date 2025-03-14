@@ -1,10 +1,11 @@
 import HeroSection from "@/components/HeroSection";
 import ScrollSection from "@/components/ScrollSection";
 import { ScrollSectionWithImage } from "@/components/ScrollSectionWithImage";
-import WebsiteValue from "@/components/test";
-import EnhancedScrollProgress from "@/components/test2";
+import AnimatedFeatureList from "@/components/AnimatedFeatureList";
+import AnimatedScrollProgress from "@/components/AnimatedScrollProgress";
 import * as headings from "@/lib/headings";
 import * as lines from "@/lib/lines";
+import { sections } from "@/lib/scrollSections";
 
 export default function Home() {
   return (
@@ -28,10 +29,20 @@ export default function Home() {
         heading={headings.thirdHeading}
         imagePosition="left"
       />
-      <WebsiteValue />
-      <div className="relative">
-        <EnhancedScrollProgress />
-      </div>
+      <AnimatedFeatureList
+        title="how we build websites that work"
+        subtitle="You focus on your business. We handle the tech."
+        benefits={[
+          "A site that loads fast and keeps people engaged",
+          "A design that makes your business look modern and professional",
+          "A setup that's easy to manage, with no tech headaches",
+        ]}
+      />
+      <AnimatedScrollProgress
+        sections={sections}
+        heading="steps to success"
+        className="text-white"
+      />
       <div className="mb-[4000px]"></div>
     </>
   );

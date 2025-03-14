@@ -56,6 +56,7 @@ export function ScrollSectionWithImage({
       },
     },
   };
+
   const bgScale = useTransform(scrollYProgress, [0, 1], [0.5, 1.5]);
   const bgOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0.5]);
   const bgScale2 = useTransform(scrollYProgress, [0, 1], [1.5, 0.8]);
@@ -110,7 +111,7 @@ export function ScrollSectionWithImage({
         fill
         className="object-cover rounded"
         sizes="(max-width: 768px) 100vw, 50vw"
-        priority
+        loading="lazy"
       />
 
       {!isMobile && (

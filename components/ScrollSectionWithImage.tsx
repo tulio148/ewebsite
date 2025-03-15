@@ -40,19 +40,13 @@ export function ScrollSectionWithImage({
     imagePosition === "left" ? [-5, 0] : [5, 0]
   );
   const mobileAnimation = {
-    rotate: [0, 1, 0, -1, 0],
-    scale: [1, 1.02, 1, 1.02, 1],
+    scale: [1, 1.3, 1],
     transition: {
-      rotate: {
-        repeat: Infinity,
-        duration: 10,
-        ease: "easeInOut",
-      },
       scale: {
         repeat: Infinity,
-        duration: 8,
+        duration: 15,
         ease: "easeInOut",
-        times: [0, 0.25, 0.5, 0.75, 1],
+        times: [0, 0.5, 1],
       },
     },
   };
@@ -93,7 +87,7 @@ export function ScrollSectionWithImage({
 
   const imageContent = (
     <motion.div
-      className="relative h-[320px] md:h-[400px] lg:h-[500px] w-full rounded-lg overflow-hidden shadow-2xl"
+      className="relative h-[320px] md:h-[400px] lg:h-[500px] w-full rounded overflow-hidden shadow-2xl "
       style={
         isMobile
           ? { opacity: 1 }
@@ -109,7 +103,7 @@ export function ScrollSectionWithImage({
         src={imageSrc || "/placeholder.svg"}
         alt={imageAlt}
         fill
-        className="object-cover rounded"
+        className="object-cover"
         sizes="(max-width: 768px) 100vw, 50vw"
         loading="lazy"
       />
@@ -149,7 +143,11 @@ export function ScrollSectionWithImage({
         {isMobile ? (
           <div className="grid grid-cols-1 gap-8 items-center">
             {textContent}
-            {imageContent}
+            <div className="mx-[-2rem] overflow-hidden">
+              {" "}
+              {/* Negative margin to make image full width */}
+              {imageContent}
+            </div>
           </div>
         ) : (
           /* Desktop layout - image position based on imagePosition prop */

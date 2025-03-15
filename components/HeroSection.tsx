@@ -6,7 +6,7 @@ import AnimatedH1 from "./AnimatedH1";
 import { Bodoni_Moda } from "next/font/google";
 
 const bodoniModa = Bodoni_Moda({
-  weight: ["400", "700"],
+  weight: ["400"],
   subsets: ["latin"],
   style: ["italic"],
 });
@@ -30,20 +30,23 @@ export default function HeroSection() {
 const heroText = [
   <span key="1">fast,&nbsp;</span>,
   <span key="2">smart&nbsp;</span>,
-  <span className=" text-primary/80  " key="3">
+  <span className=" text-primary/70 font-semibold   " key="3">
     websites&nbsp;
   </span>,
   <span key="4">&&nbsp;</span>,
-  <span key="5" className="  text-primary/80  ">
+  <span key="5" className="  text-primary/70 font-semibold   ">
     AI&nbsp;
   </span>,
-  <span className=" text-primary/80   " key="6">
+  <span className=" text-primary/70 font-semibold   " key="6">
     solutions&nbsp;
   </span>,
   <span key="7">to&nbsp;</span>,
   <span key="8">drive&nbsp;</span>,
   <span key="9">your&nbsp;</span>,
-  <em key="10" className={`${bodoniModa.className} font-bold text-primary   `}>
+  <em
+    key="10"
+    className={`${bodoniModa.className} text-primary tracking-wider  `}
+  >
     success.
   </em>,
 ];

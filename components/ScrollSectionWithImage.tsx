@@ -44,7 +44,7 @@ export function ScrollSectionWithImage({
     transition: {
       scale: {
         repeat: Infinity,
-        duration: 15,
+        duration: 6,
         ease: "easeInOut",
         times: [0, 0.5, 1],
       },
@@ -87,7 +87,7 @@ export function ScrollSectionWithImage({
 
   const imageContent = (
     <motion.div
-      className="relative h-[320px] md:h-[400px] lg:h-[500px] w-full rounded overflow-hidden shadow-2xl "
+      className="relative h-[420px] md:h-[400px] lg:h-[500px] w-full rounded overflow-hidden shadow-2xl "
       style={
         isMobile
           ? { opacity: 1 }
@@ -141,7 +141,7 @@ export function ScrollSectionWithImage({
       >
         {/* Mobile layout - always image below text */}
         {isMobile ? (
-          <div className="grid grid-cols-1 gap-8 items-center">
+          <div className="grid grid-cols-1 gap-16 items-center">
             {textContent}
             <div className="mx-[-2rem] overflow-hidden">
               {" "}
@@ -151,7 +151,7 @@ export function ScrollSectionWithImage({
           </div>
         ) : (
           /* Desktop layout - image position based on imagePosition prop */
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {imagePosition === "left" ? (
               <>
                 {imageContent}

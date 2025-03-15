@@ -10,7 +10,7 @@ const AnimatedH1 = ({ children }: AnimatedTextProps) => {
   return (
     <motion.h1
       layout
-      className="text-5xl md:text-6xl font-thin  mb-4 pb-8 sm:pl-12 sm:w-2/3"
+      className="text-5xl md:text-6xl font-thin mb-4 pb-8 sm:pl-12 sm:w-2/3"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.7 }}

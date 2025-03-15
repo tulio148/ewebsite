@@ -14,9 +14,22 @@ import Image from "next/image";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const { scrollY } = useScroll();
   const logoScale = useTransform(scrollY, [0, 50], [0, 1]);
   const logoOpacity = useTransform(scrollY, [0, 50], [0, 1]);
+
+  // Track if user has scrolled
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10 && !hasScrolled) {
+        setHasScrolled(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [hasScrolled]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -63,6 +76,24 @@ const Navbar = () => {
       opacity: 1,
       transition: {
         duration: 0.5,
+      },
+    },
+  };
+
+  const navbarVariants = {
+    hidden: {
+      y: -100,
+      opacity: 0,
+      scale: 0.98,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        y: { type: "spring", stiffness: 300, damping: 30 },
+        opacity: { duration: 0.6, ease: "easeOut" },
+        scale: { duration: 0.4, ease: "easeOut" },
       },
     },
   };
@@ -132,7 +163,14 @@ const Navbar = () => {
   const navLinks = ["Websites", "AI", "Edgeify", "Contact", "FAQ"];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-accent z-50">
+    <motion.nav
+      className={`fixed top-0 left-0 right-0 bg-gradient-to-b from-accent/40 to-accent/90 ${
+        !isMenuOpen ? "backdrop-blur-2xl" : ""
+      } z-50`}
+      initial="hidden"
+      animate={hasScrolled ? "visible" : "hidden"}
+      variants={navbarVariants}
+    >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <motion.div
@@ -227,7 +265,7 @@ const Navbar = () => {
           </>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 };
 

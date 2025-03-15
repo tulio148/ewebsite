@@ -27,19 +27,19 @@ const ScrollProgressSection: React.FC<SectionProps> = ({
     offset: ["start start", "end end"],
   });
 
-  const yRange = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-  const pathLength = useSpring(yRange, { stiffness: 300, damping: 100 });
+  const yRange = useTransform(scrollYProgress, [0, 0.8], [0, 1]);
+  const pathLength = useSpring(yRange, { stiffness: 300, damping: 40 });
   const opacity = useTransform(scrollYProgress, [0, 0.3], [0.6, 1]);
 
   useEffect(() => {
-    return yRange.on("change", (v) => {
-      setIsComplete(v >= 0.9);
+    return pathLength.on("change", (v) => {
+      setIsComplete(v >= 0.99);
     });
-  }, [yRange]);
+  }, [pathLength]);
 
   return (
     <div id={id} ref={sectionRef} className={`relative w-full ${className}`}>
-      <div className="sticky top-0 left-0 w-full flex flex-col sm:flex-row min-h-screen pt-16 sm:pt-24">
+      <div className="sticky top-0 left-0 w-full flex flex-col min-h-screen pt-16 sm:pt-24">
         <div className="flex items-center justify-center absolute left-0 top-16 h-screen w-16 sm:w-24 p-4 sm:p-6 z-10">
           <svg className="w-full h-3/4" viewBox="0 0 60 800" role="img">
             <motion.circle
@@ -70,14 +70,14 @@ const ScrollProgressSection: React.FC<SectionProps> = ({
         </div>
 
         <motion.div
-          className="flex-1 p-6 sm:p-10 sm:pl-20 md:p-12 pl-24 md:pl-32 lg:pl-44 xl:pl-48 flex flex-col justify-center"
+          className="flex-1 p-6 sm:p-10 sm:pl-20 md:p-12 pl-24 md:pl-32 lg:pl-44 xl:pl-48 flex flex-col justify-center "
           style={{ opacity }}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 relative">
             {title}
             <span className="absolute bottom-0 left-0 w-16 h-1 bg-accent rounded-full hidden sm:block"></span>
           </h2>
-          <div className="flex flex-col justify-between w-full max-w-4xl">
+          <div className="w-full relative">
             {content.map((line, idx) => (
               <LineWithAnimation
                 key={idx}
@@ -85,6 +85,7 @@ const ScrollProgressSection: React.FC<SectionProps> = ({
                 scrollYProgress={scrollYProgress}
                 index={idx}
                 className="text-white"
+                delay={idx * 0.3}
               />
             ))}
           </div>
@@ -109,14 +110,14 @@ export const AnimatedScrollProgress: React.FC<ScrollProgressProps> = ({
     <div
       className={`relative flex flex-col justify-center items-center bg-primary ${className}`}
     >
-      <h2 className="text-5xl sm:text-6xl md:text-7xl tracking-wider font-bold mb-8">
+      <h2 className="text-5xl sm:text-6xl md:text-7xl tracking-wider font-bold my-8">
         {heading}
       </h2>
       {sections.map((section) => (
         <ScrollProgressSection
           key={section.id}
           {...section}
-          className="h-[150vh] max-w-7xl"
+          className="h-[250vh] max-w-7xl"
         />
       ))}
     </div>

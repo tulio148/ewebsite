@@ -43,7 +43,7 @@ const LineWithAnimation: React.FC<LineWithAnimationProps> = ({
   return (
     <motion.p
       initial={initialStyle}
-      className={`text-xl   
+      className={`text-xl sm:text-2xl   
                   text-justify text-secondary/90 font-extralight 
                   mb-3 sm:mb-4 tracking-wider ${className}`}
       style={{ opacity, y }}

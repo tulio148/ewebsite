@@ -14,7 +14,7 @@ const bodoniModa = Bodoni_Moda({
 export default function HeroSection() {
   return (
     <>
-      <div className="absolute inset-0 sm:h-[170vh] h-[220vh] ">
+      <div className="absolute inset-0 h-[200vh]  ">
         <FloatingPaths position={0} />
       </div>
       <section className="relative min-h-screen w-full flex flex-col mt-24  mb-96">
@@ -29,17 +29,17 @@ export default function HeroSection() {
 
 const heroText = [
   <span key="1">fast,&nbsp;</span>,
-  <em key="2">smart&nbsp;</em>,
-  <em className="font-normal text-secondary/80 " key="3">
+  <span key="2">smart&nbsp;</span>,
+  <span className=" text-primary/80  " key="3">
     websites&nbsp;
-  </em>,
+  </span>,
   <span key="4">&&nbsp;</span>,
-  <span key="5" className=" font-normal text-secondary/80 ">
+  <span key="5" className="  text-primary/80  ">
     AI&nbsp;
   </span>,
-  <em className="font-normal text-secondary/80 " key="6">
+  <span className=" text-primary/80   " key="6">
     solutions&nbsp;
-  </em>,
+  </span>,
   <span key="7">to&nbsp;</span>,
   <span key="8">drive&nbsp;</span>,
   <span key="9">your&nbsp;</span>,

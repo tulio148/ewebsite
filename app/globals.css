@@ -46,19 +46,19 @@
 
 
 .responsive-logo {
-  width: 150px; /* Small screens */
+  width: 120px; /* Small screens */
   height: auto;
 }
 
 @media (min-width: 768px) {
   .responsive-logo {
-    width: 250px; /* Medium screens */
+    width: 200px; /* Medium screens */
   }
 }
 
 @media (min-width: 1200px) {
   .responsive-logo {
-    width: 400px; /* Large screens */
+    width: 300px; /* Large screens */
   }
 }
 

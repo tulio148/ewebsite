@@ -10,7 +10,7 @@ const AnimatedH1 = ({ children }: AnimatedTextProps) => {
   return (
     <motion.h1
       layout
-      className="text-5xl md:text-6xl font-thin  mb-4 text-secondary/90 pb-8 sm:pl-12 sm:w-2/3"
+      className="text-5xl md:text-6xl font-thin  mb-4 pb-8 sm:pl-12 sm:w-2/3"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.7 }}
@@ -27,7 +27,7 @@ const AnimatedH1 = ({ children }: AnimatedTextProps) => {
               stiffness: 100,
               damping: 40,
             }}
-            className="inline-block tracking-wide leading-tight rounded-full"
+            className="inline-block tracking-wide leading-none text-secondary/70  rounded-full"
           >
             {node}
           </motion.span>

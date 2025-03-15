@@ -10,7 +10,7 @@ const LogoAnimation = () => {
         transition={{
           duration: 1,
           // Adjust delay to start after text animation finishes
-          delay: 0.7 + 0.1 * 6, // Assuming ~6 words in the text
+          delay: 0.7 + 0.1 * 10, // Assuming ~6 words in the text
           type: "spring", // Changed to spring for consistency
           stiffness: 100,
           damping: 100,
@@ -32,7 +32,7 @@ const LogoAnimation = () => {
         transition={{
           duration: 1,
           // Slightly earlier than the first logo part
-          delay: 0.5 + 0.1 * 6, // Also based on text length
+          delay: 0.7 + 0.1 * 10, // Also based on text length
           type: "spring",
           stiffness: 200,
           damping: 100,

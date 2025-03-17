@@ -43,7 +43,7 @@ export default function Home() {
         heading="steps to success"
         className="text-white"
       />
-      <div className="mb-[4000px]"></div>
+      <div className="h-[4000px] bg-accent"></div>
     </>
   );
 }

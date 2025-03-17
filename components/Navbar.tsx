@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import {
   useScroll,
   motion,
@@ -43,129 +43,139 @@ const Navbar = () => {
     }
   };
 
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      document.body.style.overflow = "unset";
-    };
-  }, [isMenuOpen]);
-
   const logoY = useSpring(useTransform(scrollY, [0, 50], [5, 0]), {
     stiffness: 800,
     damping: 30,
   });
 
-  const menuVariants = {
-    closed: {
-      opacity: 0,
-    },
-    open: {
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
-  const navbarVariants = {
-    hidden: {
-      y: -100,
-      opacity: 0,
-      scale: 0.98,
-    },
-    visible: {
-      y: 0,
-      opacity: 1,
-      scale: 1,
-      transition: {
-        y: { type: "spring", stiffness: 300, damping: 30 },
-        opacity: { duration: 0.6, ease: "easeOut" },
-        scale: { duration: 0.4, ease: "easeOut" },
-      },
-    },
-  };
-
-  const glowVariants = {
-    closed: {
-      opacity: 0,
-      boxShadow: "0px 0px 0px 0px rgba(37,150,190,0)",
-    },
-    open: {
-      opacity: [0, 1, 0],
-      boxShadow: [
-        "0px 0px 0px 0px rgba(37,150,190,0)",
-        "0px 0px 50px 20px rgba(37,150,190,0.8)",
-        "0px 0px 0px 0px rgba(37,150,190,0)",
-      ],
-      transition: {
-        opacity: {
-          times: [0, 0.5, 1],
-          duration: 1.2,
-        },
-        boxShadow: {
-          times: [0, 0.5, 1],
-          duration: 1.2,
+  const menuVariants = useMemo(
+    () => ({
+      closed: {
+        opacity: 0,
+        clipPath: "circle(10% at calc(100% - 40px) 40px)",
+        transition: {
+          clipPath: { type: "spring", stiffness: 180, damping: 22 },
+          opacity: { duration: 0.2, ease: [0.3, 0.6, 0.2, 1] },
+          when: "afterChildren",
+          staggerChildren: 0.06,
+          staggerDirection: -1,
         },
       },
-    },
-  };
-
-  const menuLogoVariants = {
-    closed: { opacity: 0 },
-    open: {
-      opacity: 1,
-      transition: {
-        delay: 0.3,
-        duration: 0.4,
-      },
-    },
-  };
-
-  const menuItemVariants = {
-    closed: {
-      opacity: 0,
-    },
-    open: (i: number) => ({
-      opacity: 1,
-      transition: {
-        delay: 0.4 + i * 0.1,
-        duration: 0.4,
+      open: {
+        opacity: 1,
+        clipPath: "circle(130% at calc(100% - 40px) 40px)",
+        transition: {
+          clipPath: { type: "spring", stiffness: 160, damping: 20 },
+          opacity: { duration: 0.4, ease: [0.3, 0.6, 0.2, 1] },
+          when: "beforeChildren",
+          staggerChildren: 0.08,
+          delayChildren: 0.12,
+        },
       },
     }),
-  };
+    []
+  );
 
-  const shadowVariants = {
-    closed: {
-      textShadow: "0px 0px 0px rgba(37,150,190,0)",
-    },
-    open: (i: number) => ({
-      textShadow: "1px 1px 2px rgba(37,150,190,0.6)",
-      transition: {
-        delay: 0.6 + i * 0.1,
-        duration: 0.8,
+  const navbarVariants = useMemo(
+    () => ({
+      hidden: {
+        y: -80,
+        opacity: 0,
+        scale: 0.97,
+      },
+      visible: {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        transition: {
+          y: { type: "spring", stiffness: 240, damping: 25 },
+          opacity: { duration: 0.5, ease: "easeOut" },
+          scale: { duration: 0.35, ease: "easeOut" },
+        },
       },
     }),
-  };
+    []
+  );
+
+  const glowVariants = useMemo(
+    () => ({
+      closed: {
+        opacity: 0,
+        boxShadow: "0px 0px 0px 0px rgba(37,150,190,0)",
+      },
+      open: {
+        opacity: [0, 1, 0],
+        boxShadow: [
+          "0px 0px 0px 0px rgba(37,150,190,0)",
+          "0px 0px 30px 10px rgba(37,150,190,0.6)",
+          "0px 0px 0px 0px rgba(37,150,190,0)",
+        ],
+        transition: {
+          opacity: { times: [0, 0.5, 1], duration: 1 },
+          boxShadow: { times: [0, 0.5, 1], duration: 1 },
+        },
+      },
+    }),
+    []
+  );
+
+  const menuLogoVariants = useMemo(
+    () => ({
+      closed: {
+        opacity: 0,
+        y: -10,
+        transition: { duration: 0.2, ease: "easeIn" },
+      },
+      open: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.4, delay: 0.2, ease: "easeOut" },
+      },
+    }),
+    []
+  );
+
+  const menuItemVariants = useMemo(
+    () => ({
+      closed: () => ({
+        opacity: 0,
+        y: -15,
+        x: 0, // Removed alternating horizontal offset for consistency
+        transition: { duration: 0.01, ease: "easeIn" },
+      }),
+      open: (i: number) => ({
+        opacity: 1,
+        y: 0,
+        x: 0,
+        transition: {
+          duration: 0.4,
+          delay: 0.15 + i * 0.05, // More subtle, consistent staggering
+          ease: [0.25, 0.1, 0.25, 1], // Custom cubic bezier for smoother entrance
+        },
+      }),
+    }),
+    []
+  );
+  const shadowVariants = useMemo(
+    () => ({
+      closed: {
+        textShadow: "0px 0px 0px rgba(37,150,190,0)",
+        transition: { duration: 0.2 },
+      },
+      open: (i: number) => ({
+        textShadow: "1px 1px 3px rgba(37,150,190,0.4)",
+        transition: { delay: 0.35 + i * 0.07, duration: 0.7 },
+      }),
+    }),
+    []
+  );
 
   const navLinks = ["Websites", "AI", "Edgeify", "Contact", "FAQ"];
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 bg-gradient-to-b from-accent/40 to-accent/90 ${
-        !isMenuOpen ? "backdrop-blur-2xl" : ""
+      className={`fixed top-0 left-0 right-0 bg-gradient-to-b from-accent/70 to-accent/90 ${
+        !isMenuOpen ? "backdrop-blur-lg" : ""
       } z-50`}
       initial="hidden"
       animate={hasScrolled ? "visible" : "hidden"}
@@ -188,22 +198,11 @@ const Navbar = () => {
                 width={30}
                 height={20}
                 priority={true}
-                className="mx-auto h-auto w-[120px] md:w-[150px] lg:w-[180px]"
+                className="mx-auto h-auto w-[150px] lg:w-[200px]"
               />
             </Link>
           </motion.div>
-          <div className="hidden md:flex space-x-4">
-            {navLinks.map((link) => (
-              <button
-                key={link}
-                onClick={() => scrollToSection(link.toLowerCase())}
-                className="text-gray-600 hover:text-gray-800 cursor-pointer text-xl"
-              >
-                {link}
-              </button>
-            ))}
-          </div>
-          <div className="md:hidden z-50">
+          <div className=" z-50">
             <AnimatedHamburger isOpen={isMenuOpen} toggle={toggleMenu} />
           </div>
         </div>

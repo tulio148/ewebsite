@@ -62,6 +62,34 @@
   }
 }
 
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+  
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2596be; /* Changed to specified blue color for the scrollbar handle */
+  border-radius: 8px;
+  border: 1px solid #d3d3d3;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 150px; /* Set the height of the scrollbar thumb */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2595be85; /* Changed hover color to a lighter gray */
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

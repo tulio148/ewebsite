@@ -44,9 +44,9 @@ export function ScrollSectionWithImage({
     transition: {
       scale: {
         repeat: Infinity,
-        duration: 6,
-        ease: "easeInOut",
-        times: [0, 0.5, 1],
+        duration: 12,
+        ease: "easeIn",
+        times: [0, 0.7, 1],
       },
     },
   };

@@ -108,7 +108,7 @@ export const AnimatedScrollProgress: React.FC<ScrollProgressProps> = ({
 }) => {
   return (
     <div
-      className={`relative flex flex-col justify-center items-center bg-gradient-to-b from-primary to-accent from-95% ${className}`}
+      className={`relative flex flex-col justify-center items-center bg-primary ${className}`}
     >
       <h2 className="text-5xl sm:text-6xl md:text-7xl tracking-wider font-bold my-8">
         {heading}

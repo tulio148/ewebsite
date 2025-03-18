@@ -84,7 +84,7 @@ const Navbar = () => {
       animate={hasScrolled ? "visible" : "hidden"}
       variants={navbarVariants}
     >
-      <div className="container mx-auto px-8 sm:px-16 md:px-24 lg:px-32">
+      <div className="container mx-auto pr-8 sm:px-16 md:px-24 lg:px-32">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="text-xl font-bold text-gray-800">
             <Image

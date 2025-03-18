@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const LogoAnimation = () => {
   return (
-    <div className="flex flex-row items-center justify-end mb-32 pr-12">
+    <div className="flex flex-row items-center justify-end mb-32 sm:pr-12">
       <motion.div
         initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
         animate={{ opacity: 1, scale: 1, rotate: 0 }}

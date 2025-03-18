@@ -60,9 +60,9 @@ export default function AnimatedFeatureList({
 
   return (
     <section
-      className={`relative flex flex-col items-center h-[200vh] py-16 md:py-24 bg-gradient-to-b from-transparent to-primary from-85% sm:from-70% ${className}`}
+      className={`relative flex flex-col items-center justify-center h-[200vh] py-16 md:py-24 bg-gradient-to-b from-transparent to-primary from-85% sm:from-70% ${className}`}
     >
-      <div className="flex flex-col justify-center px-8 max-w-7xl h-screen sticky top-0 pt-52 sm:pt-0">
+      <div className="flex flex-col justify-center items-center px-8 max-w-7xl h-[calc(100vh-64px) sticky top-20">
         <div ref={containerRef} className="flex flex-col items-center mb-12">
           {/* Animated heading */}
           <h2

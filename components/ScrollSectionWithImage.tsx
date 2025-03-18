@@ -7,6 +7,7 @@ import AnimatedHeading from "./AnimatedHeading";
 import LineWithAnimation from "./LineWithAnimation";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import ScrollProgressBar from "./ScrollProgressBar";
+
 interface AnimatedHeroSectionProps {
   lines: ReactNode[];
   imageSrc: string;
@@ -57,7 +58,7 @@ export function ScrollSectionWithImage({
   const bgOpacity2 = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 1, 0.3]);
 
   const textContent = (
-    <div className="md:px-8">
+    <div className="md:px-4">
       <AnimatedHeading
         scrollYProgress={scrollYProgress}
         heading={heading}
@@ -87,7 +88,7 @@ export function ScrollSectionWithImage({
 
   const imageContent = (
     <motion.div
-      className="relative h-[420px] md:h-[400px] lg:h-[500px] w-full rounded overflow-hidden shadow-2xl "
+      className="relative h-[50vh] min-h-[320px] max-h-[420px] md:h-[400px] lg:h-[500px] w-full rounded overflow-hidden shadow-2xl"
       style={
         isMobile
           ? { opacity: 1 }
@@ -104,7 +105,7 @@ export function ScrollSectionWithImage({
         alt={imageAlt}
         fill
         className="object-cover"
-        sizes="(max-width: 768px) 100vw, 50vw"
+        sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, 50vw"
         loading="lazy"
       />
 
@@ -132,39 +133,30 @@ export function ScrollSectionWithImage({
   return (
     <div
       ref={sectionRef}
-      className={`relative p-8 md:min-h-[300vh] flex flex-col items-center ${className}  mb-96 `}
+      className={`relative px-4 sm:px-6 md:px-8 md:min-h-[300vh] flex flex-col items-center ${className} mb-24 sm:mb-48 md:mb-72 lg:mb-96`}
     >
       <motion.div
-        className={`flex flex-col h-screen justify-center w-full max-w-7xl ${
-          isMobile ? "py-10" : "sticky top-0 py-20 sm:py-32"
+        className={`flex flex-col h-[calc(100vh-64px)] justify-center w-full max-w-7xl ${
+          isMobile ? "py-10" : "sticky top-16"
         }`}
       >
-        {/* Mobile layout - always image below text */}
-        {isMobile ? (
-          <div className="grid grid-cols-1 gap-16 items-center">
-            {textContent}
-            <div className="mx-[-2rem] overflow-hidden">
-              {" "}
-              {/* Negative margin to make image full width */}
+        <div
+          className={`grid gap-8 sm:gap-12 md:gap-6 items-center ${
+            isMobile ? "grid-cols-1" : "md:grid-cols-2 lg:grid-cols-2 "
+          }`}
+        >
+          {imagePosition === "left" && !isMobile && imageContent}
+          {textContent}
+          {(imagePosition === "right" || isMobile) && (
+            <div
+              className={
+                isMobile ? "mx-[-1rem] sm:mx-[-2rem] overflow-hidden" : ""
+              }
+            >
               {imageContent}
             </div>
-          </div>
-        ) : (
-          /* Desktop layout - image position based on imagePosition prop */
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            {imagePosition === "left" ? (
-              <>
-                {imageContent}
-                {textContent}
-              </>
-            ) : (
-              <>
-                {textContent}
-                {imageContent}
-              </>
-            )}
-          </div>
-        )}
+          )}
+        </div>
       </motion.div>
     </div>
   );

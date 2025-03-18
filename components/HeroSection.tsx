@@ -22,9 +22,9 @@ export default function HeroSection() {
       <div className="absolute inset-0 h-[170vh]  ">
         <FloatingPaths position={0} />
       </div>
-      <section className="relative min-h-screen w-full flex flex-col  mb-96">
+      <section className="relative min-h-screen w-full flex flex-col sm:pt-16 mb-96">
         <div
-          className={`relative flex flex-col  justify-around px-7 z-10 mx-auto h-screen ${raleway.className}`}
+          className={`relative flex flex-col justify-around px-7 z-10 mx-auto h-screen ${raleway.className}`}
         >
           <AnimatedH1>{heroText}</AnimatedH1>
           <LogoAnimation />
@@ -40,7 +40,7 @@ const heroText = [
   <span className=" text-primary " key="3">
     websites&nbsp;
   </span>,
-  <span key="4">&&nbsp;</span>,
+  <span key="4">and&nbsp;</span>,
   <span key="5" className="  text-primary    ">
     AI powered&nbsp;
   </span>,
@@ -50,7 +50,7 @@ const heroText = [
   <span key="7">to&nbsp;</span>,
   <span key="8">drive&nbsp;</span>,
   <span key="9">your&nbsp;</span>,
-  <em key="10" className={`${bodoniModa.className} text-primary   `}>
+  <em key="10" className={`${bodoniModa.className} text-primary font-bold`}>
     success.
   </em>,
 ];

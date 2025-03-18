@@ -2,99 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer base {
   :root {
-    --background: 0 0% 100%; /* White */
-    --foreground: 0 0% 3.9%; /* Almost Black */
-
-    --primary: 199 79% 45%; /* #2596be (Vibrant Cyan-Blue) */
-    --primary-foreground: 0 0% 100%; /* White for contrast */
-
-    --secondary: 0 0% 10%; /* Almost Black */
-    --secondary-foreground: 0 0% 100%; /* White for contrast */
-
-    --accent: 210 15% 97%; 
-    --accent-foreground: 199 79% 30%; /* Darker Cyan-Blue for contrast */
-
-    --highlight: 204 100% 93%; /* Very Light Blue (#d1ecff) */
-
-    --border: 0 0% 85%; /* Light Gray for borders */
-    --ring: 199 79% 45%; /* Match Primary */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --primary: 199 79% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 210 15% 97%;
+    --accent-foreground: 199 79% 30%;
+    --highlight: 204 100% 93%;
+    --border: 0 0% 85%;
+    --ring: 199 79% 45%;
   }
 
   .dark {
-    --background: 0 0% 3.9%; /* Dark Background */
-    --foreground: 0 0% 98%; /* White */
-
-    --primary: 199 79% 55%; /* Lighter Blue for better contrast in dark mode */
-    --primary-foreground: 0 0% 100%; /* White */
-
-    --secondary: 0 0% 14%; /* Darker Black */
-    --secondary-foreground: 0 0% 98%; /* White */
-
-    --accent: 0 0% 20%; /* Dark Gray */
-    --accent-foreground: 199 79% 70%; /* Lighter Cyan-Blue */
-
-    --highlight: 199 100% 88%; /* Slightly Brighter Light Blue */
-
-    --border: 0 0% 25%; /* Darker Gray for borders */
-    --ring: 199 79% 60%; /* Bright Blue */
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --primary: 199 79% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 98%;
+    --accent: 0 0% 20%;
+    --accent-foreground: 199 79% 70%;
+    --highlight: 199 100% 88%;
+    --border: 0 0% 25%;
+    --ring: 199 79% 60%;
   }
-}
 
-
-.responsive-logo {
-  width: 120px; /* Small screens */
-  height: auto;
-}
-
-@media (min-width: 768px) {
-  .responsive-logo {
-    width: 200px; /* Medium screens */
-  }
-}
-
-@media (min-width: 1200px) {
-  .responsive-logo {
-    width: 300px; /* Large screens */
-  }
-}
-
-
-
-/* width */
-::-webkit-scrollbar {
-  width: 12px;
-  
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #ffffff;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #2596be; /* Changed to specified blue color for the scrollbar handle */
-  border-radius: 8px;
-  border: 1px solid #d3d3d3;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  height: 150px; /* Set the height of the scrollbar thumb */
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #2595be85; /* Changed hover color to a lighter gray */
-}
-
-@layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .responsive-logo {
+    width: 150px;
+    height: auto;
+    
+    @media (min-width: 768px) {
+      width: 200px;
+    }
+    
+    @media (min-width: 1200px) {
+      width: 300px;
+    }
+  }
+}
+
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2596be;
+    border-radius: 8px;
+    border: 3px solid #E9ECEF;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: 150px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2595be85;
   }
 }

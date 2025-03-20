@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import AnimatedHamburger from "./AnimatedHamburger";
 import Image from "next/image";
+import { ChevronRight } from "lucide-react";
 
 const navbarVariants = {
   hidden: { y: -80, opacity: 0, transition: { duration: 0.01 } },
@@ -20,7 +21,7 @@ const menuVariants = {
     opacity: 0,
     clipPath: "circle(30px at calc(100% - 40px) 40px)",
     transition: {
-      duration: 0.05,
+      duration: 0.01,
       // when: "afterChildren",
       // staggerChildren: 0.05,
       // staggerDirection: -1,
@@ -30,16 +31,17 @@ const menuVariants = {
     opacity: 1,
     clipPath: "circle(150% at calc(100% - 40px) 40px)",
     transition: {
-      duration: 0.4,
+      duration: 0.3,
       when: "beforeChildren",
-      staggerChildren: 0.02,
+      staggerChildren: 0.05,
+      staggerDirection: -1,
     },
   },
 };
 
 const itemVariants = {
-  closed: { opacity: 0, x: 40 },
-  open: { opacity: 1, x: 0 },
+  closed: { opacity: 0, scaleY: 0.1 },
+  open: { opacity: 1, scaleY: 1, transition: { duration: 0.1 } },
 };
 
 // Navigation links with corresponding paths
@@ -79,7 +81,7 @@ const Navbar = () => {
   return (
     <motion.nav
       className={
-        "fixed top-0 left-0 p-4 right-0 bg-gradient-to-b from-accent/85 to-accent/95 z-50"
+        "fixed top-0 left-0 p-4 right-0 bg-gradient-to-b from-accent/90 to-accent/95 z-50"
       }
       initial="hidden"
       animate={hasScrolled ? "visible" : "hidden"}
@@ -128,10 +130,24 @@ const Navbar = () => {
               </motion.div>
 
               {NAV_LINKS.map(({ name, path }) => (
-                <motion.div key={name} variants={itemVariants} className="mb-4">
-                  <Link href={path} onClick={handleLinkClick}>
-                    <button className="text-3xl font-normal tracking-wider text-primary hover:text-primary/80 transition-colors">
-                      {name}
+                <motion.div key={name} variants={itemVariants} className="mb-6">
+                  <Link
+                    className="flex items-center w-fit"
+                    href={path}
+                    onClick={handleLinkClick}
+                  >
+                    <button className="flex items-center gap-2 text-6xl font-thin tracking-wider text-primary hover:text-primary/80 transition-colors">
+                      {name}{" "}
+                      <motion.div
+                        whileHover={{ x: 5 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        <ChevronRight
+                          className="w-5 h-5"
+                          strokeWidth={"1px"}
+                          size={48}
+                        />
+                      </motion.div>
                     </button>
                   </Link>
                 </motion.div>

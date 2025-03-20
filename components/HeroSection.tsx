@@ -22,7 +22,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 h-[170vh]  ">
         <FloatingPaths position={0} />
       </div>
-      <section className="relative min-h-screen w-full flex flex-col sm:pt-16 mb-96">
+      <section className="relative min-h-screen max-w-7xl w-full flex flex-col mx-auto sm:pt-16 mb-96">
         <div
           className={`relative flex flex-col justify-around px-7 z-10 mx-auto h-screen ${raleway.className}`}
         >

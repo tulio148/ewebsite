@@ -31,7 +31,7 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
         <AnimatedHeading scrollYProgress={scrollYProgress} heading={heading} />
         <ScrollProgressBar
           scrollYProgress={scrollYProgress}
-          className="origin-center mt-[-10px]"
+          className="origin-center mt-[-8px]"
         />
         {lines.map((line, index) => (
           <LineWithAnimation

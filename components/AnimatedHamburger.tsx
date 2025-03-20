@@ -22,12 +22,12 @@ const AnimatedHamburger = ({ isOpen, toggle }: AnimatedHamburgerProps) => {
       <motion.span
         variants={topLineVariants}
         animate={isOpen ? "open" : "closed"}
-        className="w-10 h-[2px] bg-secondary/60 mb-2 transform origin-center"
+        className="w-10 h-[3px] bg-primary mb-2 transform origin-center"
       />{" "}
       <motion.span
         variants={bottomLineVariants}
         animate={isOpen ? "open" : "closed"}
-        className="w-10 h-[2px] bg-secondary transform origin-center"
+        className="w-10 h-[3px] bg-primary transform origin-center"
       />{" "}
     </button>
   );

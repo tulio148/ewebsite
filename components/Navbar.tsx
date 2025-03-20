@@ -22,26 +22,26 @@ const menuVariants = {
     clipPath: "circle(30px at calc(100% - 40px) 40px)",
     transition: {
       duration: 0.01,
-      // when: "afterChildren",
-      // staggerChildren: 0.05,
-      // staggerDirection: -1,
     },
   },
   open: {
     opacity: 1,
     clipPath: "circle(150% at calc(100% - 40px) 40px)",
     transition: {
-      duration: 0.3,
+      duration: 0.5,
       when: "beforeChildren",
-      staggerChildren: 0.05,
-      staggerDirection: -1,
+      staggerChildren: 0.02,
     },
   },
 };
-
 const itemVariants = {
   closed: { opacity: 0, scaleY: 0.1 },
-  open: { opacity: 1, scaleY: 1, transition: { duration: 0.1 } },
+  open: {
+    opacity: 1,
+    scaleY: 1,
+    originY: 1, // Scale from the top
+    transition: { duration: 0.1 },
+  },
 };
 
 // Navigation links with corresponding paths
@@ -76,6 +76,7 @@ const Navbar = () => {
   // Close menu when a link is clicked
   const handleLinkClick = () => {
     setIsMenuOpen(false);
+    setHasScrolled(false);
   };
 
   return (
@@ -87,7 +88,7 @@ const Navbar = () => {
       animate={hasScrolled ? "visible" : "hidden"}
       variants={navbarVariants}
     >
-      <div className="container mx-auto pr-8 sm:px-16 md:px-24 lg:px-32">
+      <div className="container mx-auto pr-8 sm:px-16  ">
         <div className="flex justify-between items-center h-12">
           <Link href="/" className="text-xl font-bold text-gray-800">
             <Image
@@ -113,7 +114,7 @@ const Navbar = () => {
             animate="open"
             exit="closed"
             variants={menuVariants}
-            className="fixed inset-0 bg-white flex flex-col items-center justify-center z-40"
+            className="fixed inset-0 bg-white flex flex-col items-center justify-center z-40 "
           >
             <div className="flex flex-col justify-center h-full w-full px-10 max-w-4xl">
               <motion.div variants={itemVariants} className="mb-12">

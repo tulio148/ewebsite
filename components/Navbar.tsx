@@ -21,25 +21,25 @@ const menuVariants = {
     opacity: 0,
     clipPath: "circle(30px at calc(100% - 40px) 40px)",
     transition: {
-      duration: 0.01,
+      duration: 0.05,
     },
   },
   open: {
     opacity: 1,
     clipPath: "circle(150% at calc(100% - 40px) 40px)",
     transition: {
-      duration: 0.5,
+      duration: 0.1,
       when: "beforeChildren",
-      staggerChildren: 0.02,
+      staggerChildren: 0.015,
     },
   },
 };
 const itemVariants = {
-  closed: { opacity: 0, scaleY: 0.1 },
+  closed: { opacity: 0, scaleY: 0.1, transition: { duration: 0.2 } },
   open: {
     opacity: 1,
     scaleY: 1,
-    originY: 1, // Scale from the top
+    originY: 1,
     transition: { duration: 0.1 },
   },
 };
@@ -88,7 +88,7 @@ const Navbar = () => {
       animate={hasScrolled ? "visible" : "hidden"}
       variants={navbarVariants}
     >
-      <div className="container mx-auto pr-8 sm:px-16  ">
+      <div className="container mx-auto pr-2 sm:pr-0 sm:px-16  ">
         <div className="flex justify-between items-center h-12">
           <Link href="/" className="text-xl font-bold text-gray-800">
             <Image
@@ -137,7 +137,7 @@ const Navbar = () => {
                     href={path}
                     onClick={handleLinkClick}
                   >
-                    <button className="flex items-center gap-2 text-6xl font-thin tracking-wider text-primary hover:text-primary/80 transition-colors">
+                    <button className="flex items-center gap-2 text-5xl font-thin tracking-wider text-primary hover:text-primary/80 transition-colors">
                       {name}{" "}
                       <motion.div
                         whileHover={{ x: 5 }}

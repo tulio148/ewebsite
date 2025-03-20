@@ -9,15 +9,15 @@ const AnimatedHamburger = ({ isOpen, toggle }: AnimatedHamburgerProps) => {
       y: 0,
       transition: {
         ease: "easeOut",
-        duration: 0.2,
+        duration: 0.15,
       },
     },
     open: {
       rotate: 45,
       y: 10, // Adjusted for three lines
       transition: {
-        y: { duration: 0.1, ease: "easeOut" },
-        rotate: { delay: 0.05, duration: 0.2, ease: [0.4, 0.0, 0.2, 1] },
+        y: { duration: 0.05, ease: "easeOut" },
+        rotate: { delay: 0.05, duration: 0.15, ease: [0.4, 0.0, 0.2, 1] },
       },
     },
   };
@@ -60,26 +60,24 @@ const AnimatedHamburger = ({ isOpen, toggle }: AnimatedHamburgerProps) => {
   return (
     <button onClick={toggle}>
       <motion.div
-        className="flex flex-col items-center justify-center p-2 rounded-lg  transition-colors duration-200  focus:outline-none"
+        className="group flex flex-col items-center justify-center p-2 rounded-lg  transition-colors duration-200  focus:outline-none"
         whileTap={{ scale: 0.95 }}
       >
         <motion.span
           variants={topLineVariants}
           animate={isOpen ? "open" : "closed"}
-          className="w-12 h-[3px] bg-gradient-to-r from-primary/60 to-primary/80 mb-2 rounded-full shadow-sm"
-          whileHover={{ backgroundColor: "var(--primary-dark)", opacity: 0.9 }}
+          className="w-12 h-[3px] bg-gradient-to-r from-primary to-primary/60 mb-2 rounded-full shadow-sm"
         />
         <motion.span
           variants={middleLineVariants}
           animate={isOpen ? "open" : "closed"}
-          className="w-12 h-[3px] bg-gradient-to-r from-primary/70 to-primary/90 mb-2 rounded-full shadow-sm"
-          whileHover={{ backgroundColor: "var(--primary-dark)", opacity: 0.9 }}
+          className="w-12 h-[3px] bg-gradient-to-r from-primary to-primary/60 mb-2 rounded-full shadow-sm transition-all duration-200 group-hover:w-6 group-hover:bg-primary/40 self-end"
         />
+
         <motion.span
           variants={bottomLineVariants}
           animate={isOpen ? "open" : "closed"}
-          className="w-12 h-[3px] bg-gradient-to-r from-primary/80 to-primary rounded-full shadow-sm"
-          whileHover={{ backgroundColor: "var(--primary-dark)", opacity: 0.9 }}
+          className="w-12 h-[3px] bg-gradient-to-r from-primary to-primary/60 rounded-full shadow-sm"
         />
       </motion.div>
     </button>

@@ -25,7 +25,7 @@ const AnimatedHeading: React.FC<AnimatedHeadingProps> = ({
 
   return (
     <motion.h2
-      className={`text-5xl md:text-6xl font-medium text-left bg-clip-text text-transparent drop-shadow-lg pb-2 ${className}`}
+      className={`text-5xl md:text-6xl font-medium text-left bg-clip-text text-transparent drop-shadow-lg  ${className}`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.7, ease: "easeOut" }}

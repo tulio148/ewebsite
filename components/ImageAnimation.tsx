@@ -1,7 +1,5 @@
 "use client";
 
-import type React from "react";
-
 import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, useAnimation, useInView, type Variants } from "framer-motion";
@@ -13,13 +11,15 @@ export interface TextInfusedImageProps {
 }
 
 const imageAnimation: Variants = {
-  hidden: { opacity: 0, scale: 0.9 },
   visible: {
-    opacity: 1,
-    scale: 1,
+    scale: [1, 1.3, 1],
     transition: {
-      duration: 0.6,
-      ease: "easeOut",
+      scale: {
+        repeat: Infinity,
+        duration: 12,
+        ease: "easeIn",
+        times: [0, 0.7, 1],
+      },
     },
   },
 };
@@ -39,31 +39,22 @@ export const ImageAnimation: React.FC<TextInfusedImageProps> = ({
   }, [isInView, controls]);
 
   return (
-    <div
-      className={cn("flex flex-col items-center relative w-full", className)}
-      ref={ref}
-    >
-      {/* Image with animation */}
+    <div className={cn("relative w-full overflow-hidden", className)} ref={ref}>
       <motion.div
-        className="overflow-hidden rounded-lg shadow-lg w-full"
+        className="rounded-lg shadow-lg w-full will-change-transform"
         initial="hidden"
         animate={controls}
         variants={imageAnimation}
       >
-        <div className="w-full h-screen sm:h-auto flex items-center justify-center overflow-hidden">
-          <Image
-            src={image || "/placeholder.svg"}
-            alt={image}
-            width={1200}
-            height={800}
-            className="w-full object-cover h-[500px] sm:h-full transition-transform duration-300 ease-in-out"
-            // style={{ maxHeight: "100vh" }}
-            priority
-          />
-        </div>
+        <Image
+          src={image || "/placeholder.svg"}
+          alt={image}
+          width={1200}
+          height={800}
+          className="w-full h-[500px] sm:h-auto object-cover"
+          priority
+        />
       </motion.div>
-
-      {/* Text with separate animation */}
     </div>
   );
 };

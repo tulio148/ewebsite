@@ -27,7 +27,7 @@ const ScrollProgressSection: React.FC<SectionProps> = ({
     offset: ["start start", "end end"],
   });
 
-  const yRange = useTransform(scrollYProgress, [0, 0.8], [0, 1]);
+  const yRange = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
   const pathLength = useSpring(yRange, { stiffness: 300, damping: 40 });
   const opacity = useTransform(scrollYProgress, [0, 0.3], [0.6, 1]);
 
@@ -85,7 +85,7 @@ const ScrollProgressSection: React.FC<SectionProps> = ({
                 scrollYProgress={scrollYProgress}
                 index={idx}
                 className="text-white"
-                delay={idx * 0.3}
+                delay={idx * 0.1}
               />
             ))}
           </div>
@@ -117,7 +117,7 @@ export const AnimatedScrollProgress: React.FC<ScrollProgressProps> = ({
         <ScrollProgressSection
           key={section.id}
           {...section}
-          className="h-[200vh] max-w-7xl"
+          className="h-[150vh] max-w-7xl"
         />
       ))}
     </div>

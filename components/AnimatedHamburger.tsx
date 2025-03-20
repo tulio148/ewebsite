@@ -4,13 +4,13 @@ type AnimatedHamburgerProps = { isOpen: boolean; toggle: () => void };
 
 const AnimatedHamburger = ({ isOpen, toggle }: AnimatedHamburgerProps) => {
   const topLineVariants = {
-    closed: { rotate: 0, y: 0, rotateX: 0, transition: { duration: 0.2 } },
-    open: { rotate: 45, y: 5, rotateX: 180, transition: { duration: 0.3 } },
+    closed: { rotate: 0, y: 0, rotateX: 0, transition: { duration: 0.1 } },
+    open: { rotate: 45, y: 5, rotateX: 180, transition: { duration: 0.4 } },
   };
 
   const bottomLineVariants = {
-    closed: { rotate: 0, y: 0, rotateY: 0, transition: { duration: 0.2 } },
-    open: { rotate: -45, y: -5, rotateY: 180, transition: { duration: 0.3 } },
+    closed: { rotate: 0, y: 0, rotateY: 0, transition: { duration: 0.1 } },
+    open: { rotate: -45, y: -5, rotateY: 180, transition: { duration: 0.4 } },
   };
 
   return (
@@ -22,7 +22,7 @@ const AnimatedHamburger = ({ isOpen, toggle }: AnimatedHamburgerProps) => {
       <motion.span
         variants={topLineVariants}
         animate={isOpen ? "open" : "closed"}
-        className="w-10 h-[2px] bg-secondary mb-2 transform origin-center"
+        className="w-10 h-[2px] bg-secondary/60 mb-2 transform origin-center"
       />{" "}
       <motion.span
         variants={bottomLineVariants}

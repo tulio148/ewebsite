@@ -4,6 +4,7 @@ import { ImageAnimation } from "@/components/ImageAnimation";
 import { ServicesCarousel } from "@/components/ServicesCarousel";
 import { ScrollSectionWithImage } from "@/components/ScrollSectionWithImage";
 import { WorkShowcase } from "@/components/WorkShowcase";
+import RevealImage from "@/components/RevealImage";
 // import * as headings from "@/lib/headings";
 const services = [
   {
@@ -125,7 +126,6 @@ export default function Home() {
       <HeroSection />
       <div className="h-[40px] "></div>
       <ImageAnimation image="heroImag.jpeg" className="" />
-      {/* About Section */}
       <ScrollSectionWithImage
         heading="About Us"
         lines={[
@@ -138,6 +138,10 @@ export default function Home() {
         imageAlt="Our team at work"
         imagePosition="left"
         className="py-24"
+      />
+      <RevealImage
+        featuredMobileBanner="/handshake.jpg"
+        bigBanner="/handshake.jpg"
       />
 
       {/* Services Section */}

@@ -82,13 +82,13 @@ const Navbar = () => {
   return (
     <motion.nav
       className={
-        "fixed top-0 left-0 p-4 right-0 bg-gradient-to-b from-accent/90 to-accent/95 z-50"
+        "fixed top-0 left-0 px-6 py-4 right-0 bg-gradient-to-b from-accent/90 to-accent/95 z-50"
       }
       initial="hidden"
       animate={hasScrolled ? "visible" : "hidden"}
       variants={navbarVariants}
     >
-      <div className="container mx-auto pr-2 sm:pr-0 sm:px-16  ">
+      <div className="container mx-auto  sm:px-16  ">
         <div className="flex justify-between items-center h-12">
           <Link href="/" className="text-xl font-bold text-gray-800">
             <Image
@@ -97,12 +97,10 @@ const Navbar = () => {
               width={30}
               height={20}
               priority={true}
-              className="mx-auto h-auto w-[150px] lg:w-[200px]"
+              className="mx-auto h-auto w-[120px] lg:w-[150px]"
             />
           </Link>
-          <div className="z-50">
-            <AnimatedHamburger isOpen={isMenuOpen} toggle={toggleMenu} />
-          </div>
+          <AnimatedHamburger isOpen={isMenuOpen} toggle={toggleMenu} />
         </div>
       </div>
 

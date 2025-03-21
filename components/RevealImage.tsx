@@ -31,7 +31,13 @@ const revealVariants = {
   },
 };
 
-const RevealImage = ({ featuredMobileBanner, bigBanner }) => {
+const RevealImage = ({
+  featuredMobileBanner,
+  bigBanner,
+}: {
+  featuredMobileBanner: string;
+  bigBanner: string;
+}) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {

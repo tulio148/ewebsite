@@ -11,9 +11,9 @@ const imageVariants = {
   visible: {
     scale: 1,
     transition: {
-      duration: 1,
+      duration: 1.4,
       ease: [0.6, 0.05, -0.01, 0.9],
-      delay: 0.2,
+      delay: 0.3,
     },
   },
 };
@@ -31,13 +31,7 @@ const revealVariants = {
   },
 };
 
-const RevealImage = ({
-  featuredMobileBanner,
-  bigBanner,
-}: {
-  featuredMobileBanner: string;
-  bigBanner: string;
-}) => {
+const RevealImage = ({ featuredMobileBanner, bigBanner }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -53,7 +47,7 @@ const RevealImage = ({
   return (
     <div className="relative mx-auto w-full overflow-hidden">
       <motion.div
-        className="absolute top-0 left-0 h-full w-full bg-background"
+        className="absolute top-0 left-0 h-full w-full bg-background z-20"
         variants={revealVariants}
         initial="hidden"
         whileInView="visible"
@@ -61,7 +55,7 @@ const RevealImage = ({
       />
       <motion.div
         className={`relative ${
-          isMobile ? "h-[300px] " : "w-full max-h-[80vh]"
+          isMobile ? "h-[300px]" : "w-full max-h-[80vh]"
         } overflow-hidden`}
         variants={imageVariants}
         initial="hidden"

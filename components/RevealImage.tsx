@@ -27,6 +27,7 @@ const revealVariants = {
     transition: {
       duration: 1,
       ease: [0.6, 0.05, -0.01, 0.9],
+      // delay: 0.5, // Slightly later than the image
     },
   },
 };
@@ -61,12 +62,12 @@ const RevealImage = ({
       />
       <motion.div
         className={`relative ${
-          isMobile ? "h-[300px]" : "w-full max-h-[80vh]"
+          isMobile ? "h-[350px]" : "w-full max-h-[80vh]"
         } overflow-hidden`}
         variants={imageVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ amount: 0.25, once: true }}
+        viewport={{ amount: 0.1, once: true }}
       >
         {isMobile ? (
           <Image

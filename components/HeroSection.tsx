@@ -12,7 +12,7 @@ const bodoniModa = Bodoni_Moda({
 });
 
 const raleway = Raleway({
-  weight: ["100"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });
 
@@ -22,7 +22,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 h-[170vh]  ">
         <FloatingPaths position={0} />
       </div>
-      <section className="relative min-h-screen max-w-7xl w-full flex flex-col mx-auto sm:pt-16 mb-96">
+      <section className="relative min-h-screen max-w-7xl flex flex-col mx-auto sm:pt-16 mb-96  pb-96">
         <div
           className={`relative flex flex-col justify-around px-7 z-10 mx-auto h-screen ${raleway.className}`}
         >
@@ -45,7 +45,7 @@ const heroText = [
     AI powered&nbsp;
   </span>,
   <em className=" text-primary " key="6">
-    solutions&nbsp;
+    assistants&nbsp;
   </em>,
   <span key="7">to&nbsp;</span>,
   <span key="8">drive&nbsp;</span>,

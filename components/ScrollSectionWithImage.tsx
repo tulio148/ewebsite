@@ -7,6 +7,7 @@ import AnimatedHeading from "./AnimatedHeading";
 import LineWithAnimation from "./LineWithAnimation";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import ScrollProgressBar from "./ScrollProgressBar";
+import AnimatedSubtitle from "./AnimatedSubtitle";
 
 interface AnimatedHeroSectionProps {
   lines: ReactNode[];
@@ -14,6 +15,7 @@ interface AnimatedHeroSectionProps {
   imageAlt: string;
   className?: string;
   heading: ReactNode;
+  subtitle?: ReactNode;
   imagePosition?: "left" | "right";
 }
 
@@ -23,6 +25,7 @@ export function ScrollSectionWithImage({
   imageAlt,
   className,
   heading,
+  subtitle,
   imagePosition = "right",
 }: AnimatedHeroSectionProps) {
   const sectionRef = useRef(null);
@@ -40,6 +43,11 @@ export function ScrollSectionWithImage({
     [0, 0.5],
     imagePosition === "left" ? [-5, 0] : [5, 0]
   );
+  const bgScale = useTransform(scrollYProgress, [0, 1], [0.5, 1.5]);
+  const bgOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0.5]);
+  const bgScale2 = useTransform(scrollYProgress, [0, 1], [1.5, 0.8]);
+  const bgOpacity2 = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 1, 0.3]);
+
   const mobileAnimation = {
     scale: [1, 1.3, 1],
     transition: {
@@ -52,25 +60,28 @@ export function ScrollSectionWithImage({
     },
   };
 
-  const bgScale = useTransform(scrollYProgress, [0, 1], [0.5, 1.5]);
-  const bgOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0.5]);
-  const bgScale2 = useTransform(scrollYProgress, [0, 1], [1.5, 0.8]);
-  const bgOpacity2 = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 1, 0.3]);
-
   const textContent = (
-    <div className="px-4 md:px-4">
+    <div className="px-4 md:px-4 ">
       <AnimatedHeading
         scrollYProgress={scrollYProgress}
         heading={heading}
-        className="pb-10"
+        className=" sm:pb-8 text-4xl "
       />
 
       {!isMobile && (
         <ScrollProgressBar
           scrollYProgress={scrollYProgress}
-          className="mt-[-50px]"
+          className="mt-[-41px]"
         />
       )}
+      {subtitle && (
+        <AnimatedSubtitle
+          scrollYProgress={scrollYProgress}
+          subtitle={subtitle}
+          className="mt-4 mb-8  text-balance text-justify "
+        />
+      )}
+
       <div className="mb-3 md:mb-4">
         {lines.map((line, index) => (
           <LineWithAnimation
@@ -80,6 +91,7 @@ export function ScrollSectionWithImage({
             index={index}
             delay={0.2}
             isMobile={isMobile}
+            className="mb-1"
           />
         ))}
       </div>

@@ -1,3 +1,4 @@
+// Web services page lines
 export const firstSectionLines = [
   <>
     The web is changing <span className="text-primary font-bold">quick</span>,
@@ -48,7 +49,9 @@ export const secondSectionLines = [
   </>,
   <>
     <>
-      <span className="text-primary font-bold">It’s your turn to upgrade.</span>
+      <span className="text-primary font-bold">
+        It&apos;s your turn to upgrade.
+      </span>
     </>
   </>,
 ];
@@ -66,8 +69,8 @@ export const thirdSectionLines = [
     visitors longer.
   </>,
   <>
-    If your site isn’t{" "}
-    <span className="text-primary font-bold">mobile-friendly</span>, you’re{" "}
+    If your site isn&apos;t{" "}
+    <span className="text-primary font-bold">mobile-friendly</span>, you&apos;re{" "}
     <em>losing business.</em>
   </>,
 
@@ -76,3 +79,34 @@ export const thirdSectionLines = [
     <span className="text-primary font-bold">traffic and customers.</span>
   </>,
 ];
+
+// Home page lines
+export const homeLines = {
+  businessGrowth: [
+    <>
+      <span className="text-primary font-medium">Attract more customers</span>{" "}
+      with <em>fast, eye-catching websites</em>.
+    </>,
+    <>
+      <span className="text-primary font-medium">Delight customers</span> with{" "}
+      <em>AI-powered support</em>.
+    </>,
+    <>
+      <span className="text-primary font-medium">
+        Save time and work smarter
+      </span>{" "}
+      with <em>custom web apps</em>.
+    </>,
+    <>
+      <span className="text-primary font-medium">Grow your business</span>{" "}
+      easily with <em>reliable, future-ready tech</em>.
+    </>,
+  ],
+};
+
+// Organized web services lines
+export const webServicesLines = {
+  first: firstSectionLines,
+  second: secondSectionLines,
+  third: thirdSectionLines,
+};

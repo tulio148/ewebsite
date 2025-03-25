@@ -17,7 +17,7 @@ const ScrollProgressBar: React.FC<ScrollProgressBarProps> = ({
 
   return (
     <motion.div
-      className={` w-full h-[2px] bg-primary/50 mb-8 sm:mb-12 sticky shadow-lg   
+      className={` w-full h-[2px] bg-primary/50 sticky shadow-lg   
         ${hasOriginClass ? "" : "origin-left"} ${className}`}
       style={{ scaleX: scrollYProgress }}
     />

@@ -27,7 +27,7 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
       ref={ref}
       className={`p-8 relative h-[200vh] flex flex-col items-center ${className} mb-96`}
     >
-      <motion.div className="flex flex-col justify-center sticky h-screen top-0 py-20 sm:py-32 max-w-7xl">
+      <motion.div className="flex flex-col justify-center sticky h-screen top-0 py-20 sm:py-32 max-w-8xl">
         <AnimatedHeading scrollYProgress={scrollYProgress} heading={heading} />
         <ScrollProgressBar
           scrollYProgress={scrollYProgress}

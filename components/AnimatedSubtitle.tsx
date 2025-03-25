@@ -2,18 +2,18 @@
 import { motion, MotionValue, useTransform } from "framer-motion";
 import React, { ReactNode } from "react";
 
-interface AnimatedHeadingProps {
+interface AnimatedSubtitleProps {
   scrollYProgress: MotionValue<number>;
+  subtitle: ReactNode;
   className?: string;
-  heading: ReactNode;
 }
 
-const AnimatedHeading: React.FC<AnimatedHeadingProps> = ({
+const AnimatedSubtitle: React.FC<AnimatedSubtitleProps> = ({
   scrollYProgress,
+  subtitle,
   className = "",
-  heading,
 }) => {
-  const gradient = useTransform(
+  const subtitleGradient = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
     [
@@ -24,16 +24,19 @@ const AnimatedHeading: React.FC<AnimatedHeadingProps> = ({
   );
 
   return (
-    <motion.h2
-      className={`text-6xl font-medium text-left bg-clip-text text-transparent drop-shadow-lg  ${className}`}
+    <motion.h3
+      className={`text-2xl leading-tight font-light tracking-wider bg-clip-text text-transparent drop-shadow-lg  ${className}`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-      style={{ backgroundImage: gradient, backgroundSize: "200%" }}
+      transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+      style={{
+        backgroundImage: subtitleGradient,
+        backgroundSize: "200%",
+      }}
     >
-      {heading}
-    </motion.h2>
+      {subtitle}
+    </motion.h3>
   );
 };
 
-export default AnimatedHeading;
+export default AnimatedSubtitle;

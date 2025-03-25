@@ -14,7 +14,7 @@ const AnimatedHamburger = ({ isOpen, toggle }: AnimatedHamburgerProps) => {
     },
     open: {
       rotate: 45,
-      y: 10, // Adjusted for three lines
+      y: 10,
       transition: {
         y: { duration: 0.05, ease: "easeOut" },
         rotate: { delay: 0.05, duration: 0.15, ease: [0.4, 0.0, 0.2, 1] },
@@ -66,18 +66,18 @@ const AnimatedHamburger = ({ isOpen, toggle }: AnimatedHamburgerProps) => {
         <motion.span
           variants={topLineVariants}
           animate={isOpen ? "open" : "closed"}
-          className="w-12 h-[2px] bg-gradient-to-r from-primary to-primary/40 mb-2 rounded-full shadow-sm"
+          className="w-12 h-[2px] bg-gradient-to-r from-primary/60 via-primary to-primary/60 mb-2 rounded-full shadow-sm"
         />
         <motion.span
           variants={middleLineVariants}
           animate={isOpen ? "open" : "closed"}
-          className="w-12 h-[2px] bg-gradient-to-r from-primary to-primary/40 mb-2 rounded-full shadow-sm transition-all duration-200 group-hover:w-6 group-hover:bg-primary/40 self-end"
+          className="w-12 h-[2px] bg-gradient-to-r from-primary/60 via-primary to-primary/60 mb-2 rounded-full shadow-sm transition-all duration-200 group-hover:w-6 group-hover:bg-primary/40 self-end"
         />
 
         <motion.span
           variants={bottomLineVariants}
           animate={isOpen ? "open" : "closed"}
-          className="w-12 h-[2px] bg-gradient-to-r from-primary to-primary/40 rounded-full shadow-sm"
+          className="w-12 h-[2px] bg-gradient-to-r from-primary/60 via-primary to-primary/60 rounded-full shadow-sm"
         />
       </motion.div>
     </button>

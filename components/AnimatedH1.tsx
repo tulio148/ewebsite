@@ -7,33 +7,46 @@ interface AnimatedTextProps {
 }
 
 const AnimatedH1 = ({ children }: AnimatedTextProps) => {
+  const processedChildren = children
+    .map((child) => {
+      if (typeof child === "string") {
+        return child.split(" ");
+      }
+      return [child];
+    })
+    .flat();
+
   return (
-    <motion.h1
-      layout
-      className="text-5xl sm:text-6xl md:text-7xl  mb-4 pb-8 sm:pl-12 sm:w-3/4 text-justify"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.7 }}
-    >
-      {children.map((node, i) => (
-        <span key={i} className="inline-block">
+    <h1 className="relative text-5xl sm:text-6xl mb-4 pb-8 sm:pl-12 sm:w-3/4 text-justify overflow-hidden">
+      <span className="sr-only">
+        {children.map((child) => (typeof child === "string" ? child : ""))}
+      </span>
+      <span aria-hidden="true" className="flex flex-wrap">
+        {processedChildren.map((word, index) => (
           <motion.span
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{
-              delay: i * 0.1,
-              duration: 1,
-              type: "spring",
-              stiffness: 100,
-              damping: 40,
+            key={`word-${index}`}
+            initial={{
+              opacity: 0,
+              filter: "blur(5px)",
             }}
-            className="inline-block tracking-wider leading-none text-secondary/70 font-thin"
+            animate={{
+              opacity: 1,
+              filter: "blur(0px)",
+            }}
+            transition={{
+              duration: 0.7,
+              delay: index * 0.1,
+              ease: "easeInOut",
+              type: "spring",
+              bounce: 0,
+            }}
+            className="inline-block mx-1 tracking-wider leading-none text-secondary/70 font-thin"
           >
-            {node}
+            {word}
           </motion.span>
-        </span>
-      ))}
-    </motion.h1>
+        ))}
+      </span>
+    </h1>
   );
 };
 

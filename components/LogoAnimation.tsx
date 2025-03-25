@@ -9,9 +9,8 @@ const LogoAnimation = () => {
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
         transition={{
           duration: 1,
-          // Adjust delay to start after text animation finishes
-          delay: 0.7 + 0.1 * 10, // Assuming ~6 words in the text
-          type: "spring", // Changed to spring for consistency
+          delay: 0.7 + 0.1 * 10,
+          type: "spring",
           stiffness: 100,
           damping: 100,
         }}
@@ -31,8 +30,7 @@ const LogoAnimation = () => {
         style={{ marginBottom: "40px" }}
         transition={{
           duration: 1,
-          // Slightly earlier than the first logo part
-          delay: 0.7 + 0.1 * 10, // Also based on text length
+          delay: 0.7 + 0.1 * 10,
           type: "spring",
           stiffness: 200,
           damping: 100,

@@ -27,7 +27,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-accent pt-12 pb-6">
+    <footer className="bg-primary sticky bottom-0 w-full text-white pt-12 pb-6 -z-50">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Logo and description */}
@@ -49,7 +49,7 @@ const Footer = () => {
 
           {/* Navigation links */}
           <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-xl font-bold text-primary mb-4">Navigation</h3>
+            <h3 className="text-xl font-bold text-white mb-4">Navigation</h3>
             <ul className="space-y-2">
               {footerLinks.map((link) => (
                 <li key={link.id}>
@@ -66,7 +66,7 @@ const Footer = () => {
 
           {/* Contact information */}
           <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-xl font-bold text-primary mb-4">Connect</h3>
+            <h3 className="text-xl font-bold text-white mb-4">Connect</h3>
             <ul className="space-y-2">
               {socialLinks.map((link) => (
                 <li key={link.name}>
@@ -74,7 +74,7 @@ const Footer = () => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-gray-800 transition-colors"
+                    className="text-white hover:text-gray-800 transition-colors"
                   >
                     {link.name}
                   </a>
@@ -82,8 +82,8 @@ const Footer = () => {
               ))}
             </ul>
             <div className="mt-4">
-              <p className="text-gray-600">info@edgeify.com</p>
-              <p className="text-gray-600">+1 (123) 456-7890</p>
+              <p className="text-white">info@edgeify.com</p>
+              <p className="text-white">+1 (123) 456-7890</p>
             </div>
           </div>
         </div>

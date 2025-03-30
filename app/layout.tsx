@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${urbanist.className}  antialiased`}>
         <Navbar />
-        <main className="">{children}</main>
+        <main className="bg-white">{children}</main>
         <Footer />
       </body>
     </html>

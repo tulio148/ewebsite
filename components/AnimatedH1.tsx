@@ -17,7 +17,10 @@ const AnimatedH1 = ({ children }: AnimatedTextProps) => {
     .flat();
 
   return (
-    <h1 className="relative text-5xl sm:text-6xl mb-4 pb-8 sm:pl-12 sm:w-3/4 text-justify overflow-hidden">
+    <h1
+      className="relative text-5xl sm:text-6xl xl:text-7xl mb-4 pb-8 sm:pl-12 md:w-3/4 
+      "
+    >
       <span className="sr-only">
         {children.map((child) => (typeof child === "string" ? child : ""))}
       </span>
@@ -27,20 +30,23 @@ const AnimatedH1 = ({ children }: AnimatedTextProps) => {
             key={`word-${index}`}
             initial={{
               opacity: 0,
-              filter: "blur(5px)",
+
+              filter: "blur(1px)",
             }}
             animate={{
               opacity: 1,
               filter: "blur(0px)",
             }}
             transition={{
-              duration: 0.7,
-              delay: index * 0.1,
-              ease: "easeInOut",
-              type: "spring",
-              bounce: 0,
+              duration: 0.5,
+              delay: index * 0.02,
+              ease: "easeIn",
+              type: "tween",
             }}
-            className="inline-block mx-1 tracking-wider leading-none text-secondary/70 font-thin"
+            style={{
+              WebkitTextStroke: "1.5px #2596be",
+            }}
+            className="inline-block m-1  hero-title leading-none font-semibold  bg-clip-text text-transparent   "
           >
             {word}
           </motion.span>

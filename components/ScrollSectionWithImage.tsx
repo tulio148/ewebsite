@@ -145,7 +145,7 @@ export function ScrollSectionWithImage({
   return (
     <div
       ref={sectionRef}
-      className={`relative px-4 sm:px-6 md:px-8 md:min-h-[200vh] flex flex-col items-center ${className} mb-72 lg:mb-96`}
+      className={`relative px-4 bg-white sm:px-6 md:px-8 md:min-h-[200vh] flex flex-col items-center ${className} mb-72 lg:mb-96`}
     >
       <motion.div
         className={`flex flex-col h-[calc(100vh-64px)] justify-center w-full max-w-7xl ${

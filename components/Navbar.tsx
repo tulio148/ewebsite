@@ -129,7 +129,11 @@ const Navbar = () => {
               </motion.div>
 
               {NAV_LINKS.map(({ name, path }) => (
-                <motion.div key={name} variants={itemVariants} className="mb-6">
+                <motion.div
+                  key={name}
+                  variants={itemVariants}
+                  className="mb-6 relative"
+                >
                   <Link
                     className="flex items-center w-fit"
                     href={path}

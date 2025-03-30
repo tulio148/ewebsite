@@ -8,11 +8,11 @@ const LogoAnimation = () => {
         initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
         transition={{
-          duration: 1,
-          delay: 0.7 + 0.1 * 10,
+          duration: 0.2,
+          delay: 0.05 * 10,
           type: "spring",
-          stiffness: 100,
-          damping: 100,
+          stiffness: 200,
+          damping: 50,
         }}
       >
         <Image
@@ -29,11 +29,11 @@ const LogoAnimation = () => {
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
         style={{ marginBottom: "40px" }}
         transition={{
-          duration: 1,
-          delay: 0.7 + 0.1 * 10,
+          duration: 0.2,
+          delay: 0.05 * 10,
           type: "spring",
           stiffness: 200,
-          damping: 100,
+          damping: 50,
         }}
       >
         <Image

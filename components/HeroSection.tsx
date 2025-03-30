@@ -6,9 +6,9 @@ import AnimatedH1 from "./AnimatedH1";
 import { Bodoni_Moda, Raleway } from "next/font/google";
 
 const bodoniModa = Bodoni_Moda({
-  weight: ["400"],
-  subsets: ["latin"],
-  style: ["italic"],
+  weight: ["700"],
+  // subsets: ["latin"],
+  // style: ["italic"],
 });
 
 const raleway = Raleway({
@@ -35,22 +35,40 @@ export default function HeroSection() {
 }
 
 const heroText = [
-  <span key="1">fast,&nbsp;</span>,
-  <span key="2">smart&nbsp;</span>,
-  <span className=" text-primary " key="3">
+  <span key="1" className="  bg-primary  bg-clip-text ">
+    fast,&nbsp;
+  </span>,
+  <span key="2" className="  bg-primary  bg-clip-text ">
+    smart&nbsp;
+  </span>,
+  <span className=" bg-gradient-to-t from-primary/90  bg-clip-text " key="3">
     websites&nbsp;
   </span>,
-  <span key="4">and&nbsp;</span>,
-  <span key="5" className="  text-primary    ">
+  <span key="4" className="  bg-gradient-to-b from-primary/20 bg-clip-text ">
+    and&nbsp;
+  </span>,
+  <span
+    key="5"
+    className="  bg-gradient-to-t from-primary/90 to-white bg-clip-text "
+  >
     AI powered&nbsp;
   </span>,
-  <em className=" text-primary " key="6">
-    assistants&nbsp;
+  <em className=" bg-gradient-to-t from-primary/90 bg-clip-text " key="6">
+    solutions&nbsp;
   </em>,
-  <span key="7">to&nbsp;</span>,
-  <span key="8">drive&nbsp;</span>,
-  <span key="9">your&nbsp;</span>,
-  <em key="10" className={`${bodoniModa.className} text-primary font-bold`}>
+  <span key="7" className="  bg-gradient-to-b from-primary/20 bg-clip-text">
+    to&nbsp;
+  </span>,
+  <span key="8" className="  bg-gradient-to-b from-primary/20 bg-clip-text">
+    drive&nbsp;
+  </span>,
+  <span key="9" className="  bg-gradient-to-b from-primary/20 bg-clip-text">
+    your&nbsp;
+  </span>,
+  <em
+    key="10"
+    className={`${bodoniModa.className} bg-primary  bg-clip-text tracking-widest font-extrabold`}
+  >
     success.
   </em>,
 ];

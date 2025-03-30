@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+import logoImg from "@/public/LOGO/AVIF/logoImg.avif";
+import logoLetters from "@/public/LOGO/AVIF/logoLetters.avif";
 
 const LogoAnimation = () => {
   return (
@@ -16,10 +18,8 @@ const LogoAnimation = () => {
         }}
       >
         <Image
-          src="/logoup.webp"
+          src={logoImg}
           alt="Edgeify Digital Logo"
-          width={500}
-          height={150}
           priority={true}
           className="responsive-logo mb-2"
         />
@@ -37,10 +37,8 @@ const LogoAnimation = () => {
         }}
       >
         <Image
-          src="/logoLetters.webp"
+          src={logoLetters}
           alt="Edgeify Digital Logo"
-          width={500}
-          height={150}
           priority={true}
           className="mx-auto responsive-logo mb-[-38px]"
         />

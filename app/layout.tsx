@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {

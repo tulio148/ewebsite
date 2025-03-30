@@ -18,7 +18,7 @@ const AnimatedH1 = ({ children }: AnimatedTextProps) => {
 
   return (
     <h1
-      className="relative text-5xl sm:text-6xl xl:text-7xl mb-4 pb-8 sm:pl-12 md:w-3/4 
+      className="relative text-5xl sm:text-6xl xl:text-7xl mb-4 pb-8  md:w-3/4 
       "
     >
       <span className="sr-only">
@@ -44,9 +44,9 @@ const AnimatedH1 = ({ children }: AnimatedTextProps) => {
               type: "tween",
             }}
             style={{
-              WebkitTextStroke: "1.5px #2596be",
+              WebkitTextStroke: "1px #6a5ef0",
             }}
-            className="inline-block m-1  hero-title leading-none font-semibold  bg-clip-text text-transparent   "
+            className="inline-block m-1  hero-title leading-none font-bold  bg-clip-text text-transparent   "
           >
             {word}
           </motion.span>

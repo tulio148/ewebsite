@@ -3,13 +3,7 @@
 import LogoAnimation from "./LogoAnimation";
 import FloatingPaths from "./FloatingPaths";
 import AnimatedH1 from "./AnimatedH1";
-import { Bodoni_Moda, Raleway } from "next/font/google";
-
-const bodoniModa = Bodoni_Moda({
-  weight: ["700"],
-  subsets: ["latin"],
-  // style: ["italic"],
-});
+import { Raleway } from "next/font/google";
 
 const raleway = Raleway({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -35,13 +29,16 @@ export default function HeroSection() {
 }
 
 const heroText = [
-  <span key="1" className="  bg-primary  bg-clip-text ">
+  <span key="1" className="  bg-primary/90  bg-clip-text ">
     fast,&nbsp;
   </span>,
-  <span key="2" className="  bg-primary  bg-clip-text ">
+  <span key="2" className="  bg-primary/90  bg-clip-text ">
     smart&nbsp;
   </span>,
-  <span className=" bg-gradient-to-t from-primary/90  bg-clip-text " key="3">
+  <span
+    className=" bg-gradient-to-t underline decoration-primary decoration-0  from-primary/20  bg-clip-text "
+    key="3"
+  >
     websites&nbsp;
   </span>,
   <span key="4" className="  bg-gradient-to-b from-primary/20 bg-clip-text ">
@@ -49,14 +46,17 @@ const heroText = [
   </span>,
   <span
     key="5"
-    className="  bg-gradient-to-t from-primary/90 to-white bg-clip-text "
+    className="underline decoration-primary decoration-0   bg-gradient-to-t from-primary/20 bg-clip-text "
   >
     AI powered&nbsp;
   </span>,
-  <em className=" bg-gradient-to-t from-primary/90 bg-clip-text " key="6">
+  <em
+    className=" bg-gradient-to-t underline decoration-primary decoration-0  from-primary/20 bg-clip-text "
+    key="6"
+  >
     solutions&nbsp;
   </em>,
-  <span key="7" className="  bg-gradient-to-b from-primary/20 bg-clip-text">
+  <span key="7" className="   bg-gradient-to-b from-primary/20 bg-clip-text">
     to&nbsp;
   </span>,
   <span key="8" className="  bg-gradient-to-b from-primary/20 bg-clip-text">
@@ -65,10 +65,11 @@ const heroText = [
   <span key="9" className="  bg-gradient-to-b from-primary/20 bg-clip-text">
     your&nbsp;
   </span>,
-  <em
+  <span
     key="10"
-    className={`${bodoniModa.className} bg-primary  bg-clip-text tracking-widest font-extrabold`}
+    style={{ WebkitTextStroke: "1px white" }}
+    className={`font-bold bg-gradient-to-r from-primary/90 to-primary/60 rounded-2xl  px-1  text-white  border-b-2 border-accent `}
   >
     success.
-  </em>,
+  </span>,
 ];

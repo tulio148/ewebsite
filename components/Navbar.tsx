@@ -6,6 +6,7 @@ import Link from "next/link";
 import AnimatedHamburger from "./AnimatedHamburger";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
+import logoFull from "@/public/LOGO/AVIF/logoFull.avif";
 
 const navbarVariants = {
   hidden: { y: -80, opacity: 0, transition: { duration: 0.01 } },
@@ -92,10 +93,8 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-12">
           <Link href="/" className="text-xl font-bold text-gray-800">
             <Image
-              src="/fullLogo-removebg.webp"
+              src={logoFull}
               alt="Edgeify Digital Logo"
-              width={30}
-              height={20}
               priority={true}
               className="mx-auto h-auto w-[120px] lg:w-[150px]"
             />
@@ -118,11 +117,11 @@ const Navbar = () => {
               <motion.div variants={itemVariants} className="mb-12">
                 <Link href="/" onClick={handleLinkClick}>
                   <Image
-                    src="/logoup.webp"
+                    src={logoFull}
                     alt="Edgeify Digital Logo"
-                    width={150}
+                    width={200}
                     height={100}
-                    priority={true}
+                    // priority={true}
                     className=""
                   />
                 </Link>

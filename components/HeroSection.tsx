@@ -7,7 +7,7 @@ import { Bodoni_Moda, Raleway } from "next/font/google";
 
 const bodoniModa = Bodoni_Moda({
   weight: ["700"],
-  // subsets: ["latin"],
+  subsets: ["latin"],
   // style: ["italic"],
 });
 

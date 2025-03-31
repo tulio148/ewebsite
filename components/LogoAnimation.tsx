@@ -22,8 +22,9 @@ const LogoAnimation = () => {
           alt="Edgeify Digital Logo"
           width={512}
           height={512}
+          sizes="(min-width: 1200px) 300px, (min-width: 768px) 200px, 150px"
           priority={true}
-          className="responsive-logo mb-2"
+          className="mb-2 w-[150px] md:w-[200px] xl:w-[300px] h-auto"
         />
       </motion.div>
       <motion.div
@@ -43,8 +44,9 @@ const LogoAnimation = () => {
           alt="Edgeify Digital Logo"
           width={512}
           height={512}
+          sizes="(min-width: 1200px) 300px, (min-width: 768px) 200px, 150px"
           priority={true}
-          className="mx-auto responsive-logo mb-[-38px]"
+          className="mx-auto mb-[-38px] w-[150px] md:w-[200px] xl:w-[300px] h-auto"
         />
       </motion.div>
     </div>

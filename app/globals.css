@@ -41,19 +41,6 @@
 }
 
 @layer components {
-  .responsive-logo {
-    width: 150px;
-    height: auto;
-    
-    @media (min-width: 768px) {
-      width: 200px;
-    }
-    
-    @media (min-width: 1200px) {
-      width: 300px;
-    }
-  }
-
   .hero-title {
     text-shadow: 2px  2px 2px hsla(0, 0%, 100%, 0.26);
   }

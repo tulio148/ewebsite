@@ -10,6 +10,8 @@ import ContentSection from "@/components/ContentSection";
 import { contentSections } from "@/lib/contentSections";
 import PerformanceStats from "@/components/PerformanceStats";
 import { optimizedImages } from "@/lib/images";
+import Script from "next/script";
+import { Metadata } from "next";
 import {
   faClock,
   faMoneyBillWave,
@@ -17,9 +19,74 @@ import {
   faChartLine,
 } from "@fortawesome/free-solid-svg-icons";
 
+// Add metadata for this specific page
+export const metadata: Metadata = {
+  title: "Fast & SEO-Optimized Website Development | Edgeify Digital",
+  description:
+    "Edgeify builds lightning-fast, SEO-optimized websites that load in milliseconds, convert visitors into customers, and grow your business.",
+  keywords: [
+    "fast websites",
+    "SEO-optimized websites",
+    "website development",
+    "responsive websites",
+    "business websites",
+  ],
+};
+
+// JSON-LD structured data for services
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Website Development Services",
+  provider: {
+    "@type": "Organization",
+    name: "Edgeify Digital",
+    url: "https://edgeify.digital",
+  },
+  description:
+    "Professional website development with focus on speed, SEO, and conversion optimization.",
+  serviceType: "Website Development",
+  areaServed: "Worldwide",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Website Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Lightning-Fast Websites",
+          description: "Pages load in milliseconds for maximum conversions.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "SEO-Optimized Websites",
+          description: "Get found on Google effortlessly.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Custom and Scalable",
+          description: "Designed for your brand, built to grow.",
+        },
+      },
+    ],
+  },
+};
+
 export default function Home() {
   return (
     <>
+      <Script
+        id="services-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
       <HeroSection />
       <ScrollSection
         lines={webServicesLines.first}

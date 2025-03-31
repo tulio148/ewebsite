@@ -11,8 +11,35 @@ const urbanist = Urbanist({
 });
 
 export const metadata: Metadata = {
-  title: "Edgeify Digital",
-  description: "description",
+  title:
+    "Edgeify Digital | Fast & Optimized Websites, Web Apps, and AI Solutions",
+  description:
+    "Edgeify Digital builds lightning-fast, SEO-optimized websites, custom web applications, and AI assistants that convert visitors into customers and grow your business.",
+  keywords: [
+    "web development",
+    "fast websites",
+    "SEO optimization",
+    "web applications",
+    "AI assistants",
+    "digital solutions",
+  ],
+  openGraph: {
+    title: "Edgeify Digital | Fast & Optimized Digital Solutions",
+    description:
+      "Lightning-fast, SEO-optimized websites and web applications that convert visitors into customers and grow your business.",
+    url: "https://edgeify.digital",
+    siteName: "Edgeify Digital",
+    images: [
+      {
+        url: "/logos/logoImg-128.avif",
+        width: 128,
+        height: 128,
+        alt: "Edgeify Digital Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
   icons: {
     icon: [
       { url: "/logos/logoImg-16.png", sizes: "16x16", type: "image/png" },

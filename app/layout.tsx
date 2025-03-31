@@ -12,7 +12,7 @@ const urbanist = Urbanist({
 
 export const metadata: Metadata = {
   title:
-    "Edgeify Digital | Fast & Optimized Websites, Web Apps, and AI Solutions",
+    "Edgeify Digital | Fast and Optimized Websites, Web Apps, and AI Solutions",
   description:
     "Edgeify Digital builds lightning-fast, SEO-optimized websites, custom web applications, and AI assistants that convert visitors into customers and grow your business.",
   keywords: [

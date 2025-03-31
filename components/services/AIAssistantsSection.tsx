@@ -13,7 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import AnimatedSubtitle from "../AnimatedSubtitle";
 import { servicesSubtitles } from "@/lib/subtitles";
-
+import { newHeadings } from "@/lib/headings";
 interface AIAssistantExample {
   title: string;
   description: string;
@@ -195,7 +195,7 @@ export function AIAssistantsSection() {
       <div className="mb-16">
         <AnimatedHeading
           scrollYProgress={aiAssistantsScrollProgress}
-          heading="AI Business Assistants"
+          heading={newHeadings.aiBusinessAssistants}
           className="mb-4"
         />
         <AnimatedSubtitle

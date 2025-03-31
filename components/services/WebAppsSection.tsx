@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import AnimatedSubtitle from "../AnimatedSubtitle";
 import { servicesSubtitles } from "@/lib/subtitles";
-
+import { newHeadings } from "@/lib/headings";
 interface WebAppBenefit {
   title: string;
   description: string;
@@ -57,7 +57,7 @@ export function WebAppsSection() {
       <div className="mb-12">
         <AnimatedHeading
           scrollYProgress={webAppsScrollProgress}
-          heading="Powerful Web Apps"
+          heading={newHeadings.powerfulWebApps}
           className="mb-4"
         />
         <AnimatedSubtitle

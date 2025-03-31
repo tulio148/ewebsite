@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import AnimatedSubtitle from "../AnimatedSubtitle";
 import { servicesSubtitles } from "@/lib/subtitles";
+import { newHeadings } from "@/lib/headings";
 
 interface FeatureItem {
   icon: IconProps;
@@ -59,7 +60,7 @@ export function WebsitesSection() {
       <div className="mb-12">
         <AnimatedHeading
           scrollYProgress={websiteScrollProgress}
-          heading="Fast, Optimized Websites"
+          heading={newHeadings.fastOptimizedWebsites}
           className="mb-4 "
         />
         <AnimatedSubtitle

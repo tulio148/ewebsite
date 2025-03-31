@@ -30,3 +30,11 @@ export const webServicesHeadings = {
   second: secondHeading,
   third: thirdHeading,
 };
+
+export const newHeadings = {
+  fastOptimizedWebsites: (
+    <>SEO-Optimized & Ultra-Fast Websites for Business Growth</>
+  ),
+  powerfulWebApps: <>Custom Web Apps: Automate, Scale & Enhance Efficiency</>,
+  aiBusinessAssistants: <>AI Assistants for 24/7 Customer Support & Sales</>,
+};

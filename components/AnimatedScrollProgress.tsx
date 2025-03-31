@@ -24,12 +24,16 @@ const ScrollProgressSection: React.FC<SectionProps> = ({
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start start", "end end"],
   });
 
-  const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 20,
+  });
+
+  const yRange = useTransform(progress, [0, 0.9], [0, 1]);
   const pathLength = useSpring(yRange, { stiffness: 300, damping: 40 });
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [0.6, 1]);
+  const opacity = useTransform(progress, [0, 0.3], [0.6, 1]);
 
   useEffect(() => {
     return pathLength.on("change", (v) => {
@@ -82,7 +86,7 @@ const ScrollProgressSection: React.FC<SectionProps> = ({
               <LineWithAnimation
                 key={idx}
                 line={line}
-                scrollYProgress={scrollYProgress}
+                scrollYProgress={progress}
                 index={idx}
                 className="text-white"
                 totalLines={content.length}

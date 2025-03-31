@@ -2,7 +2,7 @@
 
 import { ReactNode, useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import AnimatedHeading from "./AnimatedHeading";
 import LineWithAnimation from "./LineWithAnimation";
 import { useIsMobile } from "@/hooks/useIsMobile";
@@ -32,20 +32,24 @@ export function ScrollSectionWithImage({
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start start", "end end"],
   });
 
-  const imageScale = useTransform(scrollYProgress, [0, 0.5], [0.3, 1]);
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 20,
+  });
+
+  const imageScale = useTransform(progress, [0, 0.9], [0.3, 1]);
+  const imageOpacity = useTransform(progress, [0, 0.3], [0, 1]);
   const imageRotate = useTransform(
-    scrollYProgress,
+    progress,
     [0, 0.5],
     imagePosition === "left" ? [-5, 0] : [5, 0]
   );
-  const bgScale = useTransform(scrollYProgress, [0, 1], [0.5, 1.5]);
-  const bgOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0.5]);
-  const bgScale2 = useTransform(scrollYProgress, [0, 1], [1.5, 0.8]);
-  const bgOpacity2 = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 1, 0.3]);
+  const bgScale = useTransform(progress, [0, 1], [0.5, 1.5]);
+  const bgOpacity = useTransform(progress, [0, 0.5, 1], [0, 1, 0.5]);
+  const bgScale2 = useTransform(progress, [0, 1], [1.5, 0.8]);
+  const bgOpacity2 = useTransform(progress, [0, 0.5, 1], [0.5, 1, 0.3]);
 
   const mobileAnimation = {
     scale: [1, 1.3, 1],
@@ -62,20 +66,17 @@ export function ScrollSectionWithImage({
   const textContent = (
     <div className="px-4 md:px-4 ">
       <AnimatedHeading
-        scrollYProgress={scrollYProgress}
+        scrollYProgress={progress}
         heading={heading}
         className=" sm:pb-8 text-4xl "
       />
 
       {!isMobile && (
-        <ScrollProgressBar
-          scrollYProgress={scrollYProgress}
-          className="mt-[-41px]"
-        />
+        <ScrollProgressBar scrollYProgress={progress} className="mt-[-41px]" />
       )}
       {subtitle && (
         <AnimatedSubtitle
-          scrollYProgress={scrollYProgress}
+          scrollYProgress={progress}
           subtitle={subtitle}
           className="mt-4 mb-8  text-balance text-justify "
         />
@@ -88,7 +89,7 @@ export function ScrollSectionWithImage({
             key={index}
             line={line}
             totalLines={lines.length}
-            scrollYProgress={scrollYProgress}
+            scrollYProgress={progress}
             index={index}
             delay={0.1}
             isMobile={isMobile}

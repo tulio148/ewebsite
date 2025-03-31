@@ -1,6 +1,6 @@
 "use client";
 import React, { ReactNode, useRef } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import AnimatedHeading from "./AnimatedHeading";
 import LineWithAnimation from "./LineWithAnimation";
 import ScrollProgressBar from "./ScrollProgressBar";
@@ -19,9 +19,11 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end end"],
   });
-
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 20,
+  });
   return (
     <div
       ref={ref}
@@ -30,7 +32,7 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
       <motion.div className="flex flex-col justify-center sticky h-screen top-0 py-20 sm:py-32 max-w-8xl">
         <AnimatedHeading scrollYProgress={scrollYProgress} heading={heading} />
         <ScrollProgressBar
-          scrollYProgress={scrollYProgress}
+          scrollYProgress={progress}
           className="origin-center mt-[-8px]"
         />
         <div className="mt-6">
@@ -38,7 +40,7 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
             <LineWithAnimation
               key={index}
               line={line}
-              scrollYProgress={scrollYProgress}
+              scrollYProgress={progress}
               index={index}
               totalLines={lines.length}
               className="text-slate-600"

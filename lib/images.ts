@@ -12,35 +12,25 @@ export const getOptimizedImagePath = (name: string) =>
 
 export const optimizedImages = {
   heroImage: {
-    thumb: getOptimizedImagePath("upscaled_heroimg-thumb.avif"),
-    sm: getOptimizedImagePath("upscaled_heroimg-sm.avif"),
-    md: getOptimizedImagePath("upscaled_heroimg-md.avif"),
-    lg: getOptimizedImagePath("upscaled_heroimg-lg.avif"),
+    thumb: getOptimizedImagePath("upscaled_heroImag-thumb.avif"),
+    sm: getOptimizedImagePath("upscaled_heroImag-sm.avif"),
+    md: getOptimizedImagePath("upscaled_heroImag-md.avif"),
+    lg: getOptimizedImagePath("upscaled_heroImag-lg.avif"),
     alt: "Hero image",
   },
-  workspace: {
-    thumb: getOptimizedImagePath("upscaled_workspace-thumb.avif"),
-    sm: getOptimizedImagePath("upscaled_workspace-sm.avif"),
-    md: getOptimizedImagePath("upscaled_workspace-md.avif"),
-    lg: getOptimizedImagePath("upscaled_workspace-lg.avif"),
-    alt: "Workspace",
+  firstSection: {
+    thumb: getOptimizedImagePath("woman-red-sweater-thumb.avif"),
+    sm: getOptimizedImagePath("woman-red-sweater-sm.avif"),
+    md: getOptimizedImagePath("woman-red-sweater-md.avif"),
+    lg: getOptimizedImagePath("woman-red-sweater-lg.avif"),
+    alt: "Woman in red sweater",
   },
   webDevelopment: {
-    thumb: getOptimizedImagePath(
-      "website-developer-png-man-laptop-screen-mixed-media-transparent-background-thumb.avif"
-    ),
-    sm: getOptimizedImagePath(
-      "website-developer-png-man-laptop-screen-mixed-media-transparent-background-sm.avif"
-    ),
-    md: getOptimizedImagePath(
-      "website-developer-png-man-laptop-screen-mixed-media-transparent-background-md.avif"
-    ),
-    lg: getOptimizedImagePath(
-      "website-developer-png-man-laptop-screen-mixed-media-transparent-background-lg.avif"
-    ),
-    xl: getOptimizedImagePath(
-      "website-developer-png-man-laptop-screen-mixed-media-transparent-background-xl.avif"
-    ),
+    thumb: getOptimizedImagePath("coded-stuff-screen-thumb.avif"),
+    sm: getOptimizedImagePath("coded-stuff-screen-sm.avif"),
+    md: getOptimizedImagePath("coded-stuff-screen-md.avif"),
+    lg: getOptimizedImagePath("coded-stuff-screen-lg.avif"),
+    xl: getOptimizedImagePath("coded-stuff-screen-xl.avif"),
     alt: "Web development",
   },
   teamWork: {
@@ -80,39 +70,19 @@ export const optimizedImages = {
     alt: "AI Assistant",
   },
   webDesign: {
-    thumb: getOptimizedImagePath(
-      "creative-designer-team-working-with-template-layout-framework-mobile-phone-application-thumb.avif"
-    ),
-    sm: getOptimizedImagePath(
-      "creative-designer-team-working-with-template-layout-framework-mobile-phone-application-sm.avif"
-    ),
-    md: getOptimizedImagePath(
-      "creative-designer-team-working-with-template-layout-framework-mobile-phone-application-md.avif"
-    ),
-    lg: getOptimizedImagePath(
-      "creative-designer-team-working-with-template-layout-framework-mobile-phone-application-lg.avif"
-    ),
-    xl: getOptimizedImagePath(
-      "creative-designer-team-working-with-template-layout-framework-mobile-phone-application-xl.avif"
-    ),
-    alt: "Creative web design team working on mobile application layout",
+    thumb: getOptimizedImagePath("upscaled_workspace-thumb.avif"),
+    sm: getOptimizedImagePath("upscaled_workspace-sm.avif"),
+    md: getOptimizedImagePath("upscaled_workspace-md.avif"),
+    lg: getOptimizedImagePath("upscaled_workspace-lg.avif"),
+    xl: getOptimizedImagePath("upscaled_workspace-xl.avif"),
+    alt: "Web page creation process with flying design elements",
   },
   webWorkspace: {
-    thumb: getOptimizedImagePath(
-      "office-desk-displaying-creation-web-page-with-elements-flying-around-concept-web-page-computer-display-illustrating-website-arrangement-design-process-thumb.avif"
-    ),
-    sm: getOptimizedImagePath(
-      "office-desk-displaying-creation-web-page-with-elements-flying-around-concept-web-page-computer-display-illustrating-website-arrangement-design-process-sm.avif"
-    ),
-    md: getOptimizedImagePath(
-      "office-desk-displaying-creation-web-page-with-elements-flying-around-concept-web-page-computer-display-illustrating-website-arrangement-design-process-md.avif"
-    ),
-    lg: getOptimizedImagePath(
-      "office-desk-displaying-creation-web-page-with-elements-flying-around-concept-web-page-computer-display-illustrating-website-arrangement-design-process-lg.avif"
-    ),
-    xl: getOptimizedImagePath(
-      "office-desk-displaying-creation-web-page-with-elements-flying-around-concept-web-page-computer-display-illustrating-website-arrangement-design-process-xl.avif"
-    ),
+    thumb: getOptimizedImagePath("heroimg-thumb.avif"),
+    sm: getOptimizedImagePath("heroimg-sm.avif"),
+    md: getOptimizedImagePath("heroimg-md.avif"),
+    lg: getOptimizedImagePath("heroimg-lg.avif"),
+    xl: getOptimizedImagePath("heroimg-xl.avif"),
     alt: "Web page creation process with flying design elements",
   },
 } as const;

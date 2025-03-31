@@ -387,7 +387,7 @@ export function AIAssistantsSection() {
                 <div className="flex-1 bg-gray-100 rounded-full px-4 py-2 text-sm text-gray-400">
                   Type a message...
                 </div>
-                <button className="ml-2 text-primary">
+                <div className="ml-2 text-primary">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -402,7 +402,7 @@ export function AIAssistantsSection() {
                     <path d="M22 2L11 13"></path>
                     <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
                   </svg>
-                </button>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -425,9 +425,9 @@ export function AIAssistantsSection() {
           business needs, helping you save time, reduce costs, and deliver
           exceptional experiences.
         </p>
-        <button className="bg-white text-primary font-bold py-3 px-8 rounded-full tracking-wider shadow-lg hover:shadow-xl transition-all">
+        <div className="bg-white text-primary font-bold py-3 px-8 rounded-full tracking-wider shadow-lg hover:shadow-xl transition-all">
           Get Started
-        </button>
+        </div>
       </motion.div>
     </div>
   );

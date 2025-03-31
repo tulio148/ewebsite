@@ -34,10 +34,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${urbanist.className}  antialiased`}>
+    <html lang="en">
+      <body className={`${urbanist.className}  scroll-smooth   antialiased`}>
         <Navbar />
-        <main className="bg-[white]">{children}</main>
+        <main className="bg-[white] pt-20">{children}</main>
         <Footer />
       </body>
     </html>

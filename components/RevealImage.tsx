@@ -139,7 +139,7 @@ const RevealImage = ({
       />
       <motion.div
         className={`relative ${
-          isMobile ? "h-[350px]" : "w-full max-h-[90vh]"
+          isMobile ? "h-[600px]" : "w-full max-h-screen"
         } overflow-hidden`}
         variants={imageVariants}
         initial="hidden"
@@ -148,7 +148,7 @@ const RevealImage = ({
       >
         {isMobile ? (
           <Image
-            src={image.thumb}
+            src={image.sm}
             alt={image.alt}
             fill
             className="object-cover"

@@ -58,7 +58,11 @@ const AnimatedHamburger = ({ isOpen, toggle }: AnimatedHamburgerProps) => {
     },
   };
   return (
-    <button onClick={toggle} className="z-50">
+    <button
+      aria-label="Toggle navigation menu"
+      onClick={toggle}
+      className="z-50"
+    >
       <motion.div
         className="group flex flex-col items-center justify-center p-2 rounded-lg  transition-colors duration-200  focus:outline-none "
         whileTap={{ scale: 0.95 }}

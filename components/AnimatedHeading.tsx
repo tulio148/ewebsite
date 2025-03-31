@@ -17,9 +17,9 @@ const AnimatedHeading: React.FC<AnimatedHeadingProps> = ({
     scrollYProgress,
     [0, 0.5, 1],
     [
-      "linear-gradient(to right, rgba(37, 150, 190, 1), rgba(26, 26, 26, 0.6))",
-      "linear-gradient(to right, rgba(37, 150, 190, 1), rgba(26, 26, 26, 0.6))",
-      "linear-gradient(to right, rgba(37, 150, 190, 0.7), rgba(10, 10, 10, 1))",
+      "linear-gradient(to right, hsl(199, 79%, 55%), rgba(26, 26, 26, 0.6))",
+      "linear-gradient(to right, hsl(199, 79%, 55%), rgba(26, 26, 26, 0.6))",
+      "linear-gradient(to right, hsla(199, 79%, 55%, 0.7), rgba(10, 10, 10, 1))",
     ]
   );
 

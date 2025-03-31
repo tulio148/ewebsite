@@ -35,7 +35,7 @@ export function ScrollSectionWithImage({
     offset: ["start start", "end end"],
   });
 
-  const imageScale = useTransform(scrollYProgress, [0, 0.5], [0.5, 1]);
+  const imageScale = useTransform(scrollYProgress, [0, 0.5], [0.3, 1]);
   const imageOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
   const imageRotate = useTransform(
     scrollYProgress,
@@ -80,17 +80,19 @@ export function ScrollSectionWithImage({
           className="mt-4 mb-8  text-balance text-justify "
         />
       )}
+      <div className="mt-10"></div>
 
       <div className="mb-3 md:mb-4">
         {lines.map((line, index) => (
           <LineWithAnimation
             key={index}
             line={line}
+            totalLines={lines.length}
             scrollYProgress={scrollYProgress}
             index={index}
-            delay={0.4}
+            delay={0.1}
             isMobile={isMobile}
-            className="mb-1"
+            className="mb-1 text-slate-600"
           />
         ))}
       </div>
@@ -112,7 +114,7 @@ export function ScrollSectionWithImage({
       animate={isMobile ? mobileAnimation : {}}
     >
       <Image
-        src={isMobile ? image.thumb : image.xl || image.lg}
+        src={isMobile ? image.md : image.md}
         alt={image.alt}
         fill
         className="object-cover"
@@ -146,10 +148,10 @@ export function ScrollSectionWithImage({
   return (
     <div
       ref={sectionRef}
-      className={`relative px-4 bg-white sm:px-6 md:px-8 md:min-h-[200vh] flex flex-col items-center ${className} mb-72 lg:mb-96`}
+      className={`relative px-4 bg-white sm:px-6 md:px-8 md:min-h-[150vh] flex flex-col items-center ${className} mb-72 lg:mb-96`}
     >
       <motion.div
-        className={`flex flex-col h-[calc(100vh-64px)] justify-center w-full max-w-7xl ${
+        className={`flex flex-col h-[calc(100vh-80px)] justify-center w-full max-w-7xl ${
           isMobile ? "py-10" : "sticky top-16"
         }`}
       >

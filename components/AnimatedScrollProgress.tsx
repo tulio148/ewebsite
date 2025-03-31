@@ -27,7 +27,7 @@ const ScrollProgressSection: React.FC<SectionProps> = ({
     offset: ["start start", "end end"],
   });
 
-  const yRange = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
   const pathLength = useSpring(yRange, { stiffness: 300, damping: 40 });
   const opacity = useTransform(scrollYProgress, [0, 0.3], [0.6, 1]);
 
@@ -85,7 +85,7 @@ const ScrollProgressSection: React.FC<SectionProps> = ({
                 scrollYProgress={scrollYProgress}
                 index={idx}
                 className="text-white"
-                delay={idx * 0.1}
+                totalLines={content.length}
               />
             ))}
           </div>

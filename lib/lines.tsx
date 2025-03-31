@@ -4,9 +4,9 @@ export const firstSectionLines = [
     The web is changing <span className="text-primary font-bold">quick</span>,
   </>,
   <>
-    <em>
+    <span>
       Everyone is <span className="text-primary ">online</span> now.
-    </em>
+    </span>
   </>,
   <>
     People want sites that are{" "}
@@ -15,7 +15,7 @@ export const firstSectionLines = [
 
   <>
     Your website is
-    <em className="text-primary "> your face </em>
+    <span className="text-primary "> your face </span>
     on the internet.
   </>,
   <>
@@ -24,7 +24,7 @@ export const firstSectionLines = [
   </>,
   <>
     <span className="text-primary font-bold">
-      <em>Is it doing its job?</em>
+      <span>Is it doing its job?</span>
     </span>
   </>,
 ];
@@ -35,7 +35,7 @@ export const secondSectionLines = [
   <>
     If a page takes{" "}
     <span className="text-primary">
-      <em>too long</em>{" "}
+      <span>too long</span>{" "}
     </span>
     to load, they <span className="text-primary font-bold">leave.</span>
   </>,
@@ -44,7 +44,7 @@ export const secondSectionLines = [
     <span className="text-primary font-bold">your business is too.</span>
   </>,
   <>
-    <em>Your competition</em> is getting{" "}
+    <span>Your competition</span> is getting{" "}
     <span className="text-primary font-bold">smarter.</span>
   </>,
   <>
@@ -71,7 +71,7 @@ export const thirdSectionLines = [
   <>
     If your site isn&apos;t{" "}
     <span className="text-primary font-bold">mobile-friendly</span>, you&apos;re{" "}
-    <em>losing business.</em>
+    <span>losing business.</span>
   </>,
 
   <>
@@ -85,21 +85,36 @@ export const homeLines = {
   businessGrowth: [
     <>
       <span className="text-primary font-medium">Attract more customers</span>{" "}
-      with <em>fast, eye-catching websites</em>.
+      with{" "}
+      <span className="underline decoration-primary/50 decoration-0">
+        fast, eye-catching websites
+      </span>
+      .
     </>,
     <>
       <span className="text-primary font-medium">Delight customers</span> with{" "}
-      <em>AI-powered support</em>.
+      <span className="underline decoration-primary/50 decoration-0">
+        AI-powered support
+      </span>
+      .
     </>,
     <>
       <span className="text-primary font-medium">
         Save time and work smarter
       </span>{" "}
-      with <em>custom web apps</em>.
+      with{" "}
+      <span className="underline decoration-primary/50 decoration-0">
+        custom web apps
+      </span>
+      .
     </>,
     <>
       <span className="text-primary font-medium">Grow your business</span>{" "}
-      easily with <em>reliable, future-ready tech</em>.
+      easily with reliable,{" "}
+      <span className="underline decoration-primary/50 decoration-0">
+        future-ready tech
+      </span>
+      .
     </>,
   ],
 };

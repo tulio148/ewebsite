@@ -42,7 +42,7 @@
 
 @layer components {
   .hero-title {
-    text-shadow: 2px  2px 2px hsla(0, 0%, 100%, 0.26);
+    text-shadow: 2px  2px 2px hsla(0, 0%, 100%, 0.322);
   }
 }
 

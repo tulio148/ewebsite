@@ -36,18 +36,17 @@ export default function Home() {
         image={optimizedImages.webWorkspace}
         heading={webServicesHeadings.third}
         imagePosition="left"
-        className="bg-gradient-to-t from-primary/10 to-white mb-0 lg:mb-0"
       />
       {contentSections.map((section, index) => (
         <ContentSection
           key={index}
           title={section.title}
           content={section.content}
-          className={
-            index % 2 === 0
-              ? "bg-gradient-to-b from-primary/10 to-white"
-              : "bg-gradient-to-b from-white to-primary/10"
-          }
+          // className={
+          //   index % 2 === 0
+          //       ? "bg-gradient-to-b from-primary/10 to-white"
+          //     : "bg-gradient-to-b from-white to-primary/10"
+          // }
         />
       ))}
 

@@ -1,5 +1,4 @@
 import HeroSection from "@/components/HeroSection";
-import { ImageAnimation } from "@/components/ImageAnimation";
 import { ScrollSectionWithImage } from "@/components/ScrollSectionWithImage";
 import RevealImage from "@/components/RevealImage";
 import { homeHeadings } from "@/lib/headings";
@@ -9,21 +8,25 @@ import { WebsitesSection } from "@/components/services/WebsitesSection";
 import { WebAppsSection } from "@/components/services/WebAppsSection";
 import { AIAssistantsSection } from "@/components/services/AIAssistantsSection";
 import { optimizedImages } from "@/lib/images";
+import IsometricDesigners from "@/components/IsometricDesigners";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <ImageAnimation image={optimizedImages.heroImage} className="mb-16" />
+      <RevealImage image={optimizedImages.heroImage} direction="top-left" />
       <ScrollSectionWithImage
         heading={homeHeadings.businessGrowth}
         subtitle={homeSubtitles.businessGrowth}
         lines={homeLines.businessGrowth}
-        image={optimizedImages.workspace}
+        image={optimizedImages.firstSection}
         imagePosition="left"
         className="py-16"
       />
-      <div className="py-64 bg-gradient-to-b from-white to-accent">
+      <div className="py-32">
+        <IsometricDesigners />
+      </div>
+      <div className="py-64 ">
         <WebsitesSection />
       </div>
       <RevealImage

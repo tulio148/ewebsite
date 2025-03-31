@@ -1,60 +1,31 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { motion, useAnimation, useInView, type Variants } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { ResponsiveImage } from "@/lib/images";
 
-export interface TextInfusedImageProps {
-  image: string;
+interface ImageAnimationProps {
+  image: ResponsiveImage;
   className?: string;
 }
 
-const imageAnimation: Variants = {
-  visible: {
-    scale: [1, 1.3, 1],
-    transition: {
-      scale: {
-        repeat: Infinity,
-        duration: 12,
-        ease: "easeIn",
-        times: [0, 0.7, 1],
-      },
-    },
-  },
-};
-
-export const ImageAnimation: React.FC<TextInfusedImageProps> = ({
-  image,
-  className,
-}) => {
-  const controls = useAnimation();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
-  }, [isInView, controls]);
-
+export function ImageAnimation({ image, className }: ImageAnimationProps) {
   return (
-    <div className={cn("relative w-full overflow-hidden", className)} ref={ref}>
-      <motion.div
-        className="rounded-lg shadow-lg w-full will-change-transform"
-        initial="hidden"
-        animate={controls}
-        variants={imageAnimation}
-      >
-        <Image
-          src={image || "/placeholder.svg"}
-          alt={image}
-          width={1200}
-          height={800}
-          className="w-full h-[500px] sm:h-auto object-cover"
-          priority
-        />
-      </motion.div>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className={`relative w-full h-[300px] md:h-[400px] lg:h-[500px] ${className}`}
+    >
+      <Image
+        src={image.xl || image.lg}
+        alt={image.alt}
+        fill
+        className="object-cover"
+        sizes="100vw"
+        blurDataURL={image.thumb}
+        placeholder="blur"
+      />
+    </motion.div>
   );
-};
+}

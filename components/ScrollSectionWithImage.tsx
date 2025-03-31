@@ -8,11 +8,11 @@ import LineWithAnimation from "./LineWithAnimation";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import ScrollProgressBar from "./ScrollProgressBar";
 import AnimatedSubtitle from "./AnimatedSubtitle";
+import { ResponsiveImage } from "@/lib/images";
 
 interface AnimatedHeroSectionProps {
   lines: ReactNode[];
-  imageSrc: string;
-  imageAlt: string;
+  image: ResponsiveImage;
   className?: string;
   heading: ReactNode;
   subtitle?: ReactNode;
@@ -21,8 +21,7 @@ interface AnimatedHeroSectionProps {
 
 export function ScrollSectionWithImage({
   lines,
-  imageSrc,
-  imageAlt,
+  image,
   className,
   heading,
   subtitle,
@@ -89,7 +88,7 @@ export function ScrollSectionWithImage({
             line={line}
             scrollYProgress={scrollYProgress}
             index={index}
-            delay={0.2}
+            delay={0.4}
             isMobile={isMobile}
             className="mb-1"
           />
@@ -113,12 +112,14 @@ export function ScrollSectionWithImage({
       animate={isMobile ? mobileAnimation : {}}
     >
       <Image
-        src={imageSrc || "/placeholder.svg"}
-        alt={imageAlt}
+        src={isMobile ? image.thumb : image.xl || image.lg}
+        alt={image.alt}
         fill
         className="object-cover"
         sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, 50vw"
         loading="lazy"
+        blurDataURL={image.thumb}
+        placeholder="blur"
       />
 
       {!isMobile && (

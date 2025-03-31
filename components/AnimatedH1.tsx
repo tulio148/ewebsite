@@ -38,15 +38,15 @@ const AnimatedH1 = ({ children }: AnimatedTextProps) => {
               filter: "blur(0px)",
             }}
             transition={{
-              duration: 0.5,
-              delay: index * 0.02,
+              duration: 1,
+              delay: index * 0.1,
               ease: "easeIn",
               type: "tween",
             }}
             style={{
-              WebkitTextStroke: "1px #6a5ef0",
+              WebkitTextStroke: "0.6px #6a5ef0",
             }}
-            className="inline-block m-1  hero-title leading-none font-bold  bg-clip-text text-transparent   "
+            className="my-1 hero-title font-bold bg-clip-text text-transparent"
           >
             {word}
           </motion.span>

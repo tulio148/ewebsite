@@ -33,14 +33,16 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
           scrollYProgress={scrollYProgress}
           className="origin-center mt-[-8px]"
         />
-        {lines.map((line, index) => (
-          <LineWithAnimation
-            key={index}
-            line={line}
-            scrollYProgress={scrollYProgress}
-            index={index}
-          />
-        ))}
+        <div className="mt-6">
+          {lines.map((line, index) => (
+            <LineWithAnimation
+              key={index}
+              line={line}
+              scrollYProgress={scrollYProgress}
+              index={index}
+            />
+          ))}
+        </div>
       </motion.div>
     </div>
   );

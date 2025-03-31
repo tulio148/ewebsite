@@ -8,18 +8,18 @@ import { homeSubtitles } from "@/lib/subtitles";
 import { WebsitesSection } from "@/components/services/WebsitesSection";
 import { WebAppsSection } from "@/components/services/WebAppsSection";
 import { AIAssistantsSection } from "@/components/services/AIAssistantsSection";
+import { optimizedImages } from "@/lib/images";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <ImageAnimation image="heroImag.jpeg" className="mb-16" />
+      <ImageAnimation image={optimizedImages.heroImage} className="mb-16" />
       <ScrollSectionWithImage
         heading={homeHeadings.businessGrowth}
         subtitle={homeSubtitles.businessGrowth}
         lines={homeLines.businessGrowth}
-        imageSrc="/about.jpeg"
-        imageAlt="Our team at work"
+        image={optimizedImages.workspace}
         imagePosition="left"
         className="py-16"
       />
@@ -27,24 +27,18 @@ export default function Home() {
         <WebsitesSection />
       </div>
       <RevealImage
-        featuredMobileBanner="/handshake.jpg"
-        bigBanner="/handshake.jpg"
+        image={optimizedImages.webDevelopment}
         direction="top-left"
       />
       <div className="py-64 bg-accent">
         <WebAppsSection />
       </div>
-      <RevealImage
-        featuredMobileBanner="/handshake.jpg"
-        bigBanner="/handshake.jpg"
-        direction="top-right"
-      />
+      <RevealImage image={optimizedImages.teamWork} direction="top-right" />
       <div className="py-64 bg-accent">
         <AIAssistantsSection />
       </div>
       <RevealImage
-        featuredMobileBanner="/handshake.jpg"
-        bigBanner="/handshake.jpg"
+        image={optimizedImages.aiAssistant}
         direction="bottom-left"
       />
       <div className="h-[4000px] bg-accent"></div>

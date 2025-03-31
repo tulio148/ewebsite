@@ -9,6 +9,7 @@ import { sections } from "@/lib/scrollSections";
 import ContentSection from "@/components/ContentSection";
 import { contentSections } from "@/lib/contentSections";
 import PerformanceStats from "@/components/PerformanceStats";
+import { optimizedImages } from "@/lib/images";
 import {
   faClock,
   faMoneyBillWave,
@@ -27,14 +28,12 @@ export default function Home() {
       />
       <ScrollSectionWithImage
         lines={webServicesLines.second}
-        imageSrc="workspace.webp"
-        imageAlt="Futuristic web design concept"
+        image={optimizedImages.webDesign}
         heading={webServicesHeadings.second}
       />
       <ScrollSectionWithImage
         lines={webServicesLines.third}
-        imageSrc="heroimg.webp"
-        imageAlt="Futuristic web design concept"
+        image={optimizedImages.webWorkspace}
         heading={webServicesHeadings.third}
         imagePosition="left"
         className="bg-gradient-to-t from-primary/10 to-white mb-0 lg:mb-0"

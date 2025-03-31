@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import logoImg from "@/public/LOGO/AVIF/logoImg.avif";
-import logoLetters from "@/public/LOGO/AVIF/logoLetters.avif";
+import logoImg from "@/public/logos/logoImg-512.avif";
+import logoLetters from "@/public/logos/logoLetters-512.avif";
 
 const LogoAnimation = () => {
   return (
@@ -11,7 +11,7 @@ const LogoAnimation = () => {
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
         transition={{
           duration: 0.2,
-          delay: 0.05 * 10,
+          delay: 0.5 + 0.05 * 10,
           type: "spring",
           stiffness: 200,
           damping: 50,
@@ -30,7 +30,7 @@ const LogoAnimation = () => {
         style={{ marginBottom: "40px" }}
         transition={{
           duration: 0.2,
-          delay: 0.05 * 10,
+          delay: 0.5 + 0.05 * 10,
           type: "spring",
           stiffness: 200,
           damping: 50,

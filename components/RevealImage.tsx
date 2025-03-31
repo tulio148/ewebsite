@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useIsMobile } from "../hooks/useIsMobile";
+import { ResponsiveImage } from "@/lib/images";
 
 const imageVariants = {
   hidden: {
@@ -101,12 +102,10 @@ type RevealDirection =
   | "bottom-right";
 
 const RevealImage = ({
-  featuredMobileBanner,
-  bigBanner,
+  image,
   direction = "top-left",
 }: {
-  featuredMobileBanner: string;
-  bigBanner: string;
+  image: ResponsiveImage;
   direction?: RevealDirection;
 }) => {
   const isMobile = useIsMobile();
@@ -149,19 +148,24 @@ const RevealImage = ({
       >
         {isMobile ? (
           <Image
-            src={featuredMobileBanner}
-            alt="featured image"
+            src={image.thumb}
+            alt={image.alt}
             fill
             className="object-cover"
+            sizes="100vw"
+            blurDataURL={image.thumb}
+            placeholder="blur"
           />
         ) : (
           <Image
-            src={bigBanner}
-            alt="featured image"
+            src={image.xl || image.lg}
+            alt={image.alt}
             width={0}
             height={0}
             sizes="100vw"
-            className="w-full h-auto object-cover "
+            className="w-full h-auto object-cover"
+            blurDataURL={image.thumb}
+            placeholder="blur"
           />
         )}
       </motion.div>

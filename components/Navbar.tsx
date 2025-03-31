@@ -6,7 +6,7 @@ import Link from "next/link";
 import AnimatedHamburger from "./AnimatedHamburger";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
-import logoFull from "@/public/LOGO/AVIF/logoFull.avif";
+import logoFull from "@/public/logos/logoFull-256.avif";
 
 const navbarVariants = {
   hidden: { y: -80, opacity: 0, transition: { duration: 0.01 } },
@@ -99,7 +99,12 @@ const Navbar = () => {
               className="mx-auto h-auto w-[120px] lg:w-[150px]"
             />
           </Link>
-          <AnimatedHamburger isOpen={isMenuOpen} toggle={toggleMenu} />
+          <AnimatedHamburger
+            isOpen={isMenuOpen}
+            toggle={toggleMenu}
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMenuOpen}
+          />
         </div>
       </div>
 
@@ -111,22 +116,11 @@ const Navbar = () => {
             animate="open"
             exit="closed"
             variants={menuVariants}
-            className="fixed inset-0 bg-white flex flex-col items-center justify-center z-40 "
+            className="fixed inset-0 bg-primary flex flex-col items-center justify-center z-40 "
+            role="menu"
+            aria-label="Main navigation"
           >
             <div className="flex flex-col justify-center h-full w-full px-10 max-w-4xl">
-              <motion.div variants={itemVariants} className="mb-12">
-                <Link href="/" onClick={handleLinkClick}>
-                  <Image
-                    src={logoFull}
-                    alt="Edgeify Digital Logo"
-                    width={200}
-                    height={100}
-                    // priority={true}
-                    className=""
-                  />
-                </Link>
-              </motion.div>
-
               {NAV_LINKS.map(({ name, path }) => (
                 <motion.div
                   key={name}
@@ -138,7 +132,11 @@ const Navbar = () => {
                     href={path}
                     onClick={handleLinkClick}
                   >
-                    <button className="flex items-center gap-2 text-5xl font-thin tracking-wider text-primary hover:text-primary/80 transition-colors">
+                    <button
+                      className="flex items-center gap-2 text-5xl font-thin tracking-wider text-white hover:text-white/80 transition-colors"
+                      aria-label={`Navigate to ${name} page`}
+                      role="menuitem"
+                    >
                       {name}{" "}
                       <motion.div
                         whileHover={{ x: 5 }}

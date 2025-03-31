@@ -50,12 +50,14 @@ const Footer = () => {
           {/* Navigation links */}
           <div className="flex flex-col items-center md:items-start">
             <h3 className="text-xl font-bold text-white mb-4">Navigation</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2" role="menu">
               {footerLinks.map((link) => (
-                <li key={link.id}>
+                <li key={link.id} role="none">
                   <button
                     onClick={() => scrollToSection(link.id)}
                     className="text-gray-600 hover:text-gray-800 transition-colors"
+                    aria-label={`Scroll to ${link.title} section`}
+                    role="menuitem"
                   >
                     {link.title}
                   </button>
@@ -67,23 +69,42 @@ const Footer = () => {
           {/* Contact information */}
           <div className="flex flex-col items-center md:items-start">
             <h3 className="text-xl font-bold text-white mb-4">Connect</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2" role="list">
               {socialLinks.map((link) => (
-                <li key={link.name}>
+                <li key={link.name} role="listitem">
                   <a
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white hover:text-gray-800 transition-colors"
+                    aria-label={`Visit our ${link.name} page`}
                   >
                     {link.name}
                   </a>
                 </li>
               ))}
             </ul>
-            <div className="mt-4">
-              <p className="text-white">info@edgeify.com</p>
-              <p className="text-white">+1 (123) 456-7890</p>
+            <div
+              className="mt-4"
+              role="contentinfo"
+              aria-label="Contact information"
+            >
+              <p className="text-white">
+                <a
+                  href="mailto:info@edgeify.com"
+                  aria-label="Email us at info@edgeify.com"
+                >
+                  info@edgeify.com
+                </a>
+              </p>
+              <p className="text-white">
+                <a
+                  href="tel:+11234567890"
+                  aria-label="Call us at +1 (123) 456-7890"
+                >
+                  +1 (123) 456-7890
+                </a>
+              </p>
             </div>
           </div>
         </div>

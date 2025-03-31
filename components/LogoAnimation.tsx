@@ -23,7 +23,7 @@ const LogoAnimation = () => {
           width={512}
           height={512}
           priority={true}
-          className=" mb-2"
+          className="responsive-logo mb-2"
         />
       </motion.div>
       <motion.div

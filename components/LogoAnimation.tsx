@@ -20,8 +20,10 @@ const LogoAnimation = () => {
         <Image
           src={logoImg}
           alt="Edgeify Digital Logo"
+          width={512}
+          height={512}
           priority={true}
-          className="responsive-logo mb-2"
+          className=" mb-2"
         />
       </motion.div>
       <motion.div
@@ -39,6 +41,8 @@ const LogoAnimation = () => {
         <Image
           src={logoLetters}
           alt="Edgeify Digital Logo"
+          width={512}
+          height={512}
           priority={true}
           className="mx-auto responsive-logo mb-[-38px]"
         />

@@ -17,13 +17,19 @@ export default function HeroSection() {
       {/* <div className="absolute inset-0 h-[170vh]  ">
         <FloatingPaths position={0} />
       </div> */}
-      <section className="relative h-[calc(100vh-80px)] max-w-7xl flex flex-col mx-auto">
+      <section className="relative h-[100vh] w-full max-w-7xl flex flex-col mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`relative flex flex-col justify-around px-7 z-10 mx-auto h-screen ${raleway.className}`}
+          className={`relative flex flex-col justify-between py-8 sm:py-12 md:py-16 z-10 mx-auto h-full ${raleway.className}`}
         >
-          <AnimatedH1>{heroText}</AnimatedH1>
-          <LogoAnimation />
+          <div className="flex-1 flex items-center">
+            <AnimatedH1>{heroText}</AnimatedH1>
+          </div>
+          <div className="flex-1 flex items-center justify-end">
+            <LogoAnimation />
+          </div>
+          {/* <div className="h-24 sm:h-32 relative"> */}
           <ScrollIndicator />
+          {/* </div> */}
         </div>
       </section>
     </>

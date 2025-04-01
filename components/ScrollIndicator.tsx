@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function ScrollIndicator() {
   return (
-    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
       {[0, 1, 2, 3, 4].map((i) => (
         <motion.div
           key={i}

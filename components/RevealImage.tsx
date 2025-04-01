@@ -12,7 +12,7 @@ const imageVariants = {
   visible: {
     scale: 1,
     transition: {
-      duration: 1.4,
+      duration: 1,
       ease: [0.6, 0.05, -0.01, 0.9],
       delay: 0.3,
     },
@@ -34,7 +34,7 @@ const diagonalRevealVariants = {
     visible: {
       x: "150%",
       transition: {
-        duration: 1.4,
+        duration: 1,
         ease: [0.6, 0.05, -0.01, 0.9],
       },
     },
@@ -52,7 +52,7 @@ const diagonalRevealVariants = {
     visible: {
       x: "-150%",
       transition: {
-        duration: 1.4,
+        duration: 1,
         ease: [0.6, 0.05, -0.01, 0.9],
       },
     },
@@ -70,7 +70,7 @@ const diagonalRevealVariants = {
     visible: {
       x: "150%",
       transition: {
-        duration: 1.4,
+        duration: 1,
         ease: [0.6, 0.05, -0.01, 0.9],
       },
     },
@@ -88,7 +88,7 @@ const diagonalRevealVariants = {
     visible: {
       x: "-150%",
       transition: {
-        duration: 1.4,
+        duration: 1,
         ease: [0.6, 0.05, -0.01, 0.9],
       },
     },
@@ -127,7 +127,7 @@ const RevealImage = ({
   };
 
   return (
-    <div className="relative mx-auto w-full overflow-hidden">
+    <div className="relative overflow-clip my-96">
       <motion.div
         className={`absolute ${getPositionClass()} ${
           direction.includes("left") ? "left-0" : "right-0"

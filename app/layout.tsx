@@ -64,7 +64,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${urbanist.className}  scroll-smooth   antialiased`}>
         <Navbar />
-        <main className="bg-[white] pt-20">{children}</main>
+        <main className="bg-[white]">{children}</main>
         <Footer />
       </body>
     </html>

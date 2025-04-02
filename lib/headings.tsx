@@ -33,7 +33,10 @@ export const webServicesHeadings = {
 
 export const newHeadings = {
   fastOptimizedWebsites: (
-    <>SEO-Optimized & Ultra-Fast Websites for Business Growth</>
+    <>
+      SEO-Optimized & <span className="text-primary">Ultra-Fast Websites</span>
+      for Business Growth
+    </>
   ),
   powerfulWebApps: <>Custom Web Apps: Automate, Scale & Enhance Efficiency</>,
   aiBusinessAssistants: <>AI Assistants for 24/7 Customer Support & Sales</>,

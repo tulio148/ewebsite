@@ -42,7 +42,7 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
               line={line}
               scrollYProgress={progress}
               index={index}
-              totalLines={lines.length}
+              totalLines={lines.length * 2}
               className="text-slate-600"
             />
           ))}

@@ -5,7 +5,7 @@ import AnimatedFeatureList from "@/components/AnimatedFeatureList";
 import AnimatedScrollProgress from "@/components/AnimatedScrollProgress";
 import { webServicesHeadings } from "@/lib/headings";
 import { webServicesLines } from "@/lib/lines";
-import { sections } from "@/lib/scrollSections";
+import { methodOfWorkSections } from "@/lib/scrollSections";
 import ContentSection from "@/components/ContentSection";
 import { contentSections } from "@/lib/contentSections";
 import PerformanceStats from "@/components/PerformanceStats";
@@ -164,7 +164,7 @@ export default function Home() {
         ]}
       />
       <AnimatedScrollProgress
-        sections={sections}
+        sections={methodOfWorkSections}
         heading="steps to success"
         className="text-white"
       />

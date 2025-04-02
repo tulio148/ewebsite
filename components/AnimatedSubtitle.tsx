@@ -26,8 +26,8 @@ const AnimatedSubtitle: React.FC<AnimatedSubtitleProps> = ({
   return (
     <motion.h3
       className={`text-2xl leading-tight font-light tracking-wider bg-clip-text text-transparent drop-shadow-lg  ${className}`}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
+      initial={{ opacity: 0, filter: "blur(5px)" }}
+      whileInView={{ opacity: 1, filter: "blur(0px)" }}
       transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
       style={{
         backgroundImage: subtitleGradient,

@@ -43,7 +43,7 @@ const ScrollProgressSection: React.FC<SectionProps> = ({
 
   return (
     <div id={id} ref={sectionRef} className={`relative w-full ${className}`}>
-      <div className="sticky top-0 left-0 w-full flex flex-col min-h-screen pt-16 sm:pt-24">
+      <div className="sticky top-0 left-0 w-full flex flex-col min-h-screen ">
         <div className="flex items-center justify-center absolute left-0 top-16 h-screen w-16 sm:w-24 p-4 sm:p-6 z-10">
           <svg className="w-full h-3/4" viewBox="0 0 60 800" role="img">
             <motion.circle
@@ -89,7 +89,7 @@ const ScrollProgressSection: React.FC<SectionProps> = ({
                 scrollYProgress={progress}
                 index={idx}
                 className="text-white"
-                totalLines={content.length}
+                totalLines={content.length * 2}
               />
             ))}
           </div>

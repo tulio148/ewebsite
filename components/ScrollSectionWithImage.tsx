@@ -35,15 +35,14 @@ export function ScrollSectionWithImage({
   });
 
   const progress = useSpring(scrollYProgress, {
-    stiffness: 100,
+    stiffness: 150,
     damping: 20,
   });
-
   const imageScale = useTransform(progress, [0, 0.9], [0.3, 1]);
   const imageOpacity = useTransform(progress, [0, 0.3], [0, 1]);
   const imageRotate = useTransform(
     progress,
-    [0, 0.5],
+    [0, 0.7],
     imagePosition === "left" ? [-5, 0] : [5, 0]
   );
   const bgScale = useTransform(progress, [0, 1], [0.5, 1.5]);
@@ -88,7 +87,7 @@ export function ScrollSectionWithImage({
           <LineWithAnimation
             key={index}
             line={line}
-            totalLines={lines.length}
+            totalLines={lines.length * 2}
             scrollYProgress={progress}
             index={index}
             delay={0.1}
@@ -102,7 +101,7 @@ export function ScrollSectionWithImage({
 
   const imageContent = (
     <motion.div
-      className="relative h-[50vh] min-h-[320px] max-h-[420px] md:h-[400px] lg:h-[500px] w-full rounded overflow-hidden shadow-2xl"
+      className="relative h-[50vh] min-h-[320px] max-h-[420px] md:h-[400px] lg:h-[500px] w-full overflow-hidden "
       style={
         isMobile
           ? { opacity: 1 }
@@ -149,7 +148,7 @@ export function ScrollSectionWithImage({
   return (
     <div
       ref={sectionRef}
-      className={`relative px-4 bg-white sm:px-6 md:px-8 md:min-h-[150vh] flex flex-col items-center ${className} mb-72 lg:mb-96`}
+      className={`relative px-4 bg-white sm:px-6 md:px-8 md:min-h-[200vh] flex flex-col items-center ${className} mb-72 lg:mb-96`}
     >
       <motion.div
         className={`flex flex-col h-[calc(100vh-80px)] justify-center w-full max-w-7xl ${

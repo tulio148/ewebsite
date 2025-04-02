@@ -1,4 +1,4 @@
-export const sections = [
+export const methodOfWorkSections = [
   {
     id: "section1",
     title: "Discovery and Planning",

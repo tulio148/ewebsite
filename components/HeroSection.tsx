@@ -43,32 +43,32 @@ const heroText = [
     smart&nbsp;
   </span>,
   <span
-    style={{ WebkitTextStroke: "1.5px #6a5ef0" }}
+    style={{ WebkitTextStroke: "1.2px #6a5ef0" }}
     className="bg-clip-text "
     key="3"
   >
     websites&nbsp;
   </span>,
-  <span key="4" className="  bg-gradient-to-b from-primary/20 bg-clip-text ">
+  <span key="4" className="   ">
     and&nbsp;
   </span>,
-  <span style={{ WebkitTextStroke: "1.5px #6a5ef0" }} key="5" className="    ">
+  <span style={{ WebkitTextStroke: "1.2px #6a5ef0" }} key="5" className="    ">
     AI powered solutions&nbsp;
   </span>,
 
-  <span key="6" className="bg-gradient-to-b from-primary/20 bg-clip-text">
+  <span key="6" className="">
     to&nbsp;
   </span>,
-  <span key="7" className="bg-gradient-to-b from-primary/20 bg-clip-text">
+  <span key="7" className="">
     drive&nbsp;
   </span>,
-  <span key="8" className="bg-gradient-to-b from-primary/20 bg-clip-text">
+  <span key="8" className="">
     your&nbsp;
   </span>,
   <span
     key="9"
-    style={{ WebkitTextStroke: "0.6px #6a5ef0" }}
-    className={`font-bold bg-gradient-to-l from-primary px-1 text-white  `}
+    style={{ WebkitTextStroke: "0px #6a5ef0" }}
+    className={`font-bold bg-primary px-3 text-white  `}
   >
     success.
   </span>,

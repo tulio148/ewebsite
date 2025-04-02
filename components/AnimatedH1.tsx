@@ -44,9 +44,9 @@ const AnimatedH1 = ({ children }: AnimatedTextProps) => {
               type: "tween",
             }}
             style={{
-              WebkitTextStroke: "1.2px #6a5ef0",
+              WebkitTextStroke: "1px #6a5ef0",
             }}
-            className=" hero-title font-bold bg-clip-text text-transparent"
+            className=" hero-title font-extrabold bg-clip-text text-transparent"
           >
             {word}
           </motion.span>

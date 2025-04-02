@@ -37,7 +37,7 @@ const Footer = () => {
               <Image
                 src={logoLetters}
                 alt="Edgeify Digital Logo"
-                className="w-full h-auto bg-gradient-to-b from-primary via-white  to-primary py-1  px-3  "
+                className="w-full h-auto bg-gradient-to-b from-primary via-white to-primary     py-1 px-3 border-x-2 border-white/10"
               />
             </Link>
             <p className="text-white/90 tracking-wide text-xl text-center md:text-left">

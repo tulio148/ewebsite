@@ -207,7 +207,7 @@ export function AIAssistantsSection() {
       {/* AI Assistant Benefits */}
       <div className="mb-16">
         <motion.h3
-          className="text-3xl font-medium underline decoration-1 decoration-primary/80 mb-8 text-center text-primary tracking-wider"
+          className="text-4xl font-light  underline decoration-1 decoration-primary/40 mb-8 text-center text-primary tracking-wider"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -220,19 +220,19 @@ export function AIAssistantsSection() {
           {assistantBenefits.map((benefit, index) => (
             <motion.div
               key={index}
-              className="bg-white p-6 rounded-lg shadow text-center hover:shadow-lg transition-shadow"
+              className="bg-accent/60 border border-accent p-8 shadow hover:shadow-lg transition-shadow"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="text-3xl mb-4 text-primary inline-block bg-primary/10 p-4 rounded-full">
+              <div className="text-4xl mb-4 text-primary">
                 <Icon icon={benefit.icon.icon} />
               </div>
-              <h4 className="text-lg font-bold mb-2 text-primary tracking-wider">
+              <h4 className="text-2xl mb-3 text-primary tracking-wider">
                 {benefit.title}
               </h4>
-              <p className="text-gray-600 text-md tracking-wider">
+              <p className="text-slate-600 text-balance text-lg tracking-wider">
                 {benefit.description}
               </p>
             </motion.div>
@@ -242,7 +242,7 @@ export function AIAssistantsSection() {
 
       {/* Human in the Loop Highlight */}
       <motion.div
-        className="mb-16 bg-gradient-to-r from-primary/10 to-accent p-8 rounded"
+        className="mb-16 bg-gradient-to-r from-primary/10 to-white p-8 rounded"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -258,13 +258,13 @@ export function AIAssistantsSection() {
             <h3 className="text-2xl font-bold mb-4 text-primary tracking-wider">
               The Perfect Balance: AI + Human Expertise
             </h3>
-            <p className="text-gray-700 text-lg mb-4 tracking-wider text-justify ">
+            <p className="text-slate-600 text-lg mb-4 tracking-wider text-balance">
               Our AI assistants are designed to handle routine inquiries and
               tasks automatically, but we understand that some situations
               require a human touch. That&apos;s why we offer human-in-the-loop
               systems that provide the perfect balance.
             </p>
-            <ul className="list-disc text-lg pl-5 space-y-2 text-gray-700 tracking-wider text-justify">
+            <ul className="list-disc text-lg pl-5 space-y-2 text-slate-600 tracking-wider text-balance">
               <li>
                 AI handles 80-90% of routine inquiries without human
                 intervention
@@ -287,28 +287,28 @@ export function AIAssistantsSection() {
 
       {/* Knowledge Base Integration */}
       <motion.div
-        className="mb-16 bg-gradient-to-r from-accent to-primary/10 p-8 rounded"
+        className="mb-16 bg-gradient-to-r from-white to-primary/10 p-8 rounded"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
         viewport={{ once: true }}
       >
-        <div className="flex flex-col md:flex-row-reverse items-center ">
+        <div className="flex flex-col md:flex-row-reverse items-center">
           <div className="md:w-1/3 text-center mb-6 md:mb-0 md:order-0 md:order-1">
             <div className="text-6xl text-primary inline-block p-4">
               <Icon icon={faDatabase} />
             </div>
-          </div>{" "}
+          </div>
           <div className="md:w-2/3 md:order-1 md:order-0">
             <h3 className="text-2xl font-bold mb-4 text-primary tracking-wider">
               Powered by Your Knowledge Base
             </h3>
-            <p className="text-gray-700 text-lg mb-4 tracking-wider">
+            <p className="text-slate-600 text-lg mb-4 tracking-wider text-balance">
               Our AI assistants integrate seamlessly with your existing
               knowledge base, ensuring they provide accurate, consistent, and
               up-to-date information specific to your business.
             </p>
-            <ul className="list-disc text-lg pl-5 space-y-2 text-gray-700 tracking-wider">
+            <ul className="list-disc text-lg pl-5 space-y-2 text-slate-600 tracking-wider text-balance">
               <li>
                 Connect to internal documentation, FAQs, and product information
               </li>
@@ -325,16 +325,16 @@ export function AIAssistantsSection() {
         {aiAssistants.map((assistant, index) => (
           <motion.div
             key={index}
-            className="bg-white p-6 rounded shadow hover:shadow-lg transition-shadow"
+            className="bg-accent/60 border border-accent p-8 shadow hover:shadow-lg transition-shadow"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl text-primary font-bold mb-4">
+            <h3 className="text-2xl text-primary font-bold mb-4 tracking-wider">
               {assistant.title}
             </h3>
-            <p className="text-gray-600 text-lg mb-6">
+            <p className="text-slate-600 text-lg mb-6 tracking-wider text-balance">
               {assistant.description}
             </p>
 
@@ -411,7 +411,7 @@ export function AIAssistantsSection() {
 
       {/* Call to Action */}
       <motion.div
-        className="mt-16 text-center p-8 bg-primary rounded-lg text-white"
+        className="mt-16 text-center p-8 bg-primary rounded-lg text-white tracking-widest"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -420,7 +420,7 @@ export function AIAssistantsSection() {
         <h3 className="text-2xl font-bold mb-4 tracking-wider">
           Ready to transform your business with AI?
         </h3>
-        <p className="max-w-2xl mx-auto mb-6 tracking-wider">
+        <p className="max-w-2xl mx-auto mb-6 tracking-wider text-balance">
           Our AI assistants can be customized for your specific industry and
           business needs, helping you save time, reduce costs, and deliver
           exceptional experiences.

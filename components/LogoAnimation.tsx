@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import logoImg from "@/public/logos/logoImg-256.avif";
-import logoLetters from "@/public/logos/logoLetters-256.avif";
+import logoImg from "@/public/logos/logoImg-512.avif";
+import logoLetters from "@/public/logos/logoLetters-512.avif";
 
 const LogoAnimation = () => {
   return (

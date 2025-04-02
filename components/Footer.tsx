@@ -28,26 +28,26 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-primary/20 bottom-0 w-full text-white pt-12 pb-6 -z-50">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+    <footer className="bg-primary bottom-0 fixed h-[66.67vh] w-full text-white pt-16 pb-8 -z-50 border-t-4 border-x-4 border-primary/80">
+      <div className="container mx-auto px-4 h-full flex flex-col justify-between">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Logo and description */}
           <div className="flex flex-col items-center md:items-start">
-            <Link href="/" className="mb-4">
+            <Link href="/" className="mb-6 ">
               <Image
                 src={logoLetters}
                 alt="Edgeify Digital Logo"
-                className="w-full h-auto"
+                className="w-full h-auto bg-gradient-to-b from-primary via-white  to-primary py-1  px-3  "
               />
             </Link>
-            <p className="text-slate-700 tracking-wide text-xl  text-center md:text-left">
+            <p className="text-white/90 tracking-wide text-xl text-center md:text-left">
               Elevating your digital presence with cutting-edge solutions.
             </p>
-            <p className="text-white tracking-wide text-lg mt-4">
+            <p className="text-white/90 tracking-wide text-lg mt-6">
               <a
                 href="mailto:info@edgeify.com"
                 aria-label="Email us at info@edgeify.com"
-                className="text-slate-700 tracking-wide text-lg hover:text-slate-500 transition-colors"
+                className="text-white/90 tracking-wide text-lg hover:text-white transition-colors"
               >
                 info@edgeify.com
               </a>
@@ -56,13 +56,13 @@ const Footer = () => {
 
           {/* Navigation links */}
           <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-xl font-bold text-primary mb-4">Navigation</h3>
-            <ul className="space-y-2" role="menu">
+            <h3 className="text-2xl font-bold text-white mb-6">Navigation</h3>
+            <ul className="space-y-4" role="menu">
               {footerLinks.map((link) => (
                 <li key={link.id} role="none">
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className="text-slate-700 tracking-wide text-lg hover:text-slate-500 transition-colors"
+                    className="text-white/90 tracking-wide text-lg hover:text-white transition-colors"
                     aria-label={`Scroll to ${link.title} section`}
                     role="menuitem"
                   >
@@ -75,15 +75,15 @@ const Footer = () => {
 
           {/* Contact information */}
           <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-xl font-bold text-primary mb-4">Connect</h3>
-            <ul className="space-y-2" role="list">
+            <h3 className="text-2xl font-bold text-white mb-6">Connect</h3>
+            <ul className="space-y-4" role="list">
               {socialLinks.map((link) => (
                 <li key={link.name} role="listitem">
                   <a
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-700 tracking-wide text-lg hover:text-slate-500 transition-colors"
+                    className="text-white/90 tracking-wide text-lg hover:text-white transition-colors"
                     aria-label={`Visit our ${link.name} page`}
                   >
                     {link.name}
@@ -92,7 +92,7 @@ const Footer = () => {
               ))}
             </ul>
             <div
-              className="mt-4"
+              className="mt-6"
               role="contentinfo"
               aria-label="Contact information"
             ></div>
@@ -104,9 +104,9 @@ const Footer = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
-          className="border-t border-gray-200 pt-6 text-center"
+          className="border-t border-white/20 pt-8 text-center"
         >
-          <p className="text-slate-700 tracking-wide text-lg">
+          <p className="text-white/90 tracking-wide text-lg">
             &copy; {new Date().getFullYear()} Edgeify Digital. All rights
             reserved.
           </p>

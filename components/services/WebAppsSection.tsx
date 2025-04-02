@@ -49,7 +49,6 @@ export function WebAppsSection() {
 
   const { scrollYProgress: webAppsScrollProgress } = useScroll({
     target: webAppsSectionRef,
-    offset: ["start end", "end start"],
   });
 
   return (
@@ -71,7 +70,7 @@ export function WebAppsSection() {
         {webAppBenefits.map((benefit, index) => (
           <motion.div
             key={index}
-            className="bg-white p-8 rounded-lg shadow hover:shadow-lg transition-shadow border border-gray-100"
+            className="bg-accent/60 border border-accent p-8 shadow hover:shadow-lg transition-shadow"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -80,10 +79,10 @@ export function WebAppsSection() {
             <div className="text-4xl mb-4 text-primary">
               <Icon icon={benefit.icon.icon} />
             </div>
-            <h3 className="text-xl font-bold mb-3 text-primary tracking-wider">
+            <h3 className="text-2xl mb-3 text-primary tracking-wider">
               {benefit.title}
             </h3>
-            <p className="text-gray-600 tracking-wider">
+            <p className="text-slate-600 text-balance text-lg tracking-wider">
               {benefit.description}
             </p>
           </motion.div>
@@ -97,10 +96,10 @@ export function WebAppsSection() {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <p className="text-xl font-semibold mb-2">
+        <p className="text-xl font-semibold mb-2 tracking-wider">
           Need something unique? We build it.
         </p>
-        <p className="tracking-wider">
+        <p className="text-balance text-lg tracking-wider">
           From client portals and dashboards to complex business systems, we
           deliver custom solutions tailored to your specific needs.
         </p>

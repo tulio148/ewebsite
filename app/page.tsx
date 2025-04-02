@@ -52,7 +52,7 @@ export default function Home() {
         subtitle={homeSubtitles.businessGrowth}
         lines={homeLines.businessGrowth}
         image={optimizedImages.firstSection}
-        imagePosition="left"
+        imagePosition="right"
         className="py-16"
       />
       <div className="py-32">
@@ -65,18 +65,18 @@ export default function Home() {
         image={optimizedImages.webDevelopment}
         direction="top-left"
       />
-      <div className="py-64 bg-accent">
+      <div className="py-64">
         <WebAppsSection />
       </div>
       <RevealImage image={optimizedImages.teamWork} direction="top-right" />
-      <div className="py-64 bg-accent">
+      <div className="py-64">
         <AIAssistantsSection />
       </div>
       <RevealImage
         image={optimizedImages.aiAssistant}
         direction="bottom-left"
       />
-      <div className="h-[4000px] bg-accent"></div>
+      <div className="h-[4000px] mb-[1000px] bg-white "></div>
     </>
   );
 }

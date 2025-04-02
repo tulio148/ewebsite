@@ -50,7 +50,7 @@ const LineWithAnimation: React.FC<LineWithAnimationProps> = ({
 
   return (
     <motion.p
-      className={`text-xl lg:text-2xl text-justify  font-light mb-2 tracking-wider ${className}`}
+      className={`text-xl text-justify  font-light mb-2 tracking-wider ${className}`}
       style={{ y, x, scale, rotate, filter }}
       // transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
     >

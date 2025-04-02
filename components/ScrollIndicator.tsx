@@ -8,15 +8,15 @@ export default function ScrollIndicator() {
       {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
         <motion.div
           key={i}
-          className="w-2 h-1 border-2 border-primary/70 rounded-full "
+          className="w-4 border-b-[0.5px] border-primary/90 h-1 bg-primary/60  rounded-full"
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 1, 0] }}
+          animate={{ opacity: [0, 1, 0.9, 0.3, 0] }}
           transition={{
             duration: 2,
             repeat: Infinity,
-            repeatDelay: 0.5,
-            ease: "easeInOut",
-            delay: 1.5 + i * 0.1,
+            repeatDelay: 1,
+            ease: "easeIn",
+            delay: 3 + i * 0.1,
           }}
         />
       ))}

@@ -86,14 +86,14 @@ export const homeLines = {
     <>
       <span className="text-primary font-medium">Attract more customers</span>{" "}
       with{" "}
-      <span className="underline decoration-primary/50 decoration-0">
+      <span className="underline decoration-primary/50 decoration-1">
         fast, eye-catching websites
       </span>
       .
     </>,
     <>
       <span className="text-primary font-medium">Delight customers</span> with{" "}
-      <span className="underline decoration-primary/50 decoration-0">
+      <span className="underline decoration-primary/50 decoration-1">
         AI-powered support
       </span>
       .
@@ -103,7 +103,7 @@ export const homeLines = {
         Save time and work smarter
       </span>{" "}
       with{" "}
-      <span className="underline decoration-primary/50 decoration-0">
+      <span className="underline decoration-primary/50 decoration-1">
         custom web apps
       </span>
       .
@@ -111,7 +111,7 @@ export const homeLines = {
     <>
       <span className="text-primary font-medium">Grow your business</span>{" "}
       easily with reliable,{" "}
-      <span className="underline decoration-primary/50 decoration-0">
+      <span className="underline decoration-primary/50 decoration-1">
         future-ready tech
       </span>
       .

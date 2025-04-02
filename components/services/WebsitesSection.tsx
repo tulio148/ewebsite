@@ -74,7 +74,7 @@ export function WebsitesSection() {
         {features.map((feature, index) => (
           <motion.div
             key={index}
-            className="bg-white p-8 rounded-lg shadow hover:shadow-lg transition-shadow border border-gray-100"
+            className="bg-accent/60 border border-accent p-8  shadow hover:shadow-lg transition-shadow "
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -83,10 +83,10 @@ export function WebsitesSection() {
             <div className="text-4xl mb-4 text-primary">
               <Icon icon={feature.icon.icon} />
             </div>
-            <h3 className="text-xl font-bold mb-3 text-primary tracking-wider">
+            <h3 className="text-2xl   mb-3 text-primary tracking-wider">
               {feature.title}
             </h3>
-            <p className="text-gray-600 tracking-wider">
+            <p className="text-slate-600 text-balance text-lg tracking-wider">
               {feature.description}
             </p>
           </motion.div>

@@ -77,7 +77,7 @@ export function ScrollSectionWithImage({
         <AnimatedSubtitle
           scrollYProgress={progress}
           subtitle={subtitle}
-          className="mt-4 mb-8  text-balance text-justify "
+          className="mt-4 mb-8 text-balance"
         />
       )}
       <div className="mt-10"></div>
@@ -101,7 +101,7 @@ export function ScrollSectionWithImage({
 
   const imageContent = (
     <motion.div
-      className="relative h-[50vh] min-h-[320px] max-h-[420px] md:h-[400px] lg:h-[500px] w-full overflow-hidden "
+      className="relative h-[50vh] min-h-[320px] max-h-[420px] md:h-[400px] lg:h-[500px] w-full overflow-hidden drop-shadow-2xl`"
       style={
         isMobile
           ? { opacity: 1 }

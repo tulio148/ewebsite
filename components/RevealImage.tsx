@@ -127,7 +127,7 @@ const RevealImage = ({
   };
 
   return (
-    <div className="relative overflow-clip my-96">
+    <div className="relative overflow-clip mb-96">
       <motion.div
         className={`absolute ${getPositionClass()} ${
           direction.includes("left") ? "left-0" : "right-0"

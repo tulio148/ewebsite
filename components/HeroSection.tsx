@@ -19,7 +19,7 @@ export default function HeroSection() {
       </div> */}
       <section className="relative h-[100vh] w-full max-w-7xl flex flex-col mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`relative flex flex-col justify-between py-8 sm:py-12 md:py-16 z-10 mx-auto h-full ${raleway.className}`}
+          className={`relative flex flex-col justify-between py-16 z-10 mx-auto h-full ${raleway.className}`}
         >
           <div className="flex-1 flex items-center">
             <AnimatedH1>{heroText}</AnimatedH1>
@@ -29,7 +29,6 @@ export default function HeroSection() {
           </div>
           {/* <div className="h-24 sm:h-32 relative"> */}
           <ScrollIndicator />
-          {/* </div> */}
         </div>
       </section>
     </>

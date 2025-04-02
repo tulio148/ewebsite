@@ -24,7 +24,7 @@ const LogoAnimation = () => {
           height={512}
           sizes="(min-width: 1200px) 300px, (min-width: 768px) 200px, 150px"
           priority={true}
-          className="mb-2 w-[150px] md:w-[200px] xl:w-[300px] h-auto"
+          className="mb-2 w-[18vh] md:w-[25vh] lg:w-[30vh] xl:w-[33vh] h-auto drop-shadow-2xl"
         />
       </motion.div>
       <motion.div
@@ -46,7 +46,7 @@ const LogoAnimation = () => {
           height={512}
           sizes="(min-width: 1200px) 300px, (min-width: 768px) 200px, 150px"
           priority={true}
-          className="mx-auto mb-[-38px] w-[150px] md:w-[200px] xl:w-[300px] h-auto"
+          className="mx-auto mb-[-38px] w-[18vh]  md:w-[25vh] lg:w-[30vh] xl:w-[33vh] h-auto drop-shadow-2xl"
         />
       </motion.div>
     </div>
